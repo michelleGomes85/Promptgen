@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Gen</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="img/sessaoComoFunciona/2.png">
+
+    <link rel="stylesheet" href="stylePrompt.css">
+    <link rel="stylesheet" type="text/css" href="styleHeader.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" id="logo"><img src="img/logo.png" alt="Logo"> </a>
+
+        <button id="openMenu">&#9776;</button>
+
+        <nav id="menu">
+            <a id="closeMenu">X</a>
+            <a href="index.html" class="menu-link">Início</a>
+            <a href="index.html#comoFunciona" class="menu-link">Como funciona?</a>
+            <a href="index.html#sobre" class="menu-link">Sobre</a>
+            <a href="index.html#contatos" class="menu-link">Contatos</a>
+            <div class="aba">
+                <a class="menu-link link-aba btn-style">Exemplos</a>
+                <div class="aba-content">
+                    <a href="#">Aprender ... 1</a>
+                    <a href="#">Aprender ... 2</a>
+                    <a href="#">Aprender ... 3</a>
+                </div><!--aba-conteudo-->
+            </div><!--aba-->
+        </nav><!--nav-menu-->
+
+    </header><!--header-->
+
+    <div class="progresso">  </div><!--progresso-->
+
+    <div class="container">
+        <aside>
+            <button title="Clique parar abrir / fechar aba" class="toggle-btn" onclick="toggleSidebar()"><span
+                    class="material-icons">arrow_back_ios</span></button>
+
+            <div class="sidebar inactive" id="sidebar">
+
+                <div class="sessoes">
+                    <div class="agrupar-link">
+                        <span class="numero span-ativo">1</span>
+                        <span class="link">Contexto</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">2</span>
+                        <span class="link">Detalhes</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">3</span>
+                        <span class="link">Educação/Objetivo</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">4</span>
+                        <span class="link">Tempo</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">5</span>
+                        <span class="link">Personalização</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">6</span>
+                        <span class="link">Formato</span>
+                    </div>
+
+                </div><!--class-sessoes-->
+
+            </div><!--class-sidebar-->
+        </aside>
+
+        <main>
+            <div class="main-column1">
+
+                <div class="form">
+                    <div id="parte1" class="parte form-container">
+
+                        <div class="form-group">
+                            <h2>Contexto de estudo</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas">
+                                <i><img src="img/icones/assunto.png"></i>
+                                <label for="inputAssunto" class="floating-label">
+                                    <textarea type="text" id="inputAssunto" class="form-control inputField"
+                                        placeholder=""></textarea>
+                                    <span>Qual o assunto que você deseja aprender?</span>
+                                </label>
+                            </div>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/conhecimento.png"></i>
+                                <p>Qual o seu nível de conhecimento sobre esse assunto?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-1" class="form-control" name="contexto" />
+                                <label class="input" for="opcao1-1">Sem conhecimento prévio</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-1" class="form-control" name="contexto" />
+                                <label class="input" for="opcao2-1">Conhecimento básico</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-1" class="form-control" name="contexto" />
+                                <label class="input" for="opcao3-1">Conhecimento intermediário</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao4-1" class="form-control" name="contexto" />
+                                <label class="input" for="opcao4-1">Conhecimento avançado</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões / form-group-->
+
+                    </div><!--form-container parte #parte1-->
+
+                    <div id="parte2" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Detalhes do assunto</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/palavra-chave.png"></i>
+                                <p>Você conhece algum palavra chave relacionada ao assunto?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-2" name="detalhes" class="form-control"
+                                    onclick="mostrarPalavrasChave()" />
+                                <label class="input" for="opcao1-2">Sim</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-2" name="detalhes" class="form-control"
+                                    onclick="ocultarPalavrasChave()" />
+                                <label class="input" for="opcao2-2">Não</label>
+                            </div>
+                        </div><!--form-group-->
+
+                        <div class="form-group hidden" id="resposta-sim">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/quantidade.png"></i>
+                                <p>Quais? (separe com espaço, cada palavra)</p>
+                            </div><!--colunas-->
+
+                            <textarea type="text" id="palavras_chave" name="palavras_chave" class="form-control"
+                                rows="8" cols="70"></textarea><br><br>
+
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-conteiner parte #parte2-->
+
+                    <div id="parte3" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Educação e Objetivo</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/escolaridade.png"></i>
+                                <p>Qual é o seu nível de escolaridade?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao1-3-1"> Ensino Médio</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao2-3-1"> Graduação</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao3-3-1"> Pós-Graduação</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/objetivo.png"></i>
+                                <p>Qual o seu objetivo com o estudo desse assunto?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-3-2" class="form-control" name="objetivo" />
+                                <label class="input" for="opcao1-3-2"> Ter uma visão geral do assunto</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-3-2" class="form-control" name="objetivo" />
+                                <label class="input" for="opcao2-3-2"> Praticar com exercícios de revisão</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-3-2" class="form-control" name="objetivo" />
+                                <label class="input" for="opcao3-3-2"> Preparar-se para um exame ou prova</label>
+                            </div>
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-conteiner parte #parte3-->
+
+                    <div id="parte4" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Tempo para estudo</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/tempoDia.png"></i>
+                                <p>Quanto tempo você tem disponível para estudar por dia?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-4-1" class="form-control" name="tempo_disponivel" />
+                                <label class="input" for="opcao1-4-1"> Menos de 1 hora</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-4-1" class="form-control" name="tempo_disponivel" />
+                                <label class="input" for="opcao2-4-1"> De 1 às 3</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-4-1" class="form-control" name="tempo_disponivel" />
+                                <label class="input" for="opcao3-4-1"> Mais de 3 horas</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/prazo-final.png"></i>
+                                <p>Quanto tempo precisa para dominar o assunto?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-4-2" class="form-control" name="tempo_aprender" />
+                                <label class="input" for="opcao1-4-2"> Menos de 1 semana</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-4-2" class="form-control" name="tempo_aprender" />
+                                <label class="input" for="opcao2-4-2"> De 1 a 3 semanas</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-4-2" class="form-control" name="tempo_aprender" />
+                                <label class="input" for="opcao3-4-2"> Mais de 3 semanas</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-conteiner parte #parte4-->
+
+                    <div id="parte5" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Personalizar Resposta</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/persona.png"></i>
+                                <p>Qual persona você gostaria que a IA assumisse?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-5-1" class="form-control" name="persona" />
+                                <label class="input" for="opcao1-5-1"> Professor especialista</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-5-1" class="form-control" name="persona" />
+                                <label class="input" for="opcao2-5-1"> Pessoa que trabalha na área</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-5-1" class="form-control" name="persona" />
+                                <label class="input" for="opcao3-5-1"> Personagem histórico</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/tomResposta.png"></i>
+                                <p>Qual o tom que você gostaria que a IA utilizasse?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-5-2" class="form-control" name="tom_conversa" />
+                                <label class="input" for="opcao1-5-2"> Formal</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-5-2" class="form-control" name="tom_conversa" />
+                                <label class="input" for="opcao2-5-2"> Informal</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-5-2" class="form-control" name="tom_conversa" />
+                                <label class="input" for="opcao3-5-2"> Inspirador</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-conteiner parte #parte5-->
+
+                    <div id="parte6" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Preferências de formato</h2>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/formatoResposta.png"></i>
+                                <p>Qual o formato da resposta que você prefere?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-6-1" class="form-control" name="formato" />
+                                <label class="input" for="opcao1-6-1">Tópicos</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-6-1" class="form-control" name="formato" />
+                                <label class="input" for="opcao2-6-1">Parágrafos</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao3-6-1" class="form-control" name="formato" />
+                                <label class="input" for="opcao3-6-1"> Exemplos relacionados</label>
+                            </div>
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="colunas inputs">
+                                <i><img src="img/icones/teorioPratico.png"></i>
+                                <p>Você prefere conteúdo teórico ou prático?</p>
+                            </div><!--colunas-->
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-6-2" class="form-control" name="teorico_pratico" />
+                                <label class="input" for="opcao1-6-2">Teórico: focado em conceitos e
+                                    princípios</label><br>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-6-2" class="form-control" name="teorico_pratico" />
+                                <label class="input" for="opcao2-6-2">Prático: focado em aplicações e exemplos do mundo
+                                    real</label> <br>
+                            </div>
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                        </div><!--botões-->
+                    </div><!--form-conteiner parte #parte6-->
+
+                </div><!--form-->
+
+            </div><!--main-colunm1-->
+
+            <div class="main-column2">
+                <a onclick="aparecerPrompt()" class="aparecer-prompt" href="#"
+                    title="Clique para mostrar o prompt"><span class="material-icons">visibility</span></a>
+
+                <div class="textArea">
+                    <a onclick="desaparecerPrompt()" class="desaparecer-prompt" href="#"
+                        title="Clique para ocultar o prompt"><span class="material-icons">visibility_off</span></a>
+
+                    <p class="prompt-gerar">Gerador de prompt ...</p>
+
+                    <a onclick="copyText()" class="copy" href="#" title="Copiar Prompt"><span
+                            class="material-icons copy-simbolo">content_copy</span></a>
+                </div><!--textArea-->
+
+            </div><!--main-colunm2-->
+        </main>
+    </div><!--container-->
+
+    <script src="jsHeader.js"></script>
+    <script src="jsGerarPrompt.js"></script>
+</body>
+
+</html>

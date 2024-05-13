@@ -1,0 +1,132 @@
+
+@font-face {
+    font-family: 'Disket Mono';
+    src: url('disket/Disket-Mono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Disket Mono';
+    src: url('disket/Disket-Mono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, nav {
+    display: flex;
+    font-family: 'Roboto Mono', monospace;
+}
+
+header {
+    flex: 1 1 100vw;
+    height: 120px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    align-items: center;
+    background-color: rgba(219, 230, 228, 0.5);
+}
+
+header #logo {
+    flex: 0 1 150px;
+    margin-left: 5%;
+}
+
+header #logo img {
+    max-width: 100%;
+}
+
+nav {
+    flex: 1 1 100vw;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a {
+    margin: 2%;
+    font-size: 1rem;
+}
+
+header nav a.active {
+    font-weight: bold;
+}
+
+header .btn-style {
+    background: #0F2A5B;
+    border: 1px solid #0F2A5B;
+	color: #fff;
+	cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 35px;
+    font-size: 1rem;
+} 
+
+header .btn-style:hover  {
+	background-color: rgba(219, 230, 228, 0.5);
+    color: #000;
+} 
+
+#openMenu, #closeMenu {
+    border: none;
+    background: none;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 10px;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    #openMenu, #closeMenu {
+        display: block;
+    }
+
+    #closeMenu {
+        position: fixed;
+        right: 15px;
+        top: 40px;
+    }
+
+    #openMenu {
+        margin-left: auto;
+        position: fixed;
+        right: 15px;
+        top: 40px;
+    }
+
+    header {
+        height: 200px;
+        align-items: baseline;       
+    }
+
+    header #logo {
+        margin-top: 30px;
+    }
+
+    nav {
+        position: fixed;
+        flex-direction: column;
+        width: 100vw;
+        background-color: rgba(219, 230, 228, 0.5);
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        display: none;
+        opacity: 0;
+        transition: 0.3;
+    }
+}
+

@@ -1,0 +1,226 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main, footer, body {
+    display: flex;
+}
+
+body {
+    flex-wrap: wrap;
+    flex: 1 1 100vw;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(#DBE6E4, #F1F1FA);
+}
+
+main {
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+main section.homepage {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 120px);
+    flex-direction: row;
+    align-items: center;
+}
+
+main section.homepage .descricao {
+    margin-left: 5%;
+    width: 40%;
+    position: relative;
+}
+
+#descricao-site {
+    height: 20vh;
+}
+
+main section.homepage .descricao h1 {
+    font-family: 'Disket Mono', monospace;
+    font-weight: bold;
+    font-size: 3vw;
+    line-height: 1.5;
+    color: #1D1051;
+}
+
+main section.homepage .descricao p {
+    font-size: 1.2vw;
+    margin-top: 1vw;
+    line-height: 1.5;
+}
+
+main section.homepage .descricao button#btn {
+    background: #0F2A5B;
+    border: 1px solid #0F2A5B;
+	color: #fff;
+	cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 35px;
+    font-size: 1.2vw;
+} 
+
+main section.homepage .descricao button#btn:hover  {
+	background-color: rgba(219, 230, 228, 0.5);
+    color: #000;
+} 
+
+main section.homepage .imagem img {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   width: 40vw;
+}
+
+main section#comoFunciona {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 100px 0;
+    margin: 0 auto;
+}
+
+main section#comoFunciona div {
+    margin: 1.2vw;
+    width: 20vw;
+    text-align: center;
+}
+
+main section#comoFunciona div h3 {
+    margin-bottom: 10px;
+    font-size: 1.2vw;
+}
+
+main section#comoFunciona div p {
+    font-size: 1vw;
+}
+
+main section#comoFunciona span img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+
+main section#comoFunciona span.ultimo img {
+    width: 170px;
+}
+
+main section#comoFunciona div span.terceira img {
+    margin-left: -30px;
+}
+
+main section#sobre {
+    background-color: #EAF5F7;
+    padding: 100px 0;
+}
+
+main section#sobre div.sobre-texto{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+main section#sobre div.sobre-texto p {
+    line-height: 2;
+    font-size: 1.2vw;
+}
+
+footer {
+    flex: 1 1 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: #01173C;
+    padding: 100px;
+}
+
+footer div {
+    width: 15vw;
+}
+
+footer hr {
+    margin: 2vw;
+    height: 80px;
+}
+
+footer div > p, h4 {
+    color: #F1F1FA;
+    font-size: 1vw;
+}
+
+@media only screen and (max-width: 1300px) {
+
+    #descricao-site {
+        height: 15vw;
+    }
+
+    main section.homepage {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+    
+    main section.homepage .descricao {
+        position: absolute;
+        top: 200px;
+        text-align: center;
+        width: 80vw;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    
+    main section.homepage .descricao h1 {
+        font-size: 5vw;
+    }
+    
+    main section.homepage .descricao p {
+        font-size: 2vw;
+        margin-top: 3.2vw;
+    }
+
+    main section.homepage .descricao button#btn {
+        font-size: 2vw;
+    } 
+
+    main section.homepage .imagem img {
+        display: none;
+    }
+
+    main section#comoFunciona {
+        flex-wrap: wrap;
+    }
+
+    main section#comoFunciona div {
+        margin: 3vw;
+        width: 35vw;
+        text-align: center;
+    }
+
+    main section#comoFunciona div h3, 
+    main section#comoFunciona div p {
+        font-size: 2vw;
+    }
+
+    main section#sobre div.sobre-texto p {
+        font-size: 2vw;
+    }
+
+    footer {
+        flex-wrap: wrap;  
+    }
+
+    footer div {
+        width: 50vw;
+    }
+
+    footer div > p, h4 {
+        font-size: 2vw;
+    }
+
+    footer hr {
+        opacity: 0;
+    }
+}

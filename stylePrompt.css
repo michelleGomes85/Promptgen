@@ -1,0 +1,417 @@
+
+header, body {
+    background-color: #EAF5F7 !important;
+}
+
+.aba {
+    position: relative;
+    display: inline;
+}
+
+.aba-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    z-index: 1;
+}
+
+.aba a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.aba-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.aba:hover .aba-content {
+    display: block;
+}
+
+.progresso {
+    width: 0%;
+    height: 1vh;
+    background-color: #7DA6B9;
+}
+
+/*Conteiner principal*/
+.container {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: row;
+    height: calc(99vh - 120px);
+}
+
+/*barra lateral*/
+aside {
+    width: 5%;
+    overflow-y: auto;
+    display: flex;
+    position: relative;
+}
+
+.sidebar {
+    position: relative;
+    display: flex;
+    flex: 1;
+    color: white;
+    align-items: center;
+}
+
+.agrupar-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem auto;
+    margin-left: 2rem;
+    cursor: pointer;   
+}
+
+.sidebar .sessoes span.link {
+    display: block;
+    text-decoration: none;
+    color: #1D1051;
+
+    font-weight: bold;
+
+    font-size: 1vw;
+    margin-left: 1rem;
+}
+
+.sidebar .sessoes span.numero {
+    border-radius: 50%;
+    padding: 0.5vw 0.7vw;
+    border: 1px solid #1D1051;
+    font-size: 1vw;
+}
+
+.span-ativo {
+    background-color: #1D1051;
+    color: #fff;
+}
+
+.span-inativo {
+    background-color: #fff;
+    color: #1D1051;
+}
+
+.sidebar.active {
+    display: flex;
+}
+
+.sidebar.inactive {
+    display: none;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    background: none;
+    border: none;
+    transform: translateY(-50%);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/*Conteudo principal*/
+main {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+}
+
+/*Coluna1 formulário*/
+.main-column1 {
+    width: 60%;
+    font-size: 1vw;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-container {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    max-height: 600px;
+    max-width: 580px;
+
+    min-height: 400px;
+    min-width: 520px;
+
+    height: 100%;
+    width: 90%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 90%; 
+    max-width: 520px;
+}
+
+main label.floating-label { 
+    position: relative;
+    width: 100%;
+    margin-top: 1vw;
+}
+
+main label.floating-label span {
+    position: absolute;
+    left: 0;
+    bottom: 18px;
+    color: #B3B3B3;
+    transition: bottom 0.3s, font-size 0.3s, color 0.3s;
+}
+
+main .inputField {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    overflow-y: hidden;
+    resize: none;
+    font-size: 16px;
+    height: 25px;
+    transition: border-bottom 0.3s;
+    background: none;
+}
+
+#palavras_chave {
+    resize: none;
+    padding: 10px;
+    font-size: 10pt;
+}
+
+.inputField:focus,
+.inputField:active {
+    border-bottom: 2px solid #0F2A5B;
+}
+
+.inputField:focus~span,
+.inputField:active~span,
+.inputField:not(:placeholder-shown)~span {
+    bottom: 50px;
+    font-size: 0.8vw;
+    color: #0F2A5B;
+}
+
+i img {
+    display: inline;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+}
+
+.colunas {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.form-container h2 {
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Disket Mono', monospace;
+    margin-bottom: 1vw;
+}
+
+input[type="radio"] {
+    margin-left: 48px;
+}
+  
+input[type="radio"] + label {
+    margin-left: 10px;
+}
+
+.agrupar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.inputs {
+    margin-bottom: 1vw;
+}
+
+.botoes {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: initial;
+}
+
+button.btn {
+    background: #0F2A5B;
+    border: 1px solid #0F2A5B;
+	color: #fff;
+	cursor: pointer;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-left: 10px;
+} 
+
+button.btn:hover  {
+	background-color: rgba(219, 230, 228, 0.5);
+    color: #000;
+}
+
+/*Segunda coluna prompt*/
+.main-column2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+main .aparecer-prompt, .desaparecer-prompt {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    display: none;
+}
+
+main .desaparecer-prompt {
+    display: block;
+}
+
+main .copy {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+
+.textArea {
+    position: relative;
+    height: 70%;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 3%;
+}
+
+.textArea p {
+    padding: 50px;
+}
+
+@media only screen and (max-width: 1300px) {
+
+    main .aparecer-prompt {
+        display: block;
+    }
+
+    .textArea {
+        display: none;
+    }
+
+    .main-column1 {
+        font-size: 1.5vw;
+        width: 95%;
+    }
+
+    .main-column2 {
+        width: 5%;
+    }
+
+    .sidebar .sessoes span.link {
+        font-size: 1.5vw;
+    }
+    
+    .sidebar .sessoes span.numero {
+        padding: 0.8vw 1vw;
+        margin-right: 0.8rem;
+        font-size: 1.5vw;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    
+    .container {
+        flex-direction: column;
+        height: 100vh
+    }
+
+    aside {
+        display: flex;
+        margin-top: 50px;
+        width: 100%;
+        height: 80px;
+    }
+
+    main {
+        flex-grow: 1;
+    }
+
+    main .main-column1, .main-column2 {
+        height: 100%;
+    }
+
+    .sidebar {
+        display: flex !important;
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .sidebar {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar .sessoes {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center; 
+    }
+
+    .sidebar .sessoes span.link {
+        font-size: 2.5vw;
+    }
+    
+    .sidebar .sessoes span.numero {
+        padding: 1vw 1.3vw;
+        font-size: 2.5vw;
+    }
+
+    .toggle-btn {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .main-column1 {
+        font-size: 2vw;
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .main-column2 {
+        width: 0.1%;
+        height: 100%;
+    }
+}
