@@ -60,21 +60,26 @@
 
                     <div class="agrupar-link">
                         <span class="numero span-inativo">3</span>
-                        <span class="link">Educação/Objetivo</span>
+                        <span class="link">Educação</span>
                     </div>
 
                     <div class="agrupar-link">
                         <span class="numero span-inativo">4</span>
-                        <span class="link">Tempo</span>
+                        <span class="link">Objetivo</span>
                     </div>
 
                     <div class="agrupar-link">
                         <span class="numero span-inativo">5</span>
-                        <span class="link">Personalização</span>
+                        <span class="link">Tempo</span>
                     </div>
 
                     <div class="agrupar-link">
                         <span class="numero span-inativo">6</span>
+                        <span class="link">Personalização</span>
+                    </div>
+
+                    <div class="agrupar-link">
+                        <span class="numero span-inativo">7</span>
                         <span class="link">Formato</span>
                     </div>
 
@@ -87,6 +92,7 @@
             <div class="main-column1">
 
                 <div class="form">
+
                     <div id="parte1" class="parte form-container">
 
                         <div class="form-group">
@@ -184,7 +190,7 @@
                     <div id="parte3" class="form-container parte hidden">
 
                         <div class="form-group">
-                            <h2>Educação e Objetivo</h2>
+                            <h2>Educação</h2>
                         </div><!--form-group-->
 
                         <div class="form-group">
@@ -195,19 +201,47 @@
 
                             <div class="agrupar">
                                 <input type="radio" id="opcao1-3-1" class="form-control" name="nivel_escolaridade" />
-                                <label class="input" for="opcao1-3-1"> Ensino Médio</label>
+                                <label class="input" for="opcao1-3-1"> Ensino Médio Completo</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao1-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao1-3-1"> Ensino Médio Incompleto</label>
                             </div>
 
                             <div class="agrupar">
                                 <input type="radio" id="opcao2-3-1" class="form-control" name="nivel_escolaridade" />
-                                <label class="input" for="opcao2-3-1"> Graduação</label>
+                                <label class="input" for="opcao2-3-1"> Graduação Completa</label>
+                            </div>
+
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao2-3-1"> Graduação Incompleta</label>
                             </div>
 
                             <div class="agrupar">
                                 <input type="radio" id="opcao3-3-1" class="form-control" name="nivel_escolaridade" />
-                                <label class="input" for="opcao3-3-1"> Pós-Graduação</label>
+                                <label class="input" for="opcao3-3-1"> Pós-Graduação Completa</label>
                             </div>
 
+                            <div class="agrupar">
+                                <input type="radio" id="opcao2-3-1" class="form-control" name="nivel_escolaridade" />
+                                <label class="input" for="opcao2-3-1"> Pós-Graduação Incompleta</label>
+                            </div>
+
+                        </div><!--form-group-->
+
+                        <div class="botoes form-group">
+                            <button class="btn" onclick="anteriorParte()">Anterior</button>
+                            <button class="btn" onclick="proximoParte()">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-conteiner parte #parte3-->
+
+                    <div id="parte4" class="form-container parte hidden">
+
+                        <div class="form-group">
+                            <h2>Objetivo</h2>
                         </div><!--form-group-->
 
                         <div class="form-group">
@@ -237,9 +271,9 @@
                             <button class="btn" onclick="proximoParte()">Próximo</button>
                         </div><!--botões-->
 
-                    </div><!--form-conteiner parte #parte3-->
+                    </div><!--form-conteiner parte #parte4-->
 
-                    <div id="parte4" class="form-container parte hidden">
+                    <div id="parte5" class="form-container parte hidden">
 
                         <div class="form-group">
                             <h2>Tempo para estudo</h2>
@@ -296,9 +330,9 @@
                             <button class="btn" onclick="proximoParte()">Próximo</button>
                         </div><!--botões-->
 
-                    </div><!--form-conteiner parte #parte4-->
+                    </div><!--form-conteiner parte #parte5-->
 
-                    <div id="parte5" class="form-container parte hidden">
+                    <div id="parte6" class="form-container parte hidden">
 
                         <div class="form-group">
                             <h2>Personalizar Resposta</h2>
@@ -355,9 +389,9 @@
                             <button class="btn" onclick="proximoParte()">Próximo</button>
                         </div><!--botões-->
 
-                    </div><!--form-conteiner parte #parte5-->
+                    </div><!--form-conteiner parte #parte6-->
 
-                    <div id="parte6" class="form-container parte hidden">
+                    <div id="parte7" class="form-container parte hidden">
 
                         <div class="form-group">
                             <h2>Preferências de formato</h2>
@@ -407,7 +441,7 @@
                         <div class="botoes form-group">
                             <button class="btn" onclick="anteriorParte()">Anterior</button>
                         </div><!--botões-->
-                    </div><!--form-conteiner parte #parte6-->
+                    </div><!--form-conteiner parte #parte7-->
 
                 </div><!--form-->
 

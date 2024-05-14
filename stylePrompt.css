@@ -65,8 +65,8 @@ aside {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 2rem auto;
-    margin-left: 2rem;
+    margin: 3.2vh auto;
+    margin-left: 3.5vw;
     cursor: pointer;   
 }
 
