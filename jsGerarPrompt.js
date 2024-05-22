@@ -330,9 +330,6 @@ function copyText() {
 // Pega o modal
 var modal = document.getElementById("myModal");
 
-// Pega o botão que abre o modal
-var btn = document.getElementById("openModalBtn");
-
 // Pega o elemento <span> que fecha o modal
 var span = document.getElementsByClassName("close")[0];
 
