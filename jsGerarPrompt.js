@@ -200,57 +200,6 @@ var Respostas = {
 };
 
 /**
- * Calcula a porcentagem de respostas preenchidas pelo usuário.
- * 
- * @returns {number} - A porcentagem de respostas preenchidas.
- */
-function calcularPorcentagem() {
-
-  var quantidadePerguntas = Object.keys(Respostas.texto1).length;
-  var quantidadeResposta = 0;
-
-  for (var campo in Respostas.texto1) {
-    if (Respostas.texto1[campo].trim() !== "")
-        quantidadeResposta++;
-  }
-
-  if (Respostas.texto1.PalavrasChave.trim() === "Não") {
-    quantidadePerguntas--;
-  }
-
-  var porcentagem = (quantidadeResposta / quantidadePerguntas) * 100;
-
-  return porcentagem;
-}
-
-/**
- * Copia o texto gerado para a área de transferência.
- */
-function copyText() {
-
-  var textToCopy = document.querySelector('.prompt-gerar').innerText;
-  var copy = document.querySelector('.copy-simbolo');
-
-  // Utiliza a API Clipboard para copiar o texto para a área de transferência
-  navigator.clipboard.writeText(textToCopy)
-    .then(() => {
-      copy.textContent = 'done';
-
-      var porcentagemRespostas = calcularPorcentagem();
-
-      alert(`Texto copiado!\nVocê respondeu ${porcentagemRespostas.toFixed(2)}% das respostas.\nLembre-se: quanto mais respostas você responder, melhor será o prompt.`);
-      
-      setTimeout(() => {
-        copy.textContent = 'content_copy';
-      }, 200);
-    })
-    .catch(err => {
-      console.error('Erro ao copiar texto: ', err);
-      copy.textContent = 'content_copy';
-    });
-}
-
-/**
  * Exibe a seção de palavras-chave no formulário.
  */
 function mostrarPalavrasChave() {
@@ -268,7 +217,6 @@ function ocultarPalavrasChave() {
  * Atualiza o objeto Respostas com os valores do formulário.
  */
 function atualizarJSON() {
-  
   Respostas.texto1.Assunto = document.getElementById("inputAssunto").value;
   Respostas.texto1.Conhecimento = obterRadioValue("contexto");
   Respostas.texto1.PalavrasChave = obterRadioValue("detalhes");
@@ -281,7 +229,6 @@ function atualizarJSON() {
   Respostas.texto1.TomResposta = obterRadioValue("tom_conversa");
   Respostas.texto1.FormatoResposta = obterRadioValue("formato");
   Respostas.texto1.tipoConteudo = obterRadioValue("teorico_pratico");
-
 }
 
 /**
@@ -326,3 +273,77 @@ camposDeEntrada.forEach(function (input) {
     atualizarProgresso();
   });
 });
+
+/**
+ * Calcula a porcentagem de respostas preenchidas pelo usuário.
+ * 
+ * @returns {number} - A porcentagem de respostas preenchidas.
+ */
+function calcularPorcentagem() {
+
+  var quantidadePerguntas = Object.keys(Respostas.texto1).length;
+  var quantidadeResposta = 0;
+
+  for (var campo in Respostas.texto1) {
+    if (Respostas.texto1[campo].trim() !== "")
+        quantidadeResposta++;
+  }
+
+  if (Respostas.texto1.PalavrasChave.trim() === "Não") {
+    quantidadePerguntas--;
+  }
+
+  var porcentagem = (quantidadeResposta / quantidadePerguntas) * 100;
+
+  return porcentagem;
+}
+
+/**
+ * Copia o texto gerado para a área de transferência.
+ */
+function copyText() {
+
+  var textToCopy = document.querySelector('.prompt-gerar').innerText;
+  var copy = document.querySelector('.copy-simbolo');
+
+  // Utiliza a API Clipboard para copiar o texto para a área de transferência
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      copy.textContent = 'done';
+
+      var porcentagemRespostas = calcularPorcentagem();
+
+      document.getElementById('porcentagem').textContent = `${porcentagemRespostas.toFixed(2)}%`;
+
+      modal.style.display = "block";
+      
+      setTimeout(() => {
+        copy.textContent = 'content_copy';
+      }, 200);
+    })
+    .catch(err => {
+      console.error('Erro ao copiar texto: ', err);
+      copy.textContent = 'content_copy';
+    });
+}
+
+// Pega o modal
+var modal = document.getElementById("myModal");
+
+// Pega o botão que abre o modal
+var btn = document.getElementById("openModalBtn");
+
+// Pega o elemento <span> que fecha o modal
+var span = document.getElementsByClassName("close")[0];
+
+// Quando o usuário clicar no <span> (x), fecha o modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
