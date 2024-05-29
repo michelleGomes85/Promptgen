@@ -457,12 +457,29 @@
 
                     <p class="prompt-gerar">Gerador de prompt ...</p>
 
-                    <a onclick="copyText()" class="copy" href="#" title="Copiar Prompt"><span
+                    <a id="openModalBtn" onclick="copyText()" class="copy" href="#" title="Copiar Prompt"><span
                             class="material-icons copy-simbolo">content_copy</span></a>
                 </div><!--textArea-->
 
             </div><!--main-colunm2-->
         </main>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="text">
+                    <p>Texto copiado!</p>
+                    <hr>
+                    <p>Você respondeu <span id="porcentagem"></span> das respostas.</p>
+                    <p>Quanto mais respostas você responder, melhor será o prompt.</p>
+                </div><!--text-->
+                <div class="img">
+                    <img src="img/sessaoComoFunciona/1.png" alt="comoFunciona">
+                </div><!--img-->
+
+                <span class="close">&times;</span>
+            </div><!--modal-content-->
+        </div><!--myModal-->
+
     </div><!--container-->
 
     <script src="jsHeader.js"></script>
