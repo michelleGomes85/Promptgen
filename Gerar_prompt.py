@@ -4,6 +4,7 @@ def gerar_prompt(assunto, nivel_conhecimento, palavras_chave, nivel_escolaridade
   """
   Gera um prompt para um modelo de linguagem baseado nas preferências do usuário.
 
+
   Args:
     assunto: O assunto que o usuário deseja aprender.
     nivel_conhecimento: O nível de conhecimento do usuário sobre o assunto.
