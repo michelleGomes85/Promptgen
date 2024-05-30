@@ -8,7 +8,7 @@ body {
     display: inline;
 }
 
-.aba-content {
+.aba_content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -23,15 +23,15 @@ body {
     display: block;
 }
 
-.aba-content a:hover {
+.aba_content a:hover {
     background-color: #f1f1f1;
 }
 
-.aba:hover .aba-content {
+.aba:hover .aba_content {
     display: block;
 }
 
-.progresso {
+.progress {
     width: 0%;
     height: 1vh;
     background-color: #7DA6B9;
@@ -61,7 +61,7 @@ aside {
     align-items: center;
 }
 
-.agrupar-link {
+.group_link {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -70,7 +70,7 @@ aside {
     cursor: pointer;
 }
 
-.sidebar .sessoes span.link {
+.sidebar .sessions span.link {
     display: block;
     text-decoration: none;
     color: #1D1051;
@@ -81,32 +81,32 @@ aside {
     margin-left: 1rem;
 }
 
-.sidebar .sessoes span.numero {
+.sidebar .sessions span.number {
     border-radius: 50%;
     padding: 0.5vw 0.7vw;
     border: 1px solid #1D1051;
     font-size: 1vw;
 }
 
-.span-ativo {
+.active_span {
     background-color: #1D1051;
     color: #fff;
 }
 
-.span-inativo {
+.inactive_span {
     background-color: #fff;
     color: #1D1051;
 }
 
-.sidebar.active {
+.active {
     display: flex;
 }
 
-.sidebar.inactive {
-    display: none;
+.inactive {
+    display: none ;
 }
 
-.toggle-btn {
+.toggle_btn {
     position: absolute;
     top: 50%;
     right: 0px;
@@ -129,7 +129,7 @@ main {
 }
 
 /*Coluna1 formulário*/
-.main-column1 {
+.main_column1 {
     width: 60%;
     font-size: 1vw;
 }
@@ -141,7 +141,7 @@ main {
     height: 100%;
 }
 
-.form-container {
+.form_container {
 
     position: relative;
 
@@ -161,19 +161,19 @@ main {
     width: 90%;
 }
 
-.form-group {
+.form_group {
     margin-bottom: 20px;
     width: 90%;
     max-width: 520px;
 }
 
-main label.floating-label {
+main label.floating_label {
     position: relative;
     width: 100%;
     margin-top: 1vw;
 }
 
-main label.floating-label span {
+main label.floating_label span {
     position: absolute;
     left: 0;
     bottom: 18px;
@@ -181,7 +181,7 @@ main label.floating-label span {
     transition: bottom 0.3s, font-size 0.3s, color 0.3s;
 }
 
-main .inputField {
+main .input_field {
     width: 100%;
     border: none;
     border-bottom: 2px solid #ccc;
@@ -194,23 +194,38 @@ main .inputField {
     background: none;
 }
 
-#palavras_chave {
+.input_error {
+    border-bottom: 2px solid red !important;
+}
+
+#keys_words {
     resize: none;
     padding: 10px;
     font-size: 10pt;
 }
 
-.inputField:focus,
-.inputField:active {
+.input_field:focus,
+.input_field:active {
     border-bottom: 2px solid #0F2A5B;
 }
 
-.inputField:focus~span,
-.inputField:active~span,
-.inputField:not(:placeholder-shown)~span {
+.input_field:focus~span,
+.input_field:active~span,
+.input_field:not(:placeholder-shown)~span {
     bottom: 50px;
     font-size: 0.8vw;
     color: #0F2A5B;
+}
+
+.input_field.input_error:focus~span,
+.input_field.input_error:active~span,
+.input_field.input_error:not(:placeholder-shown)~span {
+    color: red !important;
+}
+
+.input_field.input_error:focus,
+.input_field.input_error:active {
+    border-bottom: 2px solid red;
 }
 
 i img {
@@ -220,13 +235,13 @@ i img {
     margin-right: 15px;
 }
 
-.colunas {
+.columns {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-.form-container h2 {
+.form_container h2{
     display: flex;
     justify-content: flex-start;
     font-family: 'Disket Mono', monospace;
@@ -241,7 +256,7 @@ input[type="radio"]+label {
     margin-left: 10px;
 }
 
-.agrupar {
+.agroup {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -252,7 +267,7 @@ input[type="radio"]+label {
     margin-bottom: 1vw;
 }
 
-.botoes {
+.buttons {
     position: absolute;
     bottom: 10px;
     right: 20px;
@@ -275,22 +290,23 @@ button.btn:hover {
 }
 
 /*Segunda coluna prompt*/
-.main-column2 {
+.main_column2 {
     position: relative;
     display: flex;
     align-items: center;
     width: 40%;
 }
 
-main .aparecer-prompt,
-.desaparecer-prompt {
+main 
+.show_prompt,
+.hide_prompt {
     position: absolute;
     right: 50px;
     top: 50px;
     display: none;
 }
 
-main .desaparecer-prompt {
+main .hide_prompt {
     display: block;
 }
 
@@ -308,8 +324,13 @@ main .copy {
     border-radius: 3%;
 }
 
-.textArea p {
-    padding: 50px;
+.textArea div.prompt_generator {
+    padding: 8vh 8vw 8vh 4vw;
+    text-align: justify;
+    line-height: 4vh;
+    font-size: 1rem;
+    height: 90%;
+    overflow: auto;
 }
 
 /* Estilos para a janela modal */
@@ -325,7 +346,7 @@ main .copy {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
+.modal_content {
     display: flex;
     flex-direction: row;
     background-color: #fff;
@@ -340,23 +361,23 @@ main .copy {
     font-size: 1.2rem;
 }
 
-.modal-content .img {
+.modal_content .img {
     display: flex;
     width: 50%;
     align-items: center;
     justify-content: center;
 }
 
-.modal-content .img img {
+.modal_content .img img {
     width: 10rem;
     height: 10rem;
 }
 
-.modal-content .text hr {
+.modal_content .text hr {
     margin: 20px 20px 20px 0;
 }
 
-.modal-content .text p span#porcentagem {
+.modal_content .text p span#percentage {
     color: #7DA6B9;
     font-weight: bold;
     font-size: 1.5rem;
@@ -390,7 +411,7 @@ main .copy {
 
 @media only screen and (max-width: 1300px) {
 
-    main .aparecer-prompt {
+    main .show_prompt {
         display: block;
     }
 
@@ -398,20 +419,20 @@ main .copy {
         display: none;
     }
 
-    .main-column1 {
+    .main_column1 {
         font-size: 1.5vw;
         width: 95%;
     }
 
-    .main-column2 {
+    .main_column2 {
         width: 5%;
     }
 
-    .sidebar .sessoes span.link {
+    .sidebar .sessions span.link {
         font-size: 1.5vw;
     }
 
-    .sidebar .sessoes span.numero {
+    .sidebar .sessions span.number {
         padding: 0.8vw 1vw;
         margin-right: 0.8rem;
         font-size: 1.5vw;
@@ -436,8 +457,8 @@ main .copy {
         flex-grow: 1;
     }
 
-    main .main-column1,
-    .main-column2 {
+    main .main_column1,
+    main .main_column2 {
         height: 100%;
     }
 
@@ -458,22 +479,22 @@ main .copy {
         display: none;
     }
 
-    .sidebar .sessoes {
+    .sidebar .sessions {
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
 
-    .sidebar .sessoes span.link {
+    .sidebar .sessions span.link {
         font-size: 2.5vw;
     }
 
-    .sidebar .sessoes span.numero {
+    .sidebar .sessions span.number {
         padding: 1vw 1.3vw;
         font-size: 2.5vw;
     }
 
-    .toggle-btn {
+    .toggle_btn {
         display: none;
     }
 
@@ -481,14 +502,14 @@ main .copy {
         width: 100%;
     }
 
-    .main-column1 {
+    .main_column1 {
         font-size: 2vw;
         width: 100%;
         align-self: center;
         justify-self: center;
     }
 
-    .main-column2 {
+    .main_column2 {
         width: 0.1%;
         height: 100%;
     }

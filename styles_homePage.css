@@ -30,17 +30,17 @@ main section.homepage {
     align-items: center;
 }
 
-main section.homepage .descricao {
+main section.homepage .description {
     margin-left: 5%;
     width: 40%;
     position: relative;
 }
 
-#descricao-site {
+#description_site {
     height: 20vh;
 }
 
-main section.homepage .descricao h1 {
+main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
     font-size: 3vw;
@@ -48,13 +48,13 @@ main section.homepage .descricao h1 {
     color: #1D1051;
 }
 
-main section.homepage .descricao p {
+main section.homepage .description p {
     font-size: 1.2vw;
     margin-top: 1vw;
     line-height: 1.5;
 }
 
-main section.homepage .descricao button#btn {
+main section.homepage .description button#btn {
     background: #0F2A5B;
     border: 1px solid #0F2A5B;
 	color: #fff;
@@ -64,19 +64,19 @@ main section.homepage .descricao button#btn {
     font-size: 1.2vw;
 } 
 
-main section.homepage .descricao button#btn:hover  {
+main section.homepage .description button#btn:hover  {
 	background-color: rgba(219, 230, 228, 0.5);
     color: #000;
 } 
 
-main section.homepage .imagem img {
+main section.homepage .image img {
    position: absolute;
    bottom: 0;
    right: 0;
    width: 40vw;
 }
 
-main section#comoFunciona {
+main section#how_it_works {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -84,47 +84,47 @@ main section#comoFunciona {
     margin: 0 auto;
 }
 
-main section#comoFunciona div {
+main section#how_it_works div {
     margin: 1.2vw;
     width: 20vw;
     text-align: center;
 }
 
-main section#comoFunciona div h3 {
+main section#how_it_works div h3 {
     margin-bottom: 10px;
     font-size: 1.2vw;
 }
 
-main section#comoFunciona div p {
+main section#how_it_works div p {
     font-size: 1vw;
 }
 
-main section#comoFunciona span img {
+main section#how_it_works span img {
     width: 130px;
     height: 130px;
     margin-bottom: 10px;
 }
 
-main section#comoFunciona span.ultimo img {
+main section#how_it_works span.last img {
     width: 170px;
 }
 
-main section#comoFunciona div span.terceira img {
+main section#how_it_works div span.third img {
     margin-left: -30px;
 }
 
-main section#sobre {
+main section#about {
     background-color: #EAF5F7;
     padding: 100px 0;
 }
 
-main section#sobre div.sobre-texto{
+main section#about div.about_text{
     text-align: center;
     width: 80%;
     margin: 0 auto;
 }
 
-main section#sobre div.sobre-texto p {
+main section#about div.about_text p {
     line-height: 2;
     font-size: 1.2vw;
 }
@@ -153,7 +153,7 @@ footer div > p, h4 {
 
 @media only screen and (max-width: 1300px) {
 
-    #descricao-site {
+    #description_site {
         height: 15vw;
     }
 
@@ -163,7 +163,7 @@ footer div > p, h4 {
         align-content: center;
     }
     
-    main section.homepage .descricao {
+    main section.homepage .description {
         position: absolute;
         top: 200px;
         text-align: center;
@@ -172,39 +172,39 @@ footer div > p, h4 {
         margin-left: 0px;
     }
     
-    main section.homepage .descricao h1 {
+    main section.homepage .description h1 {
         font-size: 5vw;
     }
     
-    main section.homepage .descricao p {
+    main section.homepage .description p {
         font-size: 2vw;
         margin-top: 3.2vw;
     }
 
-    main section.homepage .descricao button#btn {
+    main section.homepage .description button#btn {
         font-size: 2vw;
     } 
 
-    main section.homepage .imagem img {
+    main section.homepage .image img {
         display: none;
     }
 
-    main section#comoFunciona {
+    main section#how_it_works {
         flex-wrap: wrap;
     }
 
-    main section#comoFunciona div {
+    main section#how_it_works div {
         margin: 3vw;
         width: 35vw;
         text-align: center;
     }
 
-    main section#comoFunciona div h3, 
-    main section#comoFunciona div p {
+    main section#how_it_works div h3, 
+    main section#how_it_works div p {
         font-size: 2vw;
     }
 
-    main section#sobre div.sobre-texto p {
+    main section#about div.about_text p {
         font-size: 2vw;
     }
 

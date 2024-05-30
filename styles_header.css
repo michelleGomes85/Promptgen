@@ -34,12 +34,12 @@ header {
     background-color: rgba(219, 230, 228, 0.5);
 }
 
-header #logo {
+header #soon {
     flex: 0 1 150px;
     margin-left: 5%;
 }
 
-header #logo img {
+header #soon img {
     max-width: 100%;
 }
 
@@ -64,22 +64,22 @@ header nav a.active {
     font-weight: bold;
 }
 
-header .btn-style {
+header .btn_style {
     background: #0F2A5B;
     border: 1px solid #0F2A5B;
-	color: #fff;
+	color: #fff !important;
 	cursor: pointer;
     border-radius: 5px;
     padding: 15px 35px;
     font-size: 1rem;
 } 
 
-header .btn-style:hover  {
+header .btn_style:hover  {
 	background-color: rgba(219, 230, 228, 0.5);
-    color: #000;
+    color: #000 !important;
 } 
 
-#openMenu, #closeMenu {
+#open_menu, #close_menu {
     border: none;
     background: none;
     font-size: 30px;
@@ -90,17 +90,18 @@ header .btn-style:hover  {
 }
 
 @media only screen and (max-width: 850px) {
-    #openMenu, #closeMenu {
+    
+    #open_menu, #close_menu {
         display: block;
     }
 
-    #closeMenu {
+    #close_menu {
         position: fixed;
         right: 15px;
         top: 40px;
     }
 
-    #openMenu {
+    #open_menu {
         margin-left: auto;
         position: fixed;
         right: 15px;
@@ -112,7 +113,7 @@ header .btn-style:hover  {
         align-items: baseline;       
     }
 
-    header #logo {
+    header #soon {
         margin-top: 30px;
     }
 
@@ -129,4 +130,3 @@ header .btn-style:hover  {
         transition: 0.3;
     }
 }
-
