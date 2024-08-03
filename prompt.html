@@ -16,7 +16,11 @@
 
 <body>
     <header>
-        <a href="index.html" id="soon"><img src="img/soon.png" alt="Soon"> </a>
+        
+        <a href="index.html" class="soon">
+            <img class="img-soon" src="img/soon-teste.png" alt="Soon"> 
+            <p>PROMPTGEN</p>
+        </a>
 
         <button id="open_menu">&#9776;</button>
 
@@ -26,14 +30,16 @@
             <a href="index.html#how_it_works" class="menu_link">Como funciona?</a>
             <a href="index.html#about" class="menu_link">Sobre</a>
             <a href="index.html#contacts" class="menu_link">Contatos</a>
-            <div class="aba">
-                <a class="menu_link link_aba btn_style">Exemplos</a>
-                <div class="aba_content">
-                    <a href="#">Aprender ... 1</a>
-                    <a href="#">Aprender ... 2</a>
-                    <a href="#">Aprender ... 3</a>
-                </div><!--aba-conteudo-->
-            </div><!--aba-->
+
+            <div class="dropdown">
+                <button id="btn" class="btn_style">Exemplos</button>
+                <div class="dropdown-content">
+                    <a href="#option1">Opção 1</a>
+                    <a href="#option2">Opção 2</a>
+                    <a href="#option3">Opção 3</a>
+                </div>
+            </div>
+                
         </nav><!--nav-menu-->
     </header><!--header-->
 

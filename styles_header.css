@@ -26,28 +26,51 @@ header, nav {
 
 header {
     flex: 1 1 100vw;
-    height: 120px;
+    height: 100px;
     position: sticky;
     top: 0;
     z-index: 999;
     align-items: center;
-    background-color: rgba(219, 230, 228, 0.5);
+    background-color: #dde7e6;
 }
 
-header #soon {
-    flex: 0 1 150px;
+header .soon {
+    flex: 1 1 20vw;
     margin-left: 5%;
+    display: flex;
+    align-items: center;
 }
 
-header #soon img {
-    max-width: 100%;
+header .img-soon {
+    height: 65px; 
+    width: auto; 
+}
+
+header p {
+    margin-left: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1D1051;
+    font-family: 'Disket Mono', monospace;
 }
 
 nav {
     flex: 1 1 100vw;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 5%;
+    margin-right: 3em;
+}
+
+nav.show {
+    display: flex;
+    opacity: 1;
+    right: 0;
+}
+
+nav.hide {
+    display: none;
+    opacity: 0;
+    right: -100%;
 }
 
 a {
@@ -70,7 +93,7 @@ header .btn_style {
 	color: #fff !important;
 	cursor: pointer;
     border-radius: 5px;
-    padding: 15px 35px;
+    padding: 15px 30px;
     font-size: 1rem;
 } 
 
@@ -89,44 +112,44 @@ header .btn_style:hover  {
     display: none;
 }
 
-@media only screen and (max-width: 850px) {
-    
+.typed-cursor {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+
+    header {
+        height: auto;
+        padding: 10px;
+    }
+
     #open_menu, #close_menu {
         display: block;
+        color: #0F2A5B;
     }
 
     #close_menu {
-        position: fixed;
-        right: 15px;
-        top: 40px;
-    }
-
-    #open_menu {
-        margin-left: auto;
-        position: fixed;
-        right: 15px;
-        top: 40px;
-    }
-
-    header {
-        height: 200px;
-        align-items: baseline;       
-    }
-
-    header #soon {
-        margin-top: 30px;
+        position: absolute;
+        right: 40px;
+        top: 5vh;
     }
 
     nav {
         position: fixed;
-        flex-direction: column;
+        top: 1px;
+        left: 0;
         width: 100vw;
-        background-color: rgba(219, 230, 228, 0.5);
+        background-color: rgba(219, 230, 228, 0.9);
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0;
         display: none;
         opacity: 0;
-        transition: 0.3;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    nav.show {
+        display: flex;
+        opacity: 1;
     }
 }

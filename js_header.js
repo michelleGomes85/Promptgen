@@ -100,9 +100,7 @@ const STRINGS = {
 }
 
 const links_header = document.querySelectorAll(SELECTORS.menu_link);
-
 const open_menu = document.querySelector(SELECTORS.open_menu);
-
 const close_menu = document.querySelector(SELECTORS.close_menu);
 
 /**

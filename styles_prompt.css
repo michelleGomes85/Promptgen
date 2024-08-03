@@ -3,32 +3,45 @@ body {
     background-color: #EAF5F7 !important;
 }
 
-.aba {
+.dropdown {
     position: relative;
-    display: inline;
+    display: inline-block;
+    margin: 2%;
 }
 
-.aba_content {
+.dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 200px;
+    background-color: rgba(219, 230, 228, 0.9);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: 100%;
+    left: 0;
 }
 
-.aba a {
-    color: black;
+.dropdown-content a {
+    color: #0F2A5B;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-.aba_content a:hover {
-    background-color: #f1f1f1;
+.dropdown-content a:hover {
+    background-color: #ddd;
 }
 
-.aba:hover .aba_content {
+.dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropdown-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
 }
 
 .progress {
@@ -37,7 +50,6 @@ body {
     background-color: #7DA6B9;
 }
 
-/*Conteiner principal*/
 .container {
     font-family: 'Roboto Mono', monospace;
     display: flex;
@@ -45,7 +57,6 @@ body {
     height: calc(99vh - 120px);
 }
 
-/*barra lateral*/
 aside {
     width: 5%;
     overflow-y: auto;

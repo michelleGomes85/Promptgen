@@ -18,12 +18,15 @@
 <body>
     <header>
 
-        <a href="#" id="soon"><img src="img/soon.png" alt="Soon"> </a>
+        <a href="#" class="soon">
+            <img class="img-soon" src="img/soon-teste.png" alt="Soon"> 
+            <p>PROMPTGEN</p>
+        </a>
 
         <button id="open_menu">&#9776;</button>
 
         <nav id="menu">
-            <a id="close_menu">X</a>
+            <button id="close_menu">&times;</button>
             <a href="#" class="menu_link active">Início</a>
             <a href="#how_it_works" class="menu_link">Como funciona?</a>
             <a href="#about" class="menu_link">Sobre</a>
@@ -39,6 +42,7 @@
         <section id="start" class="homepage section">
             <div class="description">
                 <h1>Gerador de Prompt Acadêmico</h1>
+
                 <p id="description_site"></p>
 
                 <a href="prompt.html"><button id="btn">Gerar Prompt</button></a>
@@ -53,28 +57,28 @@
         <section id="how_it_works" class="section">
 
             <div>
-                <span class="first"><img src="img/session_how_it_works/1.png" alt=""></span>
-                <h3>Aperte o botão</h3>
+                <span><img src="img/session_how_it_works/1.png" alt=""></span>
+                <h3>Clique no botão</h3>
 
-                <p>Pressione o botão "Gerar Prompt" para iniciar o processo de criação.</p>
+                <p>Clique no botão "Gerar Prompt" para iniciar o processo de criação.</p>
             </div>
 
             <div>
-                <span class="second"><img src="img/session_how_it_works/2.png" alt="3"></span>
+                <span><img src="img/session_how_it_works/2.png" alt="3"></span>
                 <h3>Preencha o formulário</h3>
 
-                <p>Complete as informações necessárias no formulário.</p>
+                <p>Adicione o assunto. Complete as informações necessárias no formulário.</p>
             </div>
 
             <div>
-                <span class="third"><img src="img/session_how_it_works/3.png" alt="3"></span>
+                <span><img src="img/session_how_it_works/3.png" alt="3"></span>
                 <h3>Copie o prompt</h3>
 
                 <p>Clique no botão de cópia para pegar o prompt gerado.</p>
             </div>
 
             <div>
-                <span class="last"><img src="img/session_how_it_works/4.png" alt="4"></span>
+                <span><img src="img/session_how_it_works/4.png" alt="4"></span>
                 <h3>Cole na IA</h3>
 
                 <p>Cole o prompt na sua IA preferida para iniciar o aprendizado</p>
@@ -99,7 +103,7 @@
     <footer id="contacts" class="section">
 
         <div>
-            <h4>Colaboradores:</h4>
+            <h4>Desenvolvedores:</h4>
         </div>
 
         <hr>
@@ -126,6 +130,7 @@
         <hr>
     </footer><!--contato-->
 
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="js_header.js"></script>
     <script src="js_homePage.js"></script>
 </body>

@@ -1,34 +1,33 @@
-
 /**
- * Varivel para controlar o indice do caracter exibido para o usuário
+ * Inicializa o efeito de digitação no elemento com id 'description_site' usando a biblioteca Typed.js.
+ * 
+ * Esta função configura o Typed.js para exibir um efeito de digitação no elemento selecionado.
+ * O efeito inclui a digitação de uma lista de strings, com uma velocidade de digitação e apagamento ajustável.
+ * O texto é digitado e apagado em um loop infinito com atrasos configuráveis.
+ * 
+ * Opções configuradas:
+ * - strings: Lista de strings a serem digitadas.
+ * - typeSpeed: Velocidade de digitação em milissegundos por caractere.
+ * - backSpeed: Velocidade de apagamento em milissegundos por caractere.
+ * - backDelay: Atraso antes do início do apagamento do texto.
+ * - startDelay: Atraso antes do início da digitação.
+ * - loop: Se o efeito deve repetir após completar a digitação.
  */
-let index = 0;
+document.addEventListener('DOMContentLoaded', function () {
+    const options = {
+        strings: [
+            "Crie perguntas e instruções facilmente para impulsionar seu aprendizado com nossa ferramenta intuitiva.",
+            "Potencialize sua jornada educacional com prompts personalizados!"
+        ],
+        typeSpeed: 25,    
+        backSpeed: 20,    
+        backDelay: 1000,  
+        startDelay: 600,  
+        loop: true        
+    };
 
-/**
- * Texto a ser adiciona na descrição do site
- */
-const text = "Crie perguntas e instruções facilmente para impulsionar seu aprendizado com nossa ferramenta intuititiva. "
-    + "Potencialize sua jornada educacional com prompts personalizados!";
-
-const description = document.getElementById(SELECTORS.description);
-
-/**
- * Função para simular a digitação de texto na tela, no #descricao-site
- */
-function to_type() {
-    if (index < text.length) {
-        description.textContent += text.charAt(index);
-        index++;
-        setTimeout(to_type, 15);
-    }
-}
-
-/**
- * Chama a função para digitar sempre que a tela é carregada
- */
-window.onload = function () {
-    to_type();
-};
+    new Typed('#description_site', options);
+});
 
 /**
  * Adiciona um evento de scroll à tela.
