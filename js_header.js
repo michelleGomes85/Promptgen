@@ -33,7 +33,7 @@ const SELECTORS = {
     modal: "my_modal",
     close: 'close',
 
-    appear: '.show_prompt',
+    appearPrompt: '.show_prompt',
     disappear: '.hide_prompt',
     prompt: '.textArea',
     prompt_generator: 'prompt_generator',
@@ -55,6 +55,8 @@ const SELECTORS = {
     education_level: 'education_level',
 
     input_error: 'input_error',
+
+    form_step: '.form-step'
 }
 
 const STYLES = {
@@ -78,7 +80,9 @@ const STYLES = {
     width1: '1%',
 
     red: 'read',
-    blue: '#0F2A5B'
+    blue: '#0F2A5B',
+
+    center: 'center'
 }
 
 const STRINGS = {

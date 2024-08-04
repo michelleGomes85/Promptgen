@@ -19,12 +19,15 @@
     box-sizing: border-box;
 }
 
-header, nav {
+html body header#my_header, nav#menu {
     display: flex;
     font-family: 'Roboto Mono', monospace;
+    background-color: initial;
+    box-shadow: initial;
+    
 }
 
-header {
+html body header#my_header {
     flex: 1 1 100vw;
     height: 100px;
     position: sticky;
@@ -34,19 +37,19 @@ header {
     background-color: #dde7e6;
 }
 
-header .soon {
+html body header#my_header a.soon {
     flex: 1 1 20vw;
     margin-left: 5%;
     display: flex;
     align-items: center;
 }
 
-header .img-soon {
+html body header#my_header a.soon .img-soon {
     height: 65px; 
     width: auto; 
 }
 
-header p {
+html body header#my_header a.soon p {
     margin-left: 8px;
     font-size: 0.9rem;
     font-weight: bold;
@@ -54,40 +57,41 @@ header p {
     font-family: 'Disket Mono', monospace;
 }
 
-nav {
+html body header#my_header nav#menu {
     flex: 1 1 100vw;
     justify-content: flex-end;
     align-items: center;
     margin-right: 3em;
 }
 
-nav.show {
+html body header#my_header nav#menu.show {
     display: flex;
     opacity: 1;
     right: 0;
 }
 
-nav.hide {
+html body header#my_header nav#menu.hide {
     display: none;
     opacity: 0;
     right: -100%;
 }
 
-a {
+html body header#my_header a {
     text-decoration: none;
     color: inherit;
+    color: initial;
 }
 
-nav a {
+html body header#my_header nav#menu a {
     margin: 2%;
     font-size: 1rem;
 }
 
-header nav a.active {
+html body header#my_header nav#menu a.active {
     font-weight: bold;
 }
 
-header .btn_style {
+html body header#my_header button.btn_style {
     background: #0F2A5B;
     border: 1px solid #0F2A5B;
 	color: #fff !important;
@@ -97,7 +101,7 @@ header .btn_style {
     font-size: 1rem;
 } 
 
-header .btn_style:hover  {
+html body header#my_header .btn_style:hover  {
 	background-color: rgba(219, 230, 228, 0.5);
     color: #000 !important;
 } 
@@ -134,7 +138,7 @@ header .btn_style:hover  {
         top: 5vh;
     }
 
-    nav {
+    nav#menu {
         position: fixed;
         top: 1px;
         left: 0;
@@ -148,7 +152,7 @@ header .btn_style:hover  {
         transition: opacity 0.3s ease-in-out;
     }
 
-    nav.show {
+    nav#menu.show {
         display: flex;
         opacity: 1;
     }
