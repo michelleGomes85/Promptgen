@@ -75,6 +75,9 @@ var typed = null;
   }
 
   function addEventListeners() {
+
+    updateTypingEffect('Gerador de prompt ...');
+
     document.querySelectorAll('select').forEach(select => {
       select.addEventListener('change', generatePromptData);
     });
