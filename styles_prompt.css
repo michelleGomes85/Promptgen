@@ -58,6 +58,37 @@ body div.container {
     display: none !important;
 }
 
+.conteiner-inside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 100px);
+}
+
+.align {
+    text-align: center;
+}
+
+.conteiner-inside .form_group {
+    padding: 0 50px;
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+}
+
+#subject-field {
+    width: 100%;
+}
+
+#subject-field input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#subject-field label {
+    width: 100%;
+}
+
 main.main {
     display: flex;
     flex: 1;
@@ -368,6 +399,10 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     background-color: #01173c;
 }
 
+.chips .input {
+    width: 100% !important;
+}
+
 .prompt {
     position: relative;
     background-color: #fff;
@@ -485,6 +520,10 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 @media only screen and (max-width: 1300px) {
+
+    nav span.dropdown .dropdown-content {
+        line-height: 50px !important;
+    }
 
     html {
         font-size: initial;
