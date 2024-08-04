@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptGen</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="img/session_how_it_works/2.png">
+
+    <link rel="stylesheet" type="text/css" href="styles_header.css">
+    <link rel="stylesheet" href="styles_prompt.css">
+</head>
+
+<body>
+    <header id="my_header">
+
+        <a href="index.html" class="soon">
+            <img class="img-soon" src="img/soon-teste.png" alt="Soon">
+            <p>PROMPTGEN</p>
+        </a>
+
+        <button id="open_menu">&#9776;</button>
+
+        <nav id="menu">
+            <a id="close_menu">X</a>
+            <a href="index.html" class="menu_link">Início</a>
+            <a href="index.html#how_it_works" class="menu_link">Como funciona?</a>
+            <a href="index.html#about" class="menu_link">Sobre</a>
+            <a href="index.html#contacts" class="menu_link">Contatos</a>
+
+            <span class="dropdown">
+                <button id="btn" class="btn_style">Exemplos</button>
+                <div class="dropdown-content">
+                    <a href="#option1">Opção 1</a>
+                    <a href="#option2">Opção 2</a>
+                    <a href="#option3">Opção 3</a>
+                </div>
+            </span><!--dropdown-->
+
+        </nav><!--nav-menu-->
+    </header><!--header-->
+
+    <div class="container">
+
+        <main class="main">
+            <div class="main_column1">
+
+                <a onclick="show_prompt()" class="show_prompt" title="Clique para mostrar o prompt"><span
+                        class="material-icons">visibility</span></a>
+
+                <div class="form-steps">
+
+                    <div class="form-step step-1 active">
+
+                        <div class="form_group">
+                            <h2>Educação</h2>
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+                            <div class="columns">
+
+                                <i><img src="img/icons/knowledge.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="nivel-conhecimento" name="nivel-conhecimento">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">Sem conhecimento prévio</option>
+                                        <option value="2">Conhecimento básico</option>
+                                        <option value="3">Conhecimento intermediário</option>
+                                        <option value="4">Conhecimento Avançado</option>
+                                    </select>
+                                    <label>Nível de conhecimento</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+
+                            <div class="columns">
+
+                                <i><img src="img/icons/education.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="nivel-escolaridade" name="nivel-escolaridade">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">Ensino Médio Completo</option>
+                                        <option value="2">Ensino Médio Incompleto</option>
+                                        <option value="3">Graduação Completa</option>
+                                        <option value="4">Graduação Incompleta</option>
+                                        <option value="5">Pós-Graduação Completa</option>
+                                        <option value="6">Pós-Graduação Incompleta</option>
+                                    </select>
+                                    <label>Nível de Escolaridade</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+
+
+                        <div class="buttons form_group">
+                            <button class="next-btn btn" type="button">Próximo</button>
+                        </div><!--buttons / form_group-->
+
+                    </div> <!--form-step step-1 active-->
+
+                    <div class="form-step step-2">
+
+                        <div class="form_group">
+                            <h2>Objetivo</h2>
+                        </div><!--form_group-->
+
+                        <div class="columns inputs">
+                            <i><img src="img/icons/goal.png"></i>
+                            <p>Objetivo do estudo?</p>
+                        </div><!--columns-->
+
+                        <div class="form-group">
+                            <div class="input-field col s12">
+                                <p class="radio-custom">
+                                    <label>
+                                        <input name="objetivo" type="radio" value="1" />
+                                        <span>Ter uma visão geral do assunto</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input name="objetivo" type="radio" value="2"/>
+                                        <span>Praticar com exercícios de revisão</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input name="objetivo" type="radio" value="3"/>
+                                        <span>Preparar-se para um exame ou prova</span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div><!--form_group-->
+
+
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="next-btn btn">Próximo</button>
+                        </div><!--botões-->
+                    </div><!--form-step step-2-->
+
+                    <div class="form-step step-3">
+                        <div class="form_group">
+                            <h2>Disponibilidade de Tempo</h2>
+                        </div><!--form_group-->
+
+                        <div class="columns inputs">
+                            <i><img src="img/icons/time_day.png"></i>
+                            <p>Horas disponíveis para estudar por dia?</p>
+                        </div><!--columns-->
+
+                        <div class="form-group">
+                            <p class="range-field">
+                                <input type="range" id="slice" min="0" max="5" value="0" />
+                            </p>
+                        </div><!--form_group-->
+
+                        <div class="columns inputs">
+                            <i><img src="img/icons/deadline.png"></i>
+                            <p>Tempo para dominar o assunto?</p>
+                        </div><!--columns-->
+
+                        <div class="form-group">
+                            <div class="input-field col s12">
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="1" name="tempo" />
+                                        <span>Menos de 1 semana</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="2" name="tempo" />
+                                        <span>De 1 a 3 semanas</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="3" name="tempo" />
+                                        <span>Mais de 3 semanas</span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="next-btn btn">Próximo</button>
+                        </div><!--botões-->
+                    </div><!--form-step step-3-->
+
+                    <div class="form-step step-4">
+
+                        <div class="form_group">
+                            <h2>Personalizar Resposta</h2>
+                        </div><!--form_group-->
+
+                        <div class="columns inputs">
+                            <i><img src="img/icons/persona.png"></i>
+                            <p>Qual persona você gostaria que a IA assumisse?</p>
+                        </div><!--columns-->
+
+                        <div class="form-group">
+                            <div class="input-field col s12">
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="1" name="persona" />
+                                        <span>Professor Especialista</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="2" name="persona" />
+                                        <span>Pessoa que trabalha na área</span>
+                                    </label>
+                                </p>
+                                <p class="radio-custom">
+                                    <label>
+                                        <input type="radio" value="3" name="persona" />
+                                        <span>Personagem histório</span>
+                                    </label>
+                                </p>
+                            </div>
+
+                            <div id="historical-character-field" class="input-field col s12">
+                                <input type="text" id="historical-character" />
+                                <label for="historical-character">Qual personagem histórico?</label>
+                            </div>
+                        </div>
+
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="next-btn btn">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-step step-4-->
+
+                    <div class="form-step step-5">
+
+                        <div class="form_group">
+                            <h2>Preferências de formato</h2>
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+                            <div class="columns">
+
+                                <i><img src="img/icons/response_tone.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="tom-resposta" name="tom-resposta">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">Formal</option>
+                                        <option value="2">Informal</option>
+                                        <option value="3">Inspirador</option>
+                                        <option value="4">Objetivo</option>
+                                    </select>
+                                    <label>Tom da resposta</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+                            <div class="columns">
+
+                                <i><img src="img/icons/response_format.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="formato-resposta" name="formato-resposta">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">Tópicos</option>
+                                        <option value="2">Parágrafos</option>
+                                        <option value="3">Exemplos relacionados</option>
+                                        <option value="4">Visuais (desenhos, tabelas)</option>
+                                    </select>
+                                    <label>Formato da resposta</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="next-btn btn">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-step step-5-->
+
+                    <div class="form-step step-6">
+                        <div class="form_group">
+                            <h2>Conteúdo e Fontes</h2>
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+                            <div class="columns">
+
+                                <i><img src="img/icons/theoretical_practical.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="conteudo-resposta" name="conteudo-resposta">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">História e contexto</option>
+                                        <option value="2">Vantagens e desvantagens</option>
+                                        <option value="3">Procedimentos e instruções</option>
+                                        <option value="4">Estudos de caso e exemplos reais</option>
+                                    </select>
+                                    <label>Pontos principais para abordar?</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+                        <div class="form_group">
+                            <div class="columns">
+
+                                <i><img src="img/icons/answer_content.png"></i>
+
+                                <div class="input-field col s12">
+                                    <select id="fonte-resposta" name="font-resposta">
+                                        <option value="" disabled selected>Escolha um opção</option>
+                                        <option value="1">Pesquisa Própria</option>
+                                        <option value="2">Fontes acadêmicas e científicas</option>
+                                        <option value="3">Relatos de terceiros</option>
+                                    </select>
+                                    <label>Preferência de fonte</label>
+                                </div>
+
+                            </div><!--columns-->
+
+                        </div><!--form_group-->
+
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="next-btn btn">Próximo</button>
+                        </div><!--botões-->
+
+                    </div><!--form-step step-6-->
+
+                    <div class="form-step step-7">
+
+                        <div class="form_group">
+                            <h2>Detalhes do assunto</h2>
+                        </div><!--form_group-->
+
+                        <div class="columns inputs">
+                            <i><img src="img/icons/keyword.png"></i>
+                            <p>Conhece algum palavra chave do assunto para aprofundar?</p>
+                        </div><!--columns-->
+
+                        <div class="switch">
+                            <label>
+                                Não
+                                <input type="checkbox" id="show-chips">
+                                <span class="lever"></span>
+                                Sim
+                            </label>
+                        </div><!--switch-->
+
+                        <div class="chips chips-placeholder"></div>
+                    
+                        <div class="buttons form_group">
+                            <button type="button" class="prev-btn btn">Anterior</button>
+                            <button type="button" class="copy-button btn">Copiar<span
+                                    class="material-icons">content_copy</span></button>
+                        </div><!--botões-->
+                    </div><!--form-step step-7-->
+                </div><!--form-steps-->
+
+            </div><!--main-colunm1-->
+
+            <div class="main_column2">
+
+                <div class="prompt">
+                    <a onclick="hide_prompt()" class="hide_prompt" href="#" title="Clique para ocultar o prompt"><span
+                            class="material-icons">visibility_off</span></a>
+
+                    <p class="prompt-generator"></p>
+                </div><!--prompt-->
+            </div><!--main_column2-->
+
+        </main>
+
+        <div class="progress-bar">
+            <div class="steps">
+                <div class="step active" data-step="1" data-title="Educação">1</div>
+                <div class="step" data-step="2" data-title="Objetivo">2</div>
+                <div class="step" data-step="3" data-title="Tempo">3</div>
+                <div class="step" data-step="4" data-title="Personalizar">4</div>
+                <div class="step" data-step="5" data-title="Preferências">5</div>
+                <div class="step" data-step="6" data-title="Conteúdo">6</div>
+                <div class="step" data-step="7" data-title="Detalhes">7</div>
+            </div><!--steps-->
+        </div><!--progress-bar-->
+
+    </div><!--container-->
+
+    <div id="my_modal" class="modal">
+        <div class="modal_content">
+            <div class="text">
+                <p>Texto copiado!</p>
+                <hr>
+                <p>Você respondeu <span id="percentage"></span> das respostas.</p>
+                <p>Quanto mais respostas você responder, melhor será o prompt.</p>
+            </div><!--text-->
+            <div class="img">
+                <img src="img/session_how_it_works/1.png" alt="comoFunciona">
+            </div><!--img-->
+
+            <span class="close">&times;</span>
+        </div><!--modal-content-->
+    </div><!--my_modal-->
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js_header.js"></script>
+    <script src="js_step_form.js"></script>
+    <script src="js_generate_prompt.js"></script>
+</body>
+
+</html>
