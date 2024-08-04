@@ -1,47 +1,3 @@
-
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems, {});
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var radios = document.querySelectorAll('input[name="persona"]');
-    var historicalCharacterField = document.getElementById('historical-character-field');
-
-    radios.forEach(function(radio) {
-        radio.addEventListener('change', function() {
-            if (this.value === '3' && this.checked) {
-                historicalCharacterField.style.display = 'block';
-            } else {
-                historicalCharacterField.style.display = 'none';
-            }
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-   
-    M.Chips.init(document.querySelectorAll('.chips-placeholder'), {
-        placeholder: 'Digite palavras-chave e pressione Enter',
-        secondaryPlaceholder: '+Palavra'
-    });
-
-    var switchElement = document.getElementById('show-chips');
-    var chipsContainer = document.querySelector('.chips');
-
-    switchElement.addEventListener('change', function() {
-        if (this.checked) {
-            chipsContainer.style.display = 'block';
-        } else {
-            chipsContainer.style.display = 'none';
-        }
-    });
-});
-
-const window_modal = document.getElementById(SELECTORS.modal);
-const close_modal_span = document.getElementsByClassName(SELECTORS.close)[0];
-const copy_btn = document.querySelector('.copy-button');
-
 /**
  * Mostra a caixa de texto, onde está sendo gerado o prompt
  */
@@ -107,9 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function showStep(step) {
+
         formSteps.forEach((formStep) => {
             formStep.classList.remove('active');
         });
+        
         steps.forEach((stepElem) => {
             stepElem.classList.remove('active');
         });
@@ -136,40 +94,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-/**
- * Quando o usuário clicar no <span> (x), fecha o modal
- */
-close_modal_span.onclick = function () {
-    window_modal.style.display = STYLES.display_none;
-}
-
-/** 
-  Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-*/
-window.onclick = function (event) {
-    if (event.target == window_modal) {
-        window_modal.style.display = STYLES.display_none;
-    }
-}
-
-/**
- * Copia o texto gerado para a área de transferência.
- * 
- * -> Utiliza a API Clipboard para copiar o texto para a área de transferência
- */
-copy_btn.onclick = function copy_text() {
-
-    const prompt = document.querySelector('.prompt-generator');
-
-    var text_to_copy = prompt.textContent;
-
-    navigator.clipboard.writeText(text_to_copy)
-        .then(() => {
-            window_modal.style.display = STYLES.display_block;
-        })
-        .catch(err => {
-            console.error(STRINGS.console_log_error_copy, err);
-            copy.textContent = STRINGS.content_copy;
-        });
-}

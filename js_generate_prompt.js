@@ -1,11 +1,73 @@
-var typed = null;
+document.addEventListener('DOMContentLoaded', function () {
+  // Inicializa os event listeners e outras funcionalidades
+  init();
 
-  function updateTypingEffect(text) {
-    if (typed) {
-      typed.destroy();
-    }
+  // Adiciona o evento de click para o botão "Gerar Prompt"
+  const generatePromptButton = document.getElementById('btn');
+  if (generatePromptButton) {
+    generatePromptButton.addEventListener('click', function (event) {
+      const formData = localStorage.getItem('formData');
+      
+      if (formData) {
+        // Se há dados no localStorage, mostra o prompt
+        const userResponse = confirm("Você deseja continuar para a página de prompt?");
+        
+        if (userResponse) {
+          // Se o usuário clicar em "Sim", redireciona para index_prompt.html
+          window.location.href = 'index_prompt.html';
+        } else {
+          // Se o usuário clicar em "Não", limpa o localStorage e redireciona para index_assunto.html
+          localStorage.removeItem('formData');
+          window.location.href = 'index_assunto.html';
+        }
+      } else {
+        // Se não há dados no localStorage, redireciona diretamente para index_assunto.html
+        window.location.href = 'index_assunto.html';
+      }
+    });
+  }
+});
 
-    typed = new Typed(".prompt-generator", {
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Evento para mostrar campo para digitar palavras chave
+  const switchElement = document.getElementById('show-chips');
+  if (switchElement) {
+    switchElement.addEventListener('change', function () {
+      const chipsContainer = document.querySelector('.chips');
+      if (chipsContainer) {
+        chipsContainer.style.display = this.checked ? 'block' : 'none';
+      }
+    });
+  }
+
+  // Adiciona o evento de mudança para os radios de persona
+  var radios = document.querySelectorAll('input[name="persona"]');
+  var historicalCharacterField = document.getElementById('historical-character-field');
+
+  radios.forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      historicalCharacterField.style.display = this.value === '3' && this.checked ? 'block' : 'none';
+    });
+  });
+
+  init();
+});
+
+let typed = null;
+
+/*
+  Atualiza o efeito de digitação do texto no elemento especificado
+*/
+function updateTypingEffect(text) {
+  const promptElement = document.querySelector(".prompt-generator");
+
+  if (typed) {
+    typed.destroy();
+  }
+
+  if (promptElement) {
+    typed = new Typed(promptElement, {
       strings: [text],
       typeSpeed: 50,
       backSpeed: 25,
@@ -15,93 +77,255 @@ var typed = null;
       showCursor: false
     });
   }
+}
 
-  function generatePromptData() {
-    const nivelConhecimento = document.getElementById('nivel-conhecimento').value;
-    const nivelEscolaridade = document.getElementById('nivel-escolaridade').value;
-    const objetivoEstudo = document.querySelector('input[name="objetivo"]:checked')?.value;
-    const horasDisponiveis = document.getElementById('slice').value;
-    const tempoDominio = document.querySelector('input[name="tempo"]:checked')?.value;
-    const personaIA = document.querySelector('input[name="persona"]:checked')?.value;
-    const personagemHistorico = document.getElementById('historical-character').value;
-    const tomConversa = document.getElementById('tom-resposta').value;
-    const formatoDaResposta = document.getElementById('formato-resposta').value;
-    const pontosPrincipais = document.getElementById('conteudo-resposta').value;
-    const preferenciaFonte = document.getElementById('fonte-resposta').value;
+/*
+  Salva os dados do formulário no localStorage
+*/
+function saveDataToLocalStorage() {
+  const values = {
+    assunto: document.getElementById('subject')?.value || '',
+    nivelConhecimento: document.getElementById('nivel-conhecimento')?.value || '',
+    nivelEscolaridade: document.getElementById('nivel-escolaridade')?.value || '',
+    objetivoEstudo: document.querySelector('input[name="objetivo"]:checked')?.value || '',
+    horasDisponiveis: document.getElementById('slice')?.value || '',
+    tempoDominio: document.querySelector('input[name="tempo"]:checked')?.value || '',
+    personaIA: document.querySelector('input[name="persona"]:checked')?.value || '',
+    personagemHistorico: document.getElementById('historical-character')?.value || '',
+    tomConversa: document.getElementById('tom-resposta')?.value || '',
+    formatoDaResposta: document.getElementById('formato-resposta')?.value || '',
+    pontosPrincipais: document.getElementById('conteudo-resposta')?.value || '',
+    preferenciaFonte: document.getElementById('fonte-resposta')?.value || '',
+    showChips: document.getElementById('show-chips')?.checked || false,
+    palavrasChave: document.getElementById('show-chips')?.checked
+        ? Array.from(document.querySelectorAll('.chips .chip')).map(chip =>
+            Array.from(chip.childNodes)
+              .filter(node => node.nodeType === Node.TEXT_NODE)
+              .map(node => node.textContent.trim())
+              .join(' ')
+        )
+        : []
+  };
 
-    let palavrasChave = [];
-    if (document.getElementById('show-chips').checked) {
-      const chips = document.querySelectorAll('.chips .chip');
-      chips.forEach(chip => {
-        const chipText = Array.from(chip.childNodes)
-          .filter(node => node.nodeType === Node.TEXT_NODE)
-          .map(node => node.textContent.trim())
-          .join(' ');
-        if (chipText) palavrasChave.push(chipText);
-      });
+  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
+
+  Object.keys(values).forEach(key => {
+    if (values[key] !== "" && values[key] !== undefined) {
+      savedData[key] = values[key];
     }
+  });
 
-    // Verifica se o valor é diferente de uma string vazia e 0
-    const values = {
-      nivelConhecimento,
-      nivelEscolaridade,
-      objetivoEstudo,
-      horasDisponiveis,
-      tempoDominio,
-      personaIA,
-      personagemHistorico,
-      tomConversa,
-      formatoDaResposta,
-      pontosPrincipais,
-      preferenciaFonte,
-      palavrasChave
-    };
+  localStorage.setItem('formData', JSON.stringify(savedData));
+}
 
-    let text = '';
-    Object.keys(values).forEach(key => {
-      const value = values[key];
-      if (Array.isArray(value)) {
-        value.forEach(item => {
-          if (item !== "" && item !== "0" && item !== undefined) {
-            text += item + ' ';
-          }
-        });
-      } else if (value !== "" && value !== "0" && value !== undefined) {
-        text += value + ' ';
-      }
-    });
+/*
+  Gera o texto do prompt com base nos dados salvos e atualiza o efeito de digitação
+*/
+function generatePromptData() {
+  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
 
-    updateTypingEffect(text.trim());
+  const values = {
+    assunto: savedData.assunto || '',
+    nivelConhecimento: savedData.nivelConhecimento || '',
+    nivelEscolaridade: savedData.nivelEscolaridade || '',
+    objetivoEstudo: savedData.objetivoEstudo || '',
+    horasDisponiveis: savedData.horasDisponiveis || '',
+    tempoDominio: savedData.tempoDominio || '',
+    personaIA: savedData.personaIA || '',
+    personagemHistorico: savedData.personagemHistorico || '',
+    tomConversa: savedData.tomConversa || '',
+    formatoDaResposta: savedData.formatoDaResposta || '',
+    pontosPrincipais: savedData.pontosPrincipais || '',
+    preferenciaFonte: savedData.preferenciaFonte || '',
+    palavrasChave: savedData.palavrasChave || []
+  };
+
+  let text = '';
+  Object.keys(values).forEach(key => {
+    const value = values[key];
+
+    if (Array.isArray(value)) {
+      value.forEach(item => {
+        if (item !== "" && item !== "0" && item !== undefined) {
+          text += item + ' ';
+        }
+      });
+    } else if (value !== "" && value !== "0" && value !== undefined) {
+      text += value + ' ';
+    }
+  });
+
+  updateTypingEffect(text.trim());
+}
+
+/*
+  Define o valor de um elemento <select>
+*/
+function setSelectValue(selectId, savedValue) {
+  const selectElement = document.getElementById(selectId);
+  if (selectElement) {
+    selectElement.value = savedValue || selectElement.querySelector('option').value;
+    M.FormSelect.init(selectElement); // Atualiza a exibição do select
+  }
+}
+
+/**
+ * Define o valor de um <Radio> 
+ */
+const setRadioValue = (name, value) => {
+  const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
+  if (radio) {
+    radio.checked = true;
+    radio.dispatchEvent(new Event('change'));
+  }
+}
+
+/*
+  Carrega os dados do localStorage e atualiza os campos do formulário
+*/
+function loadFormData() {
+  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
+
+  setSelectValue('nivel-conhecimento', savedData.nivelConhecimento);
+  setSelectValue('nivel-escolaridade', savedData.nivelEscolaridade);
+  setSelectValue('tom-resposta', savedData.tomConversa);
+  setSelectValue('formato-resposta', savedData.formatoDaResposta);
+  setSelectValue('conteudo-resposta', savedData.pontosPrincipais);
+  setSelectValue('fonte-resposta', savedData.preferenciaFonte);
+
+  const assunto = document.getElementById('subject');
+  if (assunto && typeof savedData.assunto === 'string') {
+    assunto.value = savedData.assunto.trim() || '';
+    assunto.focus();
   }
 
-  function addEventListeners() {
+  const historical_character = document.getElementById('historical-character');
+  if (historical_character && typeof savedData.personagemHistorico === 'string') {
+    historical_character.value = savedData.personagemHistorico.trim() || '';
 
-    updateTypingEffect('Gerador de prompt ...');
+    const event = new Event('change', { bubbles: true });
+    historical_character.dispatchEvent(event);
+  }
 
-    document.querySelectorAll('select').forEach(select => {
-      select.addEventListener('change', generatePromptData);
-    });
+  const slice = document.getElementById('slice');
+  if (slice && !isNaN(savedData.horasDisponiveis)) {
+    slice.value = savedData.horasDisponiveis || '0';
+  }
 
-    document.querySelectorAll('input[type="text"]').forEach(text => {
-      text.addEventListener('input', generatePromptData);
-    });
-    
-    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-      radio.addEventListener('change', generatePromptData);
-    });
+  if (savedData.objetivoEstudo && typeof savedData.objetivoEstudo === 'string') {
+    setRadioValue('objetivo', savedData.objetivoEstudo);
+  }
 
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-      checkbox.addEventListener('change', generatePromptData);
-    });
+  if (savedData.tempoDominio && typeof savedData.tempoDominio === 'string') {
+    setRadioValue('tempo', savedData.tempoDominio);
+  }
 
-    document.querySelectorAll('input[type="range"]').forEach(range => {
-      range.addEventListener('input', generatePromptData);
-    });
+  if (savedData.personaIA && typeof savedData.personaIA === 'string') {
+    setRadioValue('persona', savedData.personaIA);
+  }
 
-    document.querySelector('.copy-button').addEventListener('click', () => {
+  const showChipsCheckbox = document.getElementById('show-chips');
+  if (savedData.showChips && showChipsCheckbox) {
+    showChipsCheckbox.checked = true;
+    showChipsCheckbox.dispatchEvent(new Event('change'));
+  }
+
+  const elems = document.querySelectorAll('.chips-placeholder');
+  const chipsData = (savedData.palavrasChave || []).map(word => ({ tag: word }));
+
+  instance = M.Chips.init(elems, {
+    placeholder: 'Digite palavras-chave e pressione Enter',
+    secondaryPlaceholder: '+Palavra',
+    data: chipsData
+  });
+
+  generatePromptData();
+}
+
+/*
+  Adiciona event listeners para todos os campos do formulário
+*/
+function addEventListeners() {
+  document.querySelectorAll('select').forEach(select => {
+    select.addEventListener('change', () => {
+      saveDataToLocalStorage();
       generatePromptData();
     });
+  });
+
+  document.querySelectorAll('input[type="text"]').forEach(text => {
+    text.addEventListener('input', () => {
+      saveDataToLocalStorage();
+      generatePromptData();
+    });
+  });
+
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      saveDataToLocalStorage();
+      generatePromptData();
+    });
+  });
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      saveDataToLocalStorage();
+      generatePromptData();
+    });
+  });
+
+  document.querySelectorAll('input[type="range"]').forEach(range => {
+    range.addEventListener('input', () => {
+      saveDataToLocalStorage();
+      generatePromptData();
+    });
+  });
+
+  const continueButton = document.querySelector('#continue');
+  if (continueButton) {
+    continueButton.addEventListener('click', () => {
+      const subjectField = document.getElementById('subject');
+      const subjectValue = subjectField ? subjectField.value.trim() : '';
+      if (subjectValue !== '') {
+        saveDataToLocalStorage();
+        window.location.href = 'index_prompt.html';
+      } else {
+        alert('O campo "Assunto a ser aprendido" não pode estar vazio.');
+      }
+    });
   }
 
-  // Inicializa os listeners quando o documento estiver pronto
-  document.addEventListener('DOMContentLoaded', addEventListeners);
+  const copyButton = document.querySelector('.copy-button');
+  if (copyButton) {
+    copyButton.addEventListener('click', () => {
+      const promptText = document.querySelector(".prompt-generator").innerText;
+      navigator.clipboard.writeText(promptText).then(() => {
+        window_modal.style.display = STYLES.display_block;
+      }).catch(err => {
+        alert("Falha ao copiar texto: " + err);
+      });
+    });
+  }
+
+  const close_modal_span = document.querySelector('.close');
+  if (close_modal_span) {
+    close_modal_span.onclick = function () {
+      window_modal.style.display = STYLES.display_none;
+    }
+  }
+
+  const window_modal = document.getElementById(SELECTORS.modal);
+  window.onclick = function (event) {
+    if (event.target == window_modal) {
+      window_modal.style.display = STYLES.display_none;
+    }
+  }
+}
+
+/**
+ * Função principal para inicialização
+ */
+function init() {
+  loadFormData();
+  addEventListeners();
+}
