@@ -18,7 +18,7 @@ body {
 
 main {
     flex-wrap: wrap;
-    overflow: auto;
+    overflow: hidden;
 }
 
 main section.homepage {
@@ -122,25 +122,98 @@ main section#about div.about_text p {
 }
 
 footer {
-    flex: 1 1 100vw;
+    width: 100vw;
+    background-color: #01173C;
+    padding: 100px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #01173C;
-    padding: 100px;
 }
 
-footer hr {
-    margin: 2rem;
-    height: 80px;
+footer .footer-bottom {
+    margin-top: 2rem; 
+    color: #F1F1FA; 
+    text-align: center;
 }
 
-footer div > p, h4 {
+footer .footer-bottom span {
+    font-size: 1.5rem;
+}
+
+footer .itens {
+    display: grid;
+    grid-template-columns: 0.6fr 0.75fr 1fr 0.8fr;
+    gap: 1rem;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 100px 1rem;
+}
+
+ h4 {
+    padding: 1rem;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+footer .sep {
+    border-right: 1px solid #F1F1FA; /* Separador vertical direito */
+}
+
+footer .item {
+    padding: 1rem;
+}
+
+footer div > p, div.item h4 {
+    font-size: 1rem;
     color: #F1F1FA;
-    font-size: 0.9rem;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn-flat {
+    margin: 0 10px;
+}
+
+/* Personaliza o modal */
+.modal {
+    max-width: 520px;
+}
+
+.modal .modal-content {
+    text-align: center;
+    padding: 30px 24px 10px !important;
+}
+
+.modal .modal-footer {
+    padding-bottom: 70px !important;
+}
+
+.modal-content h4 {
+    color: #0F2A5B;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.modal-header {
+    background-color: #01173C;
+}
+
+.modal-footer .btn-flat {
+    color: #01173C;
+}
+
+.modal-footer .btn-flat:hover {
+    background-color: #e3f2fd;
 }
 
 @media only screen and (max-width: 1300px) {
-    
+
     main section.homepage {
         justify-content: center;
     }
@@ -165,17 +238,17 @@ footer div > p, h4 {
         text-align: center;
     }
 
-    footer {
-        flex-wrap: wrap;  
+    footer .itens {
+        text-align: center;
+        grid-template-columns: 1fr;
+        padding: 60px 0 20px 0;
     }
 
-    footer div {
-        width: 80vw;
+    footer .sep {
+        border-right: none;
     }
 
-    footer hr {
-        margin: 0;
-        height: 50px;
-        opacity: 0;
+    h4 {
+        padding: 0;
     }
 }

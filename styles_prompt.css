@@ -45,6 +45,11 @@ span.dropdown:hover div.dropdown-content {
     opacity: 1;
 }
 
+nav span.dropdown .dropdown-content {
+    line-height: 50px !important;
+}
+
+
 body div.container {
     font-family: 'Roboto Mono', monospace !important;
     display: flex;
@@ -520,10 +525,6 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 @media only screen and (max-width: 1300px) {
-
-    nav span.dropdown .dropdown-content {
-        line-height: 50px !important;
-    }
 
     html {
         font-size: initial;

@@ -1,31 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Inicializa os modais
+  const elems = document.querySelectorAll('.modal');
+  M.Modal.init(elems);
+
   // Inicializa os event listeners e outras funcionalidades
   init();
 
-  // Adiciona o evento de click para o botão "Gerar Prompt"
-  const generatePromptButton = document.getElementById('btn');
-  if (generatePromptButton) {
-    generatePromptButton.addEventListener('click', function (event) {
-      const formData = localStorage.getItem('formData');
-      
-      if (formData) {
-        // Se há dados no localStorage, mostra o prompt
-        const userResponse = confirm("Você deseja continuar para a página de prompt?");
-        
-        if (userResponse) {
-          // Se o usuário clicar em "Sim", redireciona para index_prompt.html
-          window.location.href = 'index_prompt.html';
-        } else {
-          // Se o usuário clicar em "Não", limpa o localStorage e redireciona para index_assunto.html
-          localStorage.removeItem('formData');
-          window.location.href = 'index_assunto.html';
-        }
-      } else {
-        // Se não há dados no localStorage, redireciona diretamente para index_assunto.html
-        window.location.href = 'index_assunto.html';
-      }
-    });
-  }
+  // Adiciona o evento de click para todos os botões com a classe "gerar-prompt"
+  const generatePromptButtons = document.querySelectorAll('.gerar-prompt');
+
+  generatePromptButtons.forEach(button => {
+      button.addEventListener('click', function (event) {
+          const formData = localStorage.getItem('formData');
+          
+          if (formData) {
+              // Se há dados no localStorage, mostra o modal
+              const modal = M.Modal.getInstance(document.getElementById('customModal'));
+              modal.open();
+
+              // Adiciona eventos aos botões dentro do modal
+              document.getElementById('modalYes').addEventListener('click', function () {
+                  window.location.href = 'index_prompt.html';
+              });
+
+              document.getElementById('modalNo').addEventListener('click', function () {
+                  localStorage.removeItem('formData');
+                  window.location.href = 'index_assunto.html';
+              });
+          } else {
+              // Se não há dados no localStorage, redireciona diretamente para index_assunto.html
+              window.location.href = 'index_assunto.html';
+          }
+      });
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -233,11 +240,13 @@ function loadFormData() {
   const elems = document.querySelectorAll('.chips-placeholder');
   const chipsData = (savedData.palavrasChave || []).map(word => ({ tag: word }));
 
-  instance = M.Chips.init(elems, {
-    placeholder: 'Digite palavras-chave e pressione Enter',
-    secondaryPlaceholder: '+Palavra',
-    data: chipsData
-  });
+  if (elems && chipsData) {
+    instance = M.Chips.init(elems, {
+      placeholder: 'Digite palavras-chave e pressione Enter',
+      secondaryPlaceholder: '+Palavra',
+      data: chipsData
+    });
+  }
 
   generatePromptData();
 }

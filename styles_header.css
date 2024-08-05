@@ -24,7 +24,9 @@ html body header#my_header, nav#menu {
     font-family: 'Roboto Mono', monospace;
     background-color: initial;
     box-shadow: initial;
-    
+    height: initial;
+    line-height: 30px;
+    font-size: 1rem;
 }
 
 html body header#my_header {

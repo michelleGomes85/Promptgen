@@ -12,6 +12,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
     <title>PromptGen</title>
 </head>
 
@@ -32,7 +34,7 @@
             <a href="#about" class="menu_link">Sobre</a>
             <a href="#contacts" class="menu_link">Contatos</a>
             
-            <a href="index_assunto.html"><button id="btn" class="btn_style">Gerar Prompt</button></a>
+            <button id="btn" class="btn_style gerar-prompt">Gerar Prompt</button>
         </nav><!--nav-menu-->
 
     </header><!--header-->
@@ -45,7 +47,7 @@
 
                 <p id="description_site"></p>
 
-                <a href="index_assunto.html"><button id="btn">Gerar Prompt</button></a>
+                <button class="gerar-prompt" id="btn">Gerar Prompt</button>
             </div><!--div-description-->
 
             <div class="image">
@@ -100,39 +102,55 @@
         
     </main><!--main-->
 
-    <footer id="contacts" class="section">
-
-        <div>
-            <h4>Desenvolvedores:</h4>
-        </div>
-
-        <hr>
+    
+    <div id="customModal" class="modal">
         
-        <div>
-            <p>Diogenes Carvalho Viana</p>
-            <p>diogenesfinom@gmail.com</p>
+        <div class="modal-content">
+            <h4>Confirmar Ação</h4>
+            <p>Detectamos que há um prompt preenchido anteriormente. Você gostaria de continuar com ele?</p>
         </div>
 
-        <hr>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalNo">Não</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalYes">Sim</a>
+        </div>
+    </div>
 
-        <div>
-            <p>Eloiza Azevedo Marcondes de Souza</p>
-            <p>eloizatsi@gmail.com</p>
+    <footer id="contacts" class="section">
+        
+        <div class="itens">
+            <div class="item sep">
+                <h4>Desenvolvedores</h4>
+            </div>
+            
+            <div class="item sep">
+                <p>Diogenes Carvalho Viana</p>
+                <p>diogenesfinom@gmail.com</p>
+            </div>
+    
+            <div class="item sep">
+                <p>Eloiza Azevedo Marcondes de Souza</p>
+                <p>eloizatsi@gmail.com</p>
+            </div>
+    
+            <div class="item">
+                <p>Michelle Cristina Gomes</p>
+                <p>gmichele498@gmail.com</p>
+            </div>
         </div>
 
-        <hr>
-
-        <div>
-            <p>Michelle Cristina Gomes</p>
-            <p>gmichele498@gmail.com</p>
+        <div class="footer-bottom">
+            <p><span>&copy;</span> 2024 PromptGen. Todos os direitos reservados.</p>
         </div>
 
-        <hr>
     </footer><!--contato-->
 
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="js_header.js"></script>
     <script src="js_homePage.js"></script>
+    <script src="js_generate_prompt.js"></script>
 </body>
 
 </html>
