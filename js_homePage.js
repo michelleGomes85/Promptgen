@@ -50,15 +50,15 @@ window.addEventListener('scroll', function () {
     var about_top = about.offsetTop;
     var contacts_top = contacts.offsetTop;
 
-    if (scroll_top >= (start_top - 500))
+    if (scroll_top >= (start_top))
         active_link(0);
 
-    if (scroll_top - 10 >= (how_it_works_top - 500))
+    if (scroll_top >= (how_it_works_top))
         active_link(1);
 
-    if (scroll_top >= (about_top - 500))
+    if (scroll_top >= (about_top - 10))
         active_link(2);
 
-    if (scroll_top >= (contacts_top - 500))
+    if (scroll_top >= (contacts_top))
         active_link(3);
 })

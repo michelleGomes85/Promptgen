@@ -184,6 +184,8 @@ footer div > p, div.item h4 {
 /* Personaliza o modal */
 .modal {
     max-width: 520px;
+    border: 3px solid #000;
+    border-radius: 2% !important;
 }
 
 .modal .modal-content {
@@ -196,7 +198,16 @@ footer div > p, div.item h4 {
 }
 
 .modal-content h4 {
+    font-weight: 550;
     color: #0F2A5B;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 0.1rem;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 1rem;
+
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -205,11 +216,27 @@ footer div > p, div.item h4 {
 }
 
 .modal-footer .btn-flat {
-    color: #01173C;
+    color: #fff;
+    font-weight: bold;
+    background-color: #01173C;
+    border-radius: 5%;
+}
+
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
+    margin: 0 10px !important;
+}
+
+.btn, .btn-large, .btn-small, .btn-flat {
+    text-transform: none !important;
+}
+
+.modal-footer {
+    margin-top: 10px;
 }
 
 .modal-footer .btn-flat:hover {
     background-color: #e3f2fd;
+    color: #01173C;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -250,5 +277,9 @@ footer div > p, div.item h4 {
 
     h4 {
         padding: 0;
+    }
+
+    .modal-content h4 {
+        margin-bottom: 1rem;
     }
 }
