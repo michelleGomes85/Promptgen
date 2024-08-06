@@ -31,7 +31,7 @@ const SELECTORS = {
     material_icons: '.material-icons',
     answers_yes: "answers_yes",
     modal: "my_modal",
-    close: 'close',
+    close_modal: '.close-modal',
 
     appearPrompt: '.show_prompt',
     disappear: '.hide_prompt',

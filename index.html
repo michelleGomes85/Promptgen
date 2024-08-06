@@ -28,13 +28,13 @@
         <button id="open_menu">&#9776;</button>
 
         <nav id="menu">
-            <button id="close_menu">&times;</button>
-            <a href="#" class="menu_link active">Início</a>
-            <a href="#how_it_works" class="menu_link">Como funciona?</a>
-            <a href="#about" class="menu_link">Sobre</a>
-            <a href="#contacts" class="menu_link">Contatos</a>
+            <a id="close_menu">&times;</a>
+            <a class="menu_button active" data-target="#start">Início</a>
+            <a class="menu_button" data-target="#how_it_works">Como funciona?</a>
+            <a class="menu_button" data-target="#about">Sobre</a>
+            <a class="menu_button" data-target="#contacts">Contatos</a>
             
-            <button id="btn" class="btn_style gerar-prompt">Gerar Prompt</button>
+            <a><button id="btn" class="btn_style gerar-prompt">Gerar Prompt</button></a>
         </nav><!--nav-menu-->
 
     </header><!--header-->
@@ -92,29 +92,27 @@
             <div class="about_text">
                 <p>
                     O PromptGen é uma ferramenta desenvolvida como parte da disciplina de Programação Visual, do curso
-                    de Sistemas para Internet.
-                    Seu objetivo é simplificar a geração de prompts e auxiliar no aprendizado de variados assuntos. Os
+                    de Sistemas para Internet, no Instituto Federal do Sudeste de Minas Gerais. Seu objetivo é simplificar a geração de prompts e auxiliar no aprendizado de variados assuntos. Os
                     usuários podem criar perguntas e instruções para impulsionar seu aprendizado. Os
                     prompts gerados podem ser utilizados em inteligências artificiais para explorar temas de interesse.
                 </p>
             </div><!--class-sobre-texto-->
         </section><!--id-sobre-->
+
+        <div id="customModal" class="modal">
+        
+            <div class="modal-content">
+                <h4>Confirmar Ação</h4>
+                <p>Detectamos que há um prompt preenchido anteriormente. Você gostaria de continuar com ele?</p>
+            </div>
+    
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalNo">Não</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalYes">Sim</a>
+            </div>
+        </div><!--customModal-->
         
     </main><!--main-->
-
-    
-    <div id="customModal" class="modal">
-        
-        <div class="modal-content">
-            <h4>Confirmar Ação</h4>
-            <p>Detectamos que há um prompt preenchido anteriormente. Você gostaria de continuar com ele?</p>
-        </div>
-
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalNo">Não</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalYes">Sim</a>
-        </div>
-    </div>
 
     <footer id="contacts" class="section">
         

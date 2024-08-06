@@ -99,26 +99,30 @@ main.main {
     flex: 1;
     padding: 20px;
     justify-content: center;
+    width: 100%;
 }
 
-main .main_column1 {
-    flex: 1;
-    padding: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    max-width: 650px;
-    font-size: 1rem;
-}
-
+main .main_column1,
 main .main_column2 {
     flex: 1;
     padding: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+main .main_column1 .form {
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40vw;
 }
 
 div.progress-bar div.steps {
@@ -253,6 +257,7 @@ button.copy-button:hover {
 /*Materialize*/
 .input-field {
     width: 70%;
+    max-width: 450px;
 }
 
 .input-field.col label {
@@ -427,15 +432,16 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 .show_prompt {
-    color: #000;
     display: none;
+    color: #000;
     position: absolute;
-    top: 40px;
-    right: 10px;
+    top: 50px;
+    right: 50px;
     cursor: pointer;
 }
 
 /* Estilos para a janela modal */
+
 .modal {
     font-family: 'Roboto Mono', monospace !important;
     display: none;
@@ -448,10 +454,10 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     max-height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Adiciona um desfoque ao fundo */
+    backdrop-filter: blur(5px);
 }
 
-.keyboard-focused  {
+.keyboard-focused {
     height: 100vh;
 }
 
@@ -503,7 +509,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 /* Botao para fechar a janela modal */
-.close {
+.close-modal {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -511,20 +517,41 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
+.close-modal:hover,
+.close-modal:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
-    div.progress-bar {
-        display: none !important;
+/* Define o estilo da classe de erro */
+.err, 
+.err:focus,
+.err:active,
+.err:focus-visible,
+.err:focus-within  {
+    border-color: red !important;
+    box-shadow:none !important;
+}
+
+/* Estilo específico para o label */
+.err-label, .hint {
+    color: red !important;
+}
+
+.hint {
+    display: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1500px) {
+
+    main .main_column1 .form {
+        width: 50vw;
     }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 900px) {
 
     html {
         font-size: initial;
@@ -541,5 +568,15 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
     .show_prompt {
         display: block;
+    }
+
+    main .main_column1 .form {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    div.progress-bar {
+        display: none !important;
     }
 }

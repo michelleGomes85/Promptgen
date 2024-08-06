@@ -1,72 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Inicializa os modais
-  const elems = document.querySelectorAll('.modal');
-  M.Modal.init(elems);
-
-  // Inicializa os event listeners e outras funcionalidades
-  init();
-
-  // Adiciona o evento de click para todos os botões com a classe "gerar-prompt"
-  const generatePromptButtons = document.querySelectorAll('.gerar-prompt');
-
-  generatePromptButtons.forEach(button => {
-      button.addEventListener('click', function (event) {
-          const formData = localStorage.getItem('formData');
-          
-          if (formData) {
-              // Se há dados no localStorage, mostra o modal
-              const modal = M.Modal.getInstance(document.getElementById('customModal'));
-              modal.open();
-
-              // Adiciona eventos aos botões dentro do modal
-              document.getElementById('modalYes').addEventListener('click', function () {
-                  window.location.href = 'index_prompt.html';
-              });
-
-              document.getElementById('modalNo').addEventListener('click', function () {
-                  localStorage.removeItem('formData');
-                  window.location.href = 'index_assunto.html';
-              });
-          } else {
-              // Se não há dados no localStorage, redireciona diretamente para index_assunto.html
-              window.location.href = 'index_assunto.html';
-          }
-      });
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Evento para mostrar campo para digitar palavras chave
-  const switchElement = document.getElementById('show-chips');
-  if (switchElement) {
-    switchElement.addEventListener('change', function () {
-      const chipsContainer = document.querySelector('.chips');
-      if (chipsContainer) {
-        chipsContainer.style.display = this.checked ? 'block' : 'none';
-      }
-    });
-  }
-
-  // Adiciona o evento de mudança para os radios de persona
-  var radios = document.querySelectorAll('input[name="persona"]');
-  var historicalCharacterField = document.getElementById('historical-character-field');
-
-  radios.forEach(function (radio) {
-    radio.addEventListener('change', function () {
-      historicalCharacterField.style.display = this.value === '3' && this.checked ? 'block' : 'none';
-    });
-  });
-
-  init();
-});
-
 let typed = null;
 
-/*
-  Atualiza o efeito de digitação do texto no elemento especificado
-*/
-function updateTypingEffect(text) {
+/**
+ * Atualiza o efeito de digitação do texto no elemento especificado.
+ * @param {string} text - O texto a ser exibido com o efeito de digitação.
+ */
+async function updateTypingEffect(text) {
+
   const promptElement = document.querySelector(".prompt-generator");
 
   if (typed) {
@@ -86,10 +25,88 @@ function updateTypingEffect(text) {
   }
 }
 
-/*
-  Salva os dados do formulário no localStorage
-*/
-function saveDataToLocalStorage() {
+document.addEventListener('DOMContentLoaded', function () {
+
+  initializeModals();
+  setupEventListeners();
+  init(); // Inicializa os event listeners e outras funcionalidades
+});
+
+/**
+ * Inicializa os modais.
+ */
+function initializeModals() {
+  const elems = document.querySelectorAll('.modal');
+  M.Modal.init(elems);
+}
+
+/**
+ * Configura os event listeners.
+ */
+function setupEventListeners() {
+  const generatePromptButtons = document.querySelectorAll('.gerar-prompt');
+  generatePromptButtons.forEach(button => {
+    button.addEventListener('click', handleGeneratePromptClick);
+  });
+
+  const switchElement = document.getElementById('show-chips');
+  if (switchElement) {
+    switchElement.addEventListener('change', toggleChipsContainer);
+  }
+
+  const radios = document.querySelectorAll('input[name="persona"]');
+  radios.forEach(radio => {
+    radio.addEventListener('change', toggleHistoricalCharacterField);
+  });
+}
+
+/**
+ * Lida com o click do botão "gerar-prompt".
+ */
+async function handleGeneratePromptClick() {
+
+  const formData = localStorage.getItem('formData');
+
+  if (formData) {
+    const modal = M.Modal.getInstance(document.getElementById('customModal'));
+    modal.open();
+
+    document.getElementById('modalYes').addEventListener('click', () => {
+      window.location.href = 'index_prompt.html';
+    });
+
+    document.getElementById('modalNo').addEventListener('click', () => {
+      localStorage.removeItem('formData');
+      window.location.href = 'index_assunto.html';
+    });
+  } else {
+    window.location.href = 'index_assunto.html';
+  }
+}
+
+/**
+ * Alterna a visibilidade do container de chips com base no estado do checkbox.
+ */
+function toggleChipsContainer() {
+  const chipsContainer = document.querySelector('.chips');
+  if (chipsContainer) {
+    chipsContainer.style.display = this.checked ? 'block' : 'none';
+  }
+}
+
+/**
+ * Alterna a exibição do campo de personagem histórico com base na seleção do rádio.
+ */
+function toggleHistoricalCharacterField() {
+  const historicalCharacterField = document.getElementById('historical-character-field');
+  historicalCharacterField.style.display = this.value === '3' && this.checked ? 'block' : 'none';
+}
+
+/**
+ * Salva os dados do formulário no localStorage.
+ */
+async function saveDataToLocalStorage() {
+
   const values = {
     assunto: document.getElementById('subject')?.value || '',
     nivelConhecimento: document.getElementById('nivel-conhecimento')?.value || '',
@@ -105,13 +122,13 @@ function saveDataToLocalStorage() {
     preferenciaFonte: document.getElementById('fonte-resposta')?.value || '',
     showChips: document.getElementById('show-chips')?.checked || false,
     palavrasChave: document.getElementById('show-chips')?.checked
-        ? Array.from(document.querySelectorAll('.chips .chip')).map(chip =>
-            Array.from(chip.childNodes)
-              .filter(node => node.nodeType === Node.TEXT_NODE)
-              .map(node => node.textContent.trim())
-              .join(' ')
-        )
-        : []
+      ? Array.from(document.querySelectorAll('.chips .chip')).map(chip =>
+        Array.from(chip.childNodes)
+          .filter(node => node.nodeType === Node.TEXT_NODE)
+          .map(node => node.textContent.trim())
+          .join(' ')
+      )
+      : []
   };
 
   const savedData = JSON.parse(localStorage.getItem('formData')) || {};
@@ -125,10 +142,10 @@ function saveDataToLocalStorage() {
   localStorage.setItem('formData', JSON.stringify(savedData));
 }
 
-/*
-  Gera o texto do prompt com base nos dados salvos e atualiza o efeito de digitação
-*/
-function generatePromptData() {
+/**
+ * Gera o texto do prompt com base nos dados salvos e atualiza o efeito de digitação.
+ */
+async function generatePromptData() {
   const savedData = JSON.parse(localStorage.getItem('formData')) || {};
 
   const values = {
@@ -162,13 +179,15 @@ function generatePromptData() {
     }
   });
 
-  updateTypingEffect(text.trim());
+  await updateTypingEffect(text.trim());
 }
 
-/*
-  Define o valor de um elemento <select>
-*/
-function setSelectValue(selectId, savedValue) {
+/**
+ * Define o valor de um elemento <select>.
+ * @param {string} selectId - O ID do elemento <select>.
+ * @param {string} savedValue - O valor a ser definido.
+ */
+async function setSelectValue(selectId, savedValue) {
   const selectElement = document.getElementById(selectId);
   if (selectElement) {
     selectElement.value = savedValue || selectElement.querySelector('option').value;
@@ -177,9 +196,11 @@ function setSelectValue(selectId, savedValue) {
 }
 
 /**
- * Define o valor de um <Radio> 
+ * Define o valor de um <Radio>.
+ * @param {string} name - O nome do grupo de rádio.
+ * @param {string} value - O valor do rádio a ser selecionado.
  */
-const setRadioValue = (name, value) => {
+async function setRadioValue(name, value) {
   const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
   if (radio) {
     radio.checked = true;
@@ -190,7 +211,8 @@ const setRadioValue = (name, value) => {
 /*
   Carrega os dados do localStorage e atualiza os campos do formulário
 */
-function loadFormData() {
+async function loadFormData() {
+
   const savedData = JSON.parse(localStorage.getItem('formData')) || {};
 
   setSelectValue('nivel-conhecimento', savedData.nivelConhecimento);
@@ -255,6 +277,7 @@ function loadFormData() {
   Adiciona event listeners para todos os campos do formulário
 */
 function addEventListeners() {
+
   document.querySelectorAll('select').forEach(select => {
     select.addEventListener('change', () => {
       saveDataToLocalStorage();
@@ -267,6 +290,27 @@ function addEventListeners() {
       saveDataToLocalStorage();
       generatePromptData();
     });
+  });
+
+  const input = document.querySelector('.input');
+  if (input) {
+    input.addEventListener('keydown', (event) => {
+
+      if (event.key === 'Enter') {
+
+        saveDataToLocalStorage();
+        generatePromptData();
+      }
+    });
+  }
+
+  document.addEventListener('click', function (event) {
+    if (event.target && event.target.classList.contains('close')) {
+
+      event.target.parentElement.remove();
+      saveDataToLocalStorage();
+      generatePromptData();
+    }
   });
 
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
@@ -294,15 +338,27 @@ function addEventListeners() {
   if (continueButton) {
     continueButton.addEventListener('click', () => {
       const subjectField = document.getElementById('subject');
+      const subjectLabel = document.querySelector('.subject');
+      const err = document.querySelector('.hint');
       const subjectValue = subjectField ? subjectField.value.trim() : '';
+  
+      // Remove classes de erro se o campo não estiver vazio
+      subjectField.classList.remove('err');
+      subjectLabel.classList.remove('err-label');
+  
       if (subjectValue !== '') {
         saveDataToLocalStorage();
         window.location.href = 'index_prompt.html';
       } else {
-        alert('O campo "Assunto a ser aprendido" não pode estar vazio.');
+        subjectField.focus();
+        // Adiciona classes de erro se o campo estiver vazio
+        subjectField.classList.add('err');
+        subjectLabel.classList.add('err-label');
+        err.style.display = 'block';
       }
     });
   }
+  
 
   const copyButton = document.querySelector('.copy-button');
   if (copyButton) {
@@ -316,7 +372,7 @@ function addEventListeners() {
     });
   }
 
-  const close_modal_span = document.querySelector('.close');
+  const close_modal_span = document.querySelector(SELECTORS.close_modal);
   if (close_modal_span) {
     close_modal_span.onclick = function () {
       window_modal.style.display = STYLES.display_none;
@@ -334,7 +390,7 @@ function addEventListeners() {
 /**
  * Função principal para inicialização
  */
-function init() {
+async function init() {
   loadFormData();
   addEventListeners();
 }

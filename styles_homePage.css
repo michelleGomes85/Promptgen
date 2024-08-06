@@ -1,11 +1,12 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-main, footer, body {
+main,
+footer,
+body {
     display: flex;
 }
 
@@ -19,6 +20,7 @@ body {
 main {
     flex-wrap: wrap;
     overflow: hidden;
+    position: relative;
 }
 
 main section.homepage {
@@ -33,7 +35,8 @@ main section.homepage {
 main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2.5vw;
+    margin-top: 0;
     line-height: 1.5;
     color: #1D1051;
 }
@@ -45,11 +48,11 @@ main section.homepage .description {
 }
 
 #description_site {
-    height: 18vh;
+    height: 6vw;
 }
 
 main section.homepage .description p {
-    font-size: 1rem;
+    font-size: 1vw;
     margin-top: 1vw;
     line-height: 1.5;
 }
@@ -57,23 +60,23 @@ main section.homepage .description p {
 main section.homepage .description button#btn {
     background: #0F2A5B;
     border: 1px solid #0F2A5B;
-	color: #fff;
-	cursor: pointer;
+    color: #fff;
+    cursor: pointer;
     border-radius: 5px;
     padding: 15px 30px;
-    font-size: 1rem;
-} 
+    font-size: 0.9vw;
+}
 
-main section.homepage .description button#btn:hover  {
-	background-color: rgba(219, 230, 228, 0.5);
+main section.homepage .description button#btn:hover {
+    background-color: rgba(219, 230, 228, 0.5);
     color: #000;
-} 
+}
 
 main section.homepage .image img {
-   position: absolute;
-   bottom: 0;
-   right: 0;
-   width: 40vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40vw;
 }
 
 main section#how_it_works {
@@ -92,11 +95,11 @@ main section#how_it_works div {
 
 main section#how_it_works div h3 {
     margin-bottom: 10px;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 main section#how_it_works div p {
-    font-size: 0.9rem;
+    font-size: 0.9vw;
 }
 
 main section#how_it_works span img {
@@ -110,7 +113,7 @@ main section#about {
     padding: 100px 0;
 }
 
-main section#about div.about_text{
+main section#about div.about_text {
     text-align: center;
     width: 80%;
     margin: 0 auto;
@@ -118,7 +121,7 @@ main section#about div.about_text{
 
 main section#about div.about_text p {
     line-height: 2;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 footer {
@@ -133,8 +136,8 @@ footer {
 }
 
 footer .footer-bottom {
-    margin-top: 2rem; 
-    color: #F1F1FA; 
+    margin-top: 2rem;
+    color: #F1F1FA;
     text-align: center;
 }
 
@@ -151,21 +154,23 @@ footer .itens {
     padding: 100px 1rem;
 }
 
- h4 {
+h4 {
     padding: 1rem;
     line-height: 50px;
     font-weight: bold;
 }
 
 footer .sep {
-    border-right: 1px solid #F1F1FA; /* Separador vertical direito */
+    border-right: 1px solid #F1F1FA;
+    /* Separador vertical direito */
 }
 
 footer .item {
     padding: 1rem;
 }
 
-footer div > p, div.item h4 {
+footer div>p,
+div.item h4 {
     font-size: 1rem;
     color: #F1F1FA;
     font-family: 'Roboto Mono', monospace;
@@ -183,9 +188,10 @@ footer div > p, div.item h4 {
 
 /* Personaliza o modal */
 .modal {
+    font-family: 'Roboto Mono', monospace !important;
     max-width: 520px;
-    border: 3px solid #000;
     border-radius: 2% !important;
+    top: 30% !important;
 }
 
 .modal .modal-content {
@@ -205,10 +211,7 @@ footer div > p, div.item h4 {
 }
 
 .modal-content p {
-    font-weight: bold;
     font-size: 1rem;
-
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .modal-header {
@@ -217,16 +220,21 @@ footer div > p, div.item h4 {
 
 .modal-footer .btn-flat {
     color: #fff;
-    font-weight: bold;
-    background-color: #01173C;
+    background-color: #0F2A5B;
     border-radius: 5%;
 }
 
-.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
+.modal .modal-footer .btn,
+.modal .modal-footer .btn-large,
+.modal .modal-footer .btn-small,
+.modal .modal-footer .btn-flat {
     margin: 0 10px !important;
 }
 
-.btn, .btn-large, .btn-small, .btn-flat {
+.btn,
+.btn-large,
+.btn-small,
+.btn-flat {
     text-transform: none !important;
 }
 
@@ -239,7 +247,38 @@ footer div > p, div.item h4 {
     color: #01173C;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1500px) {
+
+    main section.homepage .description h1 {
+        font-size: 2.5rem;
+    }
+
+    main section.homepage .description p {
+        font-size: 1.2rem;
+    }
+
+    #description_site {
+        height: 7.5rem;
+    }
+
+    main section#how_it_works div p {
+        font-size: 1rem;
+    }
+
+    main section#how_it_works div h3 {
+        font-size: 1.2rem;
+    }
+
+    main section#about div.about_text p {
+        font-size: 1.2rem;
+    }
+
+    main section.homepage .description button#btn {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
 
     main section.homepage {
         justify-content: center;

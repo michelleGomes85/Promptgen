@@ -29,15 +29,31 @@ document.addEventListener('DOMContentLoaded', function () {
     new Typed('#description_site', options);
 });
 
-/**
- * Adiciona um evento de scroll à tela.
- * 
- * Atualiza o link do header que está ativo conforme a sessão visível na tela.
- * A função `ativarLink()` responsável por essa funcionalidade está definida 
- * no arquivo jsHeader.js.
- */
-window.addEventListener('scroll', function () {
+// Função para ativar o link correspondente com base no índice
+function active_link(index) {
+    var buttons = document.querySelectorAll('.menu_button');
+    buttons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+    });
+}
 
+// Adiciona o comportamento de rolagem suave aos botões de navegação
+document.querySelectorAll('.menu_button').forEach(button => {
+    button.addEventListener('click', function() {
+        var targetId = this.getAttribute('data-target');
+        var targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Adiciona o evento de rolagem para ativar o botão correspondente
+window.addEventListener('scroll', function() {
     var start = document.getElementById(SELECTORS.start);
     var how_it_works = document.getElementById(SELECTORS.how_it_works);
     var about = document.getElementById(SELECTORS.about);
@@ -50,15 +66,19 @@ window.addEventListener('scroll', function () {
     var about_top = about.offsetTop;
     var contacts_top = contacts.offsetTop;
 
-    if (scroll_top >= (start_top))
+    if (scroll_top >= (start_top)) {
         active_link(0);
+    }
 
-    if (scroll_top >= (how_it_works_top))
+    if (scroll_top >= (how_it_works_top - 100)) {
         active_link(1);
+    }
 
-    if (scroll_top >= (about_top - 10))
+    if (scroll_top >= (about_top - 100)) {
         active_link(2);
+    }
 
-    if (scroll_top >= (contacts_top))
+    if (scroll_top >= (contacts_top - 300)) {
         active_link(3);
-})
+    }
+});

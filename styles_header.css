@@ -111,15 +111,20 @@ html body header#my_header .btn_style:hover  {
 #open_menu, #close_menu {
     border: none;
     background: none;
-    font-size: 30px;
+    font-size: 2rem !important;
     font-weight: bold;
     padding: 0 10px;
     cursor: pointer;
     display: none;
 }
 
+
 .typed-cursor {
     display: none;
+}
+
+.menu_button {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 900px) {
