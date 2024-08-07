@@ -413,6 +413,16 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     width: 100% !important;
 }
 
+.btn, .btn-large, .btn-small {
+    background-color: #01173c;
+    text-transform: none;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus,
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #0F2A5B;   
+}
+
 .prompt {
     position: relative;
     background-color: #fff;
@@ -438,6 +448,18 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     top: 50px;
     right: 50px;
     cursor: pointer;
+}
+
+.prompt-generator {
+    margin-right: 35px;
+}
+
+.prompt-generator ul {
+    margin-top: 10px;
+}
+
+.prompt-generator li {
+    margin-left: 20px;
 }
 
 /* Estilos para a janela modal */

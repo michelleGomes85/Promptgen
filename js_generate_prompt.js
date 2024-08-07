@@ -1,3 +1,27 @@
+/**
+ * Lida com o click do botão "gerar-prompt".
+ */
+async function handleGeneratePromptClick() {
+
+  const formData = localStorage.getItem('formData');
+
+  if (formData) {
+    const modal = M.Modal.getInstance(document.getElementById('customModal'));
+    modal.open();
+
+    document.getElementById('modalYes').addEventListener('click', () => {
+      window.location.href = 'index_prompt.html';
+    });
+
+    document.getElementById('modalNo').addEventListener('click', () => {
+      localStorage.removeItem('formData');
+      window.location.href = 'index_assunto.html';
+    });
+  } else {
+    window.location.href = 'index_assunto.html';
+  }
+}
+
 let typed = null;
 
 /**
@@ -15,12 +39,12 @@ async function updateTypingEffect(text) {
   if (promptElement) {
     typed = new Typed(promptElement, {
       strings: [text],
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 10,
+      backSpeed: 500,
       backDelay: 1000,
-      startDelay: 500,
+      startDelay: 0,
       loop: false,
-      showCursor: false
+      showCursor: true
     });
   }
 }
@@ -58,30 +82,6 @@ function setupEventListeners() {
   radios.forEach(radio => {
     radio.addEventListener('change', toggleHistoricalCharacterField);
   });
-}
-
-/**
- * Lida com o click do botão "gerar-prompt".
- */
-async function handleGeneratePromptClick() {
-
-  const formData = localStorage.getItem('formData');
-
-  if (formData) {
-    const modal = M.Modal.getInstance(document.getElementById('customModal'));
-    modal.open();
-
-    document.getElementById('modalYes').addEventListener('click', () => {
-      window.location.href = 'index_prompt.html';
-    });
-
-    document.getElementById('modalNo').addEventListener('click', () => {
-      localStorage.removeItem('formData');
-      window.location.href = 'index_assunto.html';
-    });
-  } else {
-    window.location.href = 'index_assunto.html';
-  }
 }
 
 /**
@@ -134,9 +134,11 @@ async function saveDataToLocalStorage() {
   const savedData = JSON.parse(localStorage.getItem('formData')) || {};
 
   Object.keys(values).forEach(key => {
-    if (values[key] !== "" && values[key] !== undefined) {
-      savedData[key] = values[key];
+    if (key === "assunto" && values[key] === '') {
+      if (savedData.hasOwnProperty(key))
+        return;
     }
+    savedData[key] = values[key];
   });
 
   localStorage.setItem('formData', JSON.stringify(savedData));
@@ -146,6 +148,7 @@ async function saveDataToLocalStorage() {
  * Gera o texto do prompt com base nos dados salvos e atualiza o efeito de digitação.
  */
 async function generatePromptData() {
+  
   const savedData = JSON.parse(localStorage.getItem('formData')) || {};
 
   const values = {
@@ -153,31 +156,18 @@ async function generatePromptData() {
     nivelConhecimento: savedData.nivelConhecimento || '',
     nivelEscolaridade: savedData.nivelEscolaridade || '',
     objetivoEstudo: savedData.objetivoEstudo || '',
-    horasDisponiveis: savedData.horasDisponiveis || '',
+    horasDisponiveis: (savedData.horasDisponiveis !== '0' && savedData.horasDisponiveis != null) ? savedData.horasDisponiveis : '',
     tempoDominio: savedData.tempoDominio || '',
     personaIA: savedData.personaIA || '',
-    personagemHistorico: savedData.personagemHistorico || '',
+    personagemHistorico: savedData.personagemHistorico || ' um personagem histórico relacionado ao assunto',
     tomConversa: savedData.tomConversa || '',
     formatoDaResposta: savedData.formatoDaResposta || '',
     pontosPrincipais: savedData.pontosPrincipais || '',
     preferenciaFonte: savedData.preferenciaFonte || '',
-    palavrasChave: savedData.palavrasChave || []
+    palavrasChave: savedData.palavrasChave || ''
   };
 
-  let text = '';
-  Object.keys(values).forEach(key => {
-    const value = values[key];
-
-    if (Array.isArray(value)) {
-      value.forEach(item => {
-        if (item !== "" && item !== "0" && item !== undefined) {
-          text += item + ' ';
-        }
-      });
-    } else if (value !== "" && value !== "0" && value !== undefined) {
-      text += value + ' ';
-    }
-  });
+  const text = await generatePromptText(values, promptParts);
 
   await updateTypingEffect(text.trim());
 }
@@ -341,11 +331,11 @@ function addEventListeners() {
       const subjectLabel = document.querySelector('.subject');
       const err = document.querySelector('.hint');
       const subjectValue = subjectField ? subjectField.value.trim() : '';
-  
+
       // Remove classes de erro se o campo não estiver vazio
       subjectField.classList.remove('err');
       subjectLabel.classList.remove('err-label');
-  
+
       if (subjectValue !== '') {
         saveDataToLocalStorage();
         window.location.href = 'index_prompt.html';
@@ -358,7 +348,7 @@ function addEventListeners() {
       }
     });
   }
-  
+
 
   const copyButton = document.querySelector('.copy-button');
   if (copyButton) {
