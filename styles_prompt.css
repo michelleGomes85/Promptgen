@@ -49,6 +49,10 @@ nav span.dropdown .dropdown-content {
     line-height: 50px !important;
 }
 
+.new-subject {
+    background-color: none;
+}
+
 
 body div.container {
     font-family: 'Roboto Mono', monospace !important;
@@ -132,6 +136,7 @@ div.progress-bar div.steps {
 }
 
 div.progress-bar {
+    position: relative;
     display: flex;
     padding: 5px;
     background-color: #fafafa;
@@ -179,6 +184,13 @@ div.progress-bar {
 
 .progress-bar .step.title-active::after {
     display: block;
+}
+
+.progress {
+    position: absolute;
+    background-color: #1D1051;
+    width: 1%;
+    padding: 3px
 }
 
 .step:hover {

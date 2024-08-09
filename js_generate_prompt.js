@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initializeModals();
   setupEventListeners();
-  init(); // Inicializa os event listeners e outras funcionalidades
+  init();
 });
 
 /**
@@ -82,6 +82,14 @@ function setupEventListeners() {
   radios.forEach(radio => {
     radio.addEventListener('change', toggleHistoricalCharacterField);
   });
+
+  const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+  
+  if (dropdownTriggers.length > 0) {
+    M.Dropdown.init(dropdownTriggers, {
+      // Configurações opcionais para o dropdown
+    });
+  }
 }
 
 /**
@@ -100,6 +108,22 @@ function toggleChipsContainer() {
 function toggleHistoricalCharacterField() {
   const historicalCharacterField = document.getElementById('historical-character-field');
   historicalCharacterField.style.display = this.value === '3' && this.checked ? 'block' : 'none';
+}
+
+/**
+ * Obtém os dados do localStorage.
+ * @returns {Object} Dados do formulário.
+ */
+function getFormData() {
+  return JSON.parse(localStorage.getItem('formData')) || {};
+}
+
+/**
+ * Salva os dados do formulário no localStorage.
+ * @param {Object} data - Dados a serem salvos.
+ */
+function saveFormData(data) {
+  localStorage.setItem('formData', JSON.stringify(data));
 }
 
 /**
@@ -131,7 +155,7 @@ async function saveDataToLocalStorage() {
       : []
   };
 
-  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
+  const savedData = getFormData();
 
   Object.keys(values).forEach(key => {
     if (key === "assunto" && values[key] === '') {
@@ -141,15 +165,13 @@ async function saveDataToLocalStorage() {
     savedData[key] = values[key];
   });
 
-  localStorage.setItem('formData', JSON.stringify(savedData));
+  saveFormData(savedData);
 }
 
 /**
  * Gera o texto do prompt com base nos dados salvos e atualiza o efeito de digitação.
  */
-async function generatePromptData() {
-  
-  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
+async function generatePromptData(savedData) {
 
   const values = {
     assunto: savedData.assunto || '',
@@ -170,6 +192,8 @@ async function generatePromptData() {
   const text = await generatePromptText(values);
 
   await updateTypingEffect(text.trim());
+
+  update_progress(savedData);
 }
 
 /**
@@ -181,7 +205,7 @@ async function setSelectValue(selectId, savedValue) {
   const selectElement = document.getElementById(selectId);
   if (selectElement) {
     selectElement.value = savedValue || selectElement.querySelector('option').value;
-    M.FormSelect.init(selectElement); // Atualiza a exibição do select
+    M.FormSelect.init(selectElement);
   }
 }
 
@@ -201,9 +225,7 @@ async function setRadioValue(name, value) {
 /*
   Carrega os dados do localStorage e atualiza os campos do formulário
 */
-async function loadFormData() {
-
-  const savedData = JSON.parse(localStorage.getItem('formData')) || {};
+async function loadFormData(savedData) {
 
   setSelectValue('nivel-conhecimento', savedData.nivelConhecimento);
   setSelectValue('nivel-escolaridade', savedData.nivelEscolaridade);
@@ -260,7 +282,7 @@ async function loadFormData() {
     });
   }
 
-  generatePromptData();
+  generatePromptData(savedData);
 }
 
 /*
@@ -271,14 +293,14 @@ function addEventListeners() {
   document.querySelectorAll('select').forEach(select => {
     select.addEventListener('change', () => {
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     });
   });
 
   document.querySelectorAll('input[type="text"]').forEach(text => {
     text.addEventListener('input', () => {
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     });
   });
 
@@ -289,7 +311,7 @@ function addEventListeners() {
       if (event.key === 'Enter') {
 
         saveDataToLocalStorage();
-        generatePromptData();
+        generatePromptData(getFormData());
       }
     });
   }
@@ -299,53 +321,35 @@ function addEventListeners() {
 
       event.target.parentElement.remove();
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     }
   });
 
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', () => {
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     });
   });
 
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', () => {
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     });
   });
 
   document.querySelectorAll('input[type="range"]').forEach(range => {
     range.addEventListener('input', () => {
       saveDataToLocalStorage();
-      generatePromptData();
+      generatePromptData(getFormData());
     });
   });
 
   const continueButton = document.querySelector('#continue');
   if (continueButton) {
     continueButton.addEventListener('click', () => {
-      const subjectField = document.getElementById('subject');
-      const subjectLabel = document.querySelector('.subject');
-      const err = document.querySelector('.hint');
-      const subjectValue = subjectField ? subjectField.value.trim() : '';
-
-      // Remove classes de erro se o campo não estiver vazio
-      subjectField.classList.remove('err');
-      subjectLabel.classList.remove('err-label');
-
-      if (subjectValue !== '') {
-        saveDataToLocalStorage();
-        window.location.href = 'index_prompt.html';
-      } else {
-        subjectField.focus();
-        // Adiciona classes de erro se o campo estiver vazio
-        subjectField.classList.add('err');
-        subjectLabel.classList.add('err-label');
-        err.style.display = 'block';
-      }
+      continueLogic();
     });
   }
 
@@ -353,12 +357,7 @@ function addEventListeners() {
   const copyButton = document.querySelector('.copy-button');
   if (copyButton) {
     copyButton.addEventListener('click', () => {
-      const promptText = document.querySelector(".prompt-generator").innerText;
-      navigator.clipboard.writeText(promptText).then(() => {
-        window_modal.style.display = STYLES.display_block;
-      }).catch(err => {
-        alert("Falha ao copiar texto: " + err);
-      });
+      copyLogic(window_modal, getFormData());
     });
   }
 
@@ -377,10 +376,79 @@ function addEventListeners() {
   }
 }
 
+function continueLogic() {
+  const subjectField = document.getElementById('subject');
+  const subjectLabel = document.querySelector('.subject');
+  const err = document.querySelector('.hint');
+  const subjectValue = subjectField ? subjectField.value.trim() : '';
+
+  // Remove classes de erro se o campo não estiver vazio
+  subjectField.classList.remove('err');
+  subjectLabel.classList.remove('err-label');
+
+  if (subjectValue !== '') {
+    saveDataToLocalStorage();
+    window.location.href = 'index_prompt.html';
+  } else {
+    subjectField.focus();
+    // Adiciona classes de erro se o campo estiver vazio
+    subjectField.classList.add('err');
+    subjectLabel.classList.add('err-label');
+    err.style.display = 'block';
+  }
+}
+
+function copyLogic(window_modal, savedData) {
+  const promptText = document.querySelector(".prompt-generator").innerText;
+  navigator.clipboard.writeText(promptText).then(() => {
+    var percentage_answers = calculate_percentage(savedData);
+    document.getElementById(SELECTORS.percentage).textContent = `${percentage_answers.toFixed(0)}%`;
+
+    window_modal.style.display = STYLES.display_block;
+  }).catch(err => {
+    alert("Falha ao copiar texto: " + err);
+  });
+}
+
+function calculate_percentage(savedData) {
+
+  var number_of_questions = Object.keys(savedData).length;
+  var number_of_answers = 0;
+
+  for (var field in savedData) {
+
+    if (savedData[field] != STRINGS.empty) {
+      number_of_answers++;
+      if (savedData[field] == '0')
+        number_of_answers--;
+    }
+  }
+
+  if (savedData.showChips == false) {
+    number_of_questions--;
+    number_of_answers++;
+  }
+
+  if (savedData.personaIA != 3)
+    number_of_questions--;
+
+  var percentage = (number_of_answers / number_of_questions) * 100;
+
+  return percentage;
+}
+
+function update_progress(savedData) {
+
+  var progress = document.querySelector(SELECTORS.progress);
+  var percentage = calculate_percentage(savedData);
+  if (progress)
+    progress.style.width = percentage + STRINGS.percent;
+}
+
 /**
  * Função principal para inicialização
  */
 async function init() {
-  loadFormData();
+  loadFormData(getFormData());
   addEventListeners();
 }

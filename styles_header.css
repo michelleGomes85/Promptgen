@@ -87,10 +87,16 @@ html body header#my_header a {
 html body header#my_header nav#menu a {
     margin: 2%;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 html body header#my_header nav#menu a.active {
     font-weight: bold;
+}
+
+html body header#my_header nav#menu a:hover {
+    background: rgba(221, 231, 230, 0.5);
 }
 
 html body header#my_header button.btn_style {

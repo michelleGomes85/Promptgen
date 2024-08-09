@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    
     <header id="my_header">
 
         <a href="index.html" class="soon">
@@ -25,6 +26,11 @@
 
         <button id="open_menu">&#9776;</button>
 
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li><a href="#!">three</a></li>
+        </ul>
         <nav id="menu">
             <button id="close_menu">&times;</button>
             <a href="index.html" class="menu_link">Início</a>
@@ -32,14 +38,7 @@
             <a href="index.html#about" class="menu_link">Sobre</a>
             <a href="index.html#contacts" class="menu_link">Contatos</a>
 
-            <span class="dropdown">
-                <button id="btn-exemplo" class="btn_style">Exemplos</button>
-                <div class="dropdown-content">
-                    <a href="#option1">Opção 1</a>
-                    <a href="#option2">Opção 2</a>
-                    <a href="#option3">Opção 3</a>
-                </div>
-            </span><!--dropdown-->
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1">Exemplos<i class="material-icons right">arrow_drop_down</i></a>
 
         </nav><!--nav-menu-->
     </header><!--header-->

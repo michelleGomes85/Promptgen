@@ -36,6 +36,7 @@ main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
     font-size: 2.5vw;
+    margin-bottom: 2vh;
     margin-top: 0;
     line-height: 1.5;
     color: #1D1051;
@@ -48,7 +49,7 @@ main section.homepage .description {
 }
 
 #description_site {
-    height: 6vw;
+    height: 5vw;
 }
 
 main section.homepage .description p {
