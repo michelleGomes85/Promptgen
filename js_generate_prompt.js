@@ -167,7 +167,7 @@ async function generatePromptData() {
     palavrasChave: savedData.palavrasChave || ''
   };
 
-  const text = await generatePromptText(values, promptParts);
+  const text = await generatePromptText(values);
 
   await updateTypingEffect(text.trim());
 }

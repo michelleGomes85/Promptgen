@@ -427,7 +427,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     position: relative;
     background-color: #fff;
     width: 90%;
-    height: 90%;
+    height: 65vh;
     border-radius: 3%;
     padding: 50px;
     box-sizing: border-box;
@@ -460,6 +460,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
 .prompt-generator li {
     margin-left: 20px;
+}
+
+.prompt-generator span {
+    display: block;
+    margin-top: 15px;
 }
 
 /* Estilos para a janela modal */
