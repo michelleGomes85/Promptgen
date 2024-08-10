@@ -181,13 +181,19 @@ async function updateTypingEffect(text) {
       loop: false,
       showCursor: true,
       onComplete: () => {
-        copy.style.opacity = '1';
-        copyButton.disabled = false;
+        if (copyButton)
+          copyButton.disabled = true;
+      
+        if (copy)
+          copy.style.opacity = '0';
       }
     });
   } else {
-    copy.style.opacity = '1';
-    copyButton.disabled = false;
+    if (copyButton)
+      copyButton.disabled = true;
+  
+    if (copy)
+      copy.style.opacity = '0';
   }
 }
 
