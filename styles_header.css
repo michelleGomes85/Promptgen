@@ -34,7 +34,7 @@ html body header#my_header, nav#menu {
 html body header#my_header {
     flex: 1 1 100vw;
     height: 100px;
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 999;
     align-items: center;
