@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <header id="my_header">
+    <header id="my_header"> 
 
         <a href="index.html" class="soon">
             <img class="img-soon" src="img/soon-teste.png" alt="Soon">
@@ -26,24 +26,52 @@
         <button id="open_menu">&#9776;</button>
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li><a href="#!">three</a></li>
+            <li><a href="#!" data-example="web-development">Desenvolvimento Web</a></li>
+            <li><a href="#!" data-example="ai">Inteligência Artificial</a></li>
+            <li><a href="#!" data-example="nutrition">Nutrição</a></li>
         </ul>
+
         <nav id="menu">
             <button id="close_menu">&times;</button>
             <a href="index.html" class="menu_link">Início</a>
             <a href="index.html#how_it_works" class="menu_link">Como funciona?</a>
             <a href="index.html#about" class="menu_link">Sobre</a>
             <a href="index.html#contacts" class="menu_link">Contatos</a>
-            <a href="" class="menu_link">Novo Assunto</a>
+            <a class="menu_link" id="new_subject">Novo Assunto</a>
 
-            <a class="dropdown-trigger" href="#!" data-target="dropdown1">Exemplos<i class="material-icons right">arrow_drop_down</i></a>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1">Exemplos<i
+                    class="material-icons right">arrow_drop_down</i></a>
 
         </nav><!--nav-menu-->
+        
+        <div class="progress-form">
+            
+        </div>
     </header><!--header-->
 
-    <div class="container">
+    <div class="container-subject">
+
+        <main class="conteiner-inside">
+            <div class="form_group align">
+
+                <div class="columns">
+                    <i><img src="img/icons/subject.png"></i>
+
+                    <div id="subject-field" class="input-field col s12">
+                        <input type="text" id="subject" />
+                        <label for="subject" class="subject">Assunto a ser aprendidido</label>
+                    </div>
+                    <i class="small material-icons hint" title="Por favor, preencha este campo">warning</i>
+                </div><!--columns-->
+
+                <div class="form_group">
+                    <a class="waves-effect waves-light btn" id="continue"><i class="material-icons right">navigate_next</i>Proximo</a>
+                </div><!--botões-->
+            </div><!--form_group-->
+        </main>
+    </div><!--container-->
+
+    <div class="container-form">
 
         <main class="main">
             <div class="main_column1">
@@ -398,7 +426,6 @@
 
         </main>
 
-        <div class="progress"></div>
         <div class="progress-bar">
             <div class="steps">
                 <div class="step active" data-step="1" data-title="Educação">1</div>

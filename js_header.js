@@ -14,7 +14,7 @@ const SELECTORS = {
     active: 'active',
     inactive: 'inactive',
 
-    progress: '.progress',
+    progress: '.progress-form',
 
     active_span: 'active_span',
     inactive_span: 'inactive_span',

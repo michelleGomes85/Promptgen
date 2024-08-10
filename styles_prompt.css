@@ -3,60 +3,17 @@ body {
     background-color: #EAF5F7 !important;
 }
 
-span.dropdown {
-    margin: 2%;
-    font-size: 1rem;
-    position: relative;
-    display: inline-block;
-}
-
-span.dropdown .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(219, 230, 228, 0.9);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-}
-
-span.dropdown div.dropdown-content a {
-    text-align: center;
-    color: #0F2A5B;
-    text-decoration: none;
-    display: block;
-}
-
-span.dropdown div.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover div.dropdown-content {
-    display: block;
-}
-
-div.dropdown-content {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-span.dropdown:hover div.dropdown-content {
-    opacity: 1;
-}
-
-nav span.dropdown .dropdown-content {
-    line-height: 50px !important;
+.dropdown-content {
+    min-width: 200px;
 }
 
 .new-subject {
     background-color: none;
 }
 
-
-body div.container {
+body div.container-form {
+    display: none;
     font-family: 'Roboto Mono', monospace !important;
-    display: flex;
     flex-direction: column;
     height: calc(100vh - 100px);
     width: 100vw;
@@ -184,13 +141,6 @@ div.progress-bar {
 
 .progress-bar .step.title-active::after {
     display: block;
-}
-
-.progress {
-    position: absolute;
-    background-color: #1D1051;
-    width: 1%;
-    padding: 3px
 }
 
 .step:hover {
@@ -425,14 +375,21 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     width: 100% !important;
 }
 
-.btn, .btn-large, .btn-small {
+.btn,
+.btn-large,
+.btn-small {
     background-color: #01173c;
     text-transform: none;
 }
 
-.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus,
-.btn:hover, .btn-large:hover, .btn-small:hover {
-    background-color: #0F2A5B;   
+.btn:focus,
+.btn-large:focus,
+.btn-small:focus,
+.btn-floating:focus,
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #0F2A5B;
 }
 
 .prompt {
@@ -564,17 +521,18 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 /* Define o estilo da classe de erro */
-.err, 
+.err,
 .err:focus,
 .err:active,
 .err:focus-visible,
-.err:focus-within  {
+.err:focus-within {
     border-color: red !important;
-    box-shadow:none !important;
+    box-shadow: none !important;
 }
 
 /* Estilo específico para o label */
-.err-label, .hint {
+.err-label,
+.hint {
     color: red !important;
 }
 

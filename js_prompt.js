@@ -43,16 +43,16 @@ const promptParts = {
         ],
         "4": [
             ", desenvolva o conteúdo para alguém com <b>graduação incompleta</b>",
-            ", explique considerando uma <b>graduação não concluída</b>",
+            ", detalhe considerando uma <b>graduação não concluída</b>",
             ", ofereça uma visão para quem <b>não</b> concluiu a <b>graduação</b>"
         ],
         "5": [
-            ", aborde com a profundidade de uma pós-graduação completa.",
-            ", forneça uma explicação avançada para alguém com pós-graduação completa.",
-            ", desenvolva o tema considerando uma formação de pós-graduação completa."
+            ", aborde com a profundidade de uma <b>pós-graduação completa</b>",
+            ", forneça uma explicação avançada para alguém com <b>pós-graduação completa</b>",
+            ", desenvolva o tema considerando uma formação de <b>pós-graduação completa</b>"
         ],
         "6": [
-            ", explique para alguém com <b>pós-graduação incompleta</b>",
+            ", descreva para alguém com <b>pós-graduação incompleta</b>",
             ", apresente considerando que estou no <b>meio da pós graduação</b>",
             ", desenvolva o assunto para alguém com <b>pós-graduação incompleta</b>"
         ]
@@ -109,12 +109,12 @@ const promptParts = {
         ],
         "2": [
             "Descreva com a perspectiva de alguém que <b>trabalha na área</b>",
-            "Explique como se você fosse um <b>profissional da área</b>",
+            "Ensine como se você fosse um <b>profissional da área</b>",
             "Forneça uma visão prática com base na <b>experiência profissional</b> na área"
         ],
         "3": [
             "Encare assunto com a perspectiva de <b>{{personagemHistorico}}</b>",
-            "Explique o como se fosse <b>{{personagemHistorico}}</b>",
+            "Ensine o como se fosse <b>{{personagemHistorico}}</b>",
             "Desenvolva um material na perspectiva de <b>{{personagemHistorico}}</b>"
         ]
     },
@@ -161,15 +161,15 @@ const promptParts = {
         "4": [
             "Forneça <b>estudos de caso e exemplos reais</b> sobre o assunto",
             "Descreva o conteudo com base em <b>estudos de caso e exemplos práticos</b>",
-            "<br> Explique usando <b>estudos de caso e exemplos reais</b>"
+            "Explique usando <b>estudos de caso e exemplos reais</b>"
         ]
     },
 
     "formatoDaResposta": {
         "1": [
-            "Apresente em <b>tópicos<b/> claros e objetivos",
-            "Descreva usando uma estrutura em <b>tópicos<b/>",
-            "Forneça as informações organizadas em <b>tópicos<b/>"
+            "Apresente em <b>tópicos</b> claros e objetivos",
+            "Descreva usando uma estrutura em <b>tópicos</b>",
+            "Forneça as informações organizadas em <b>tópicos</b>"
         ],
         "2": [
             "Explique em <b>parágrafos</b> detalhados",
@@ -190,24 +190,24 @@ const promptParts = {
 
     "preferenciaFonte": {
         "1": [
-            ". Utilize sua <b>própria pesquisa</b> para fornecer informações",
-            ". Baseie a explicação em <b>pesquisa própria</b>",
-            ". Desenvolva com base em suas <b>próprias descobertas</b> e pesquisa"
+            "Utilize sua <b>própria pesquisa</b> para fornecer informações",
+            "Baseie a explicação em <b>pesquisa própria</b>",
+            "Desenvolva com base em suas <b>próprias descobertas</b> e pesquisa"
         ],
         "2": [
-            ". Forneça informações usando <b>fontes acadêmicas e científicas</b>",
-            ". Descreva com base em fontes <b>acadêmicas e pesquisas científicas</b>",
-            ". Explique referenciando <b>fontes acadêmicas e científicas</b>"
+            "Forneça informações usando <b>fontes acadêmicas e científicas</b>",
+            "Descreva com base em fontes <b>acadêmicas e pesquisas científicas</b>",
+            "Explique referenciando <b>fontes acadêmicas e científicas</b>"
         ],
         "3": [
-            ". Utilize <b>relatos de terceiros</b> para explicação",
-            ". Desenvolva com base em <b>relatos e experiências de terceiros</b>",
-            ". Forneça informações usando <b>relatos e testemunhos de terceiros</b>"
+            "Utilize <b>relatos de terceiros</b> para explicação",
+            "Desenvolva com base em <b>relatos e experiências de terceiros</b>",
+            "Forneça informações usando <b>relatos e testemunhos de terceiros</b>"
         ]
     },
 
     "palavrasChave": [
-        "Inclua as palavras-chave fornecidas como {{palavras}} para aprofundar o assunto",
+        "Inclua as palavras-chave fornecidas como {{palavras}} para aprofundar o assunto.",
         "Utilize as palavras-chave {{palavras}} para detalhar a explicação.",
         "Incorpore as palavras-chave {{palavras}} para enriquecer a explicação."
     ]
@@ -230,6 +230,19 @@ function getPromptPart(key, value) {
     } 
 
     return '';
+}
+
+/**
+ * Formata palavras-chave, incluindo espaços, em HTML com negrito.
+ * @param {Array<string>} words - Array de palavras-chave a serem formatadas.
+ * @returns {string} - Palavras formatadas com HTML.
+ */
+function formatKeywords(words) {
+    return words
+        .map(word => {
+            return word.split(' ').map(part => `<b>${part}</b>`).join(' ');
+        })
+        .join(', ');
 }
 
 function lowercaseFirstLetter(str) {
@@ -297,12 +310,21 @@ async function generatePromptText(values) {
 
     abordagem = getPromptPart('pontosPrincipais', values.pontosPrincipais);
 
-    if (abordagem == '')
-        abordagem = getPromptPart('formatoDaResposta', values.formatoDaResposta);
-    else 
-        abordagem  += ', e ' + lowercaseFirstLetter(getPromptPart('formatoDaResposta', values.formatoDaResposta));
+    if (values.formatoDaResposta != '') {
+        if (abordagem == '') 
+            abordagem = getPromptPart('formatoDaResposta', values.formatoDaResposta);
+        else 
+            abordagem  += ', e ' + lowercaseFirstLetter(getPromptPart('formatoDaResposta', values.formatoDaResposta));
+    }
 
-    abordagem += getPromptPart('preferenciaFonte', values.preferenciaFonte);
+    if (valuePersona.preferenciaFonte != '') {
+
+        if (abordagem == '')
+            abordagem += getPromptPart('preferenciaFonte', values.preferenciaFonte);
+        else 
+            abordagem += '. ' + getPromptPart('preferenciaFonte', values.preferenciaFonte);
+    }
+
 
     if (abordagem != '')
         text += abordagem + '. ';
@@ -310,7 +332,7 @@ async function generatePromptText(values) {
     text += '<span></span>'
 
     if (values.palavrasChave && values.palavrasChave.length > 0) {
-        const formattedWords = values.palavrasChave.map(word => `<b>${word}</b>`).join(', ');
+        const formattedWords = formatKeywords(values.palavrasChave);
         text += getPromptPart('palavrasChave', values.palavrasChave).replace('{{palavras}}', formattedWords);
     }
 

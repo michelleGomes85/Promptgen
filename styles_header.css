@@ -27,12 +27,14 @@ html body header#my_header, nav#menu {
     height: initial;
     line-height: 30px;
     font-size: 1rem;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 html body header#my_header {
     flex: 1 1 100vw;
     height: 100px;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 999;
     align-items: center;
@@ -43,12 +45,21 @@ html body header#my_header a.soon {
     flex: 1 1 20vw;
     margin-left: 5%;
     display: flex;
+    height: 100%;
     align-items: center;
 }
 
 html body header#my_header a.soon .img-soon {
     height: 65px; 
     width: auto; 
+}
+
+header#my_header .progress-form {
+    background-color: #0F2A5B;
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+    height: 8px;
 }
 
 html body header#my_header a.soon p {
@@ -82,6 +93,7 @@ html body header#my_header a {
     text-decoration: none;
     color: inherit;
     color: initial;
+    cursor: pointer;
 }
 
 html body header#my_header nav#menu a {
