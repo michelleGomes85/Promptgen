@@ -182,18 +182,18 @@ async function updateTypingEffect(text) {
       showCursor: true,
       onComplete: () => {
         if (copyButton)
-          copyButton.disabled = true;
+          copyButton.disabled = false;
       
         if (copy)
-          copy.style.opacity = '0';
+          copy.style.opacity = '1';
       }
     });
   } else {
     if (copyButton)
-      copyButton.disabled = true;
+      copyButton.disabled = false;
   
     if (copy)
-      copy.style.opacity = '0';
+      copy.style.opacity = '1';
   }
 }
 
