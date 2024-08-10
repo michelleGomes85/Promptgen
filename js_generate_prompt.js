@@ -155,9 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {string} text - O texto a ser exibido com o efeito de digitação.
  */
 let typed = null;
-async function updateTypingEffect(text) {
 
+async function updateTypingEffect(text) {
   const promptElement = document.querySelector(".prompt-generator");
+  const copy = document.querySelector(".copy");
+  const copyButton = document.querySelector('.copy-button');
+
+  if (copyButton)
+    copyButton.disabled = true;
+
+  if (copy)
+    copy.style.opacity = '0';
 
   if (typed) {
     typed.destroy();
@@ -167,14 +175,22 @@ async function updateTypingEffect(text) {
     typed = new Typed(promptElement, {
       strings: [text],
       typeSpeed: 5,
-      backSpeed: 500,
-      backDelay: 10,
+      backSpeed: 25,
+      backDelay: 1000,
       startDelay: 0,
       loop: false,
-      showCursor: true
+      showCursor: true,
+      onComplete: () => {
+        copy.style.opacity = '1';
+        copyButton.disabled = false;
+      }
     });
+  } else {
+    copy.style.opacity = '1';
+    copyButton.disabled = false;
   }
 }
+
 
 /**
  * Alterna a visibilidade do container de chips com base no estado do checkbox.
@@ -244,13 +260,13 @@ function getExampleDataByType(type) {
         horasDisponiveis: '3',
         tempoDominio: '2',
         personaIA: '3',
-        personagemHistorico: "Alan Turing",
+        personagemHistorico: 'Alan Turing',
         tomConversa: '2',
         formatoDaResposta: '1',
         pontosPrincipais: '2',
         preferenciaFonte: '2',
         showChips: true,
-        palavrasChave: ["Machine Learning", "Deep Learning", "Redes Neurais"]
+        palavrasChave: ['Machine Learning', 'Deep Learning', 'Redes Neurais']
       };
     case 'nutrition':
       return {
@@ -274,6 +290,17 @@ function getExampleDataByType(type) {
   }
 }
 
+/**
+ * Obtém os dados com base na fonte especificada.
+ *
+ * Esta função determina a origem dos dados com base na variável `usingExample`. 
+ * Se `usingExample` estiver definido como verdadeiro, a função irá buscar os dados 
+ * a partir da função `getExampleData()`. Caso contrário, a função retornará os dados 
+ * obtidos pela função `getFormData()`.
+ *
+ * @returns {Object} Os dados provenientes da função correspondente à fonte 
+ * escolhida (`getExampleData` ou `getFormData`).
+ */
 function getData() {
   return (usingExample) ? getExampleData() : getFormData();
 }
@@ -430,9 +457,7 @@ async function setRadioValue(name, value) {
 */
 async function loadFormData() {
 
-  const exampleData = getExampleData();
-  const formData = getFormData();
-  const dataToLoad = (usingExample) ? exampleData : formData;
+  const dataToLoad = getData();
 
   setSelectValue('nivel-conhecimento', dataToLoad.nivelConhecimento);
   setSelectValue('nivel-escolaridade', dataToLoad.nivelEscolaridade);
@@ -572,10 +597,18 @@ function addEventListeners() {
     });
   }
 
+  const copy = document.querySelector('.copy');
+
+  if (copy) {
+    copy.addEventListener('click', () => {
+      copyLogic(window_modal, getData());
+    });
+  }
+
   const copyButton = document.querySelector('.copy-button');
   if (copyButton) {
     copyButton.addEventListener('click', () => {
-      copyLogic(window_modal, getFormData());
+      copyLogic(window_modal, getData());
     });
   }
 
@@ -692,7 +725,7 @@ function show_form_subject() {
 
   container_subject.style.display = 'block';
   container_form.style.display = 'none';
-  
+
   if (assunto) {
     assunto.focus();
   }

@@ -21,7 +21,7 @@ const promptParts = {
         "4": [
             ", explorando em profundidade pois já possuo um <b>conhecimento avançado</b>",
             ", fornecendo uma análise detalhada e técnica pois já sou <b>avançado no assunto</b>",
-            ", oferencendo uma <b>perspectiva avançada>/b>"
+            ", oferencendo uma <b>perspectiva avançada</b>"
         ]
     },
 
