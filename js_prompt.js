@@ -9,7 +9,7 @@ const promptParts = {
             ", considerando que não possuo <b>nenhum conhecimento prévio</b>"
         ],
         "2": [
-            ", possuo um <b>conhecimento básico<b>",
+            ", possuo um <b>conhecimento básico</b>",
             ", me ajudando a construir <b>uma base</b>",
             ", fornecendo uma <b>visão geral para iniciantes</b>"
         ],
