@@ -42,6 +42,7 @@ A experiência do usuário (UX) e a interface do usuário (UI) foram projetadas 
 
 ## Autores
 
+[![GitHub-Diogenes](https://img.shields.io/badge/Diogenes-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/dcviana)
 [![GitHub-Eloisa](https://img.shields.io/badge/Eloisa-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/eloizaams)
 [![GitHub-Michelle](https://img.shields.io/badge/Michelle-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/michelleGomes85)
 
