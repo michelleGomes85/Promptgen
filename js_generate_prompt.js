@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Função principal para inicialização
  */
-async function init() {
+function init() {
   loadFormData();
   addEventListeners();
 }
@@ -106,7 +106,7 @@ function setupNewSubjectButton() {
 /**
  * Lida com o click do botão "gerar-prompt".
  */
-async function handleGeneratePromptClick() {
+function handleGeneratePromptClick() {
 
   const formData = localStorage.getItem('formData');
 
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 let typed = null;
 
-async function updateTypingEffect(text) {
+function updateTypingEffect(text) {
   
   const promptElement = document.querySelector(".prompt-generator");
   const copy = document.querySelector(".copy");
@@ -359,7 +359,7 @@ function setData(data) {
 /**
  * Salva os dados do formulário no localStorage.
  */
-async function saveDataToLocalStorage() {
+function saveDataToLocalStorage() {
 
   const values = gatherFormValues();
   const savedData = getFormData();
@@ -439,7 +439,7 @@ async function generatePromptData(savedData) {
  * @param {string} selectId - O ID do elemento <select>.
  * @param {string} savedValue - O valor a ser definido.
  */
-async function setSelectValue(selectId, savedValue) {
+function setSelectValue(selectId, savedValue) {
   const selectElement = document.getElementById(selectId);
   if (selectElement) {
     selectElement.value = savedValue || selectElement.querySelector('option').value;
@@ -452,7 +452,7 @@ async function setSelectValue(selectId, savedValue) {
  * @param {string} name - O nome do grupo de rádio.
  * @param {string} value - O valor do rádio a ser selecionado.
  */
-async function setRadioValue(name, value) {
+function setRadioValue(name, value) {
   const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
   if (radio) {
     radio.checked = true;
@@ -463,7 +463,7 @@ async function setRadioValue(name, value) {
 /*
   Carrega os dados do localStorage e atualiza os campos do formulário
 */
-async function loadFormData() {
+function loadFormData() {
 
   const dataToLoad = getData();
 

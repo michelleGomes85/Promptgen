@@ -147,6 +147,15 @@ html body header#my_header .btn_style:hover  {
 
 @media only screen and (max-width: 900px) {
 
+    html body header#my_header nav#menu {
+        flex: 1 1 100vw;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3em;
+        height: 400px;
+        z-index: 999;
+    }
+
     header {
         height: auto;
         padding: 10px;

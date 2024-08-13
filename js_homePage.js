@@ -54,31 +54,19 @@ document.querySelectorAll('.menu_button').forEach(button => {
 
 // Adiciona o evento de rolagem para ativar o botão correspondente
 window.addEventListener('scroll', function() {
-    var start = document.getElementById(SELECTORS.start);
-    var how_it_works = document.getElementById(SELECTORS.how_it_works);
-    var about = document.getElementById(SELECTORS.about);
-    var contacts = document.getElementById(SELECTORS.contacts);
-
+    var sections = ['start', 'how_it_works', 'about', 'contacts'];
     var scroll_top = window.scrollY || document.documentElement.scrollTop;
+    var viewport_height = window.innerHeight;
 
-    var start_top = start.offsetTop;
-    var how_it_works_top = how_it_works.offsetTop;
-    var about_top = about.offsetTop;
-    var contacts_top = contacts.offsetTop;
+    sections.forEach((sectionId, index) => {
+        var section = document.getElementById(sectionId);
+        if (section) {
+            var section_top = section.offsetTop;
+            var section_bottom = section_top + section.offsetHeight;
 
-    if (scroll_top >= (start_top)) {
-        active_link(0);
-    }
-
-    if (scroll_top >= (how_it_works_top - 100)) {
-        active_link(1);
-    }
-
-    if (scroll_top >= (about_top - 100)) {
-        active_link(2);
-    }
-
-    if (scroll_top >= (contacts_top - 300)) {
-        active_link(3);
-    }
+            if (scroll_top >= (section_top - viewport_height / 2) && scroll_top < (section_bottom - viewport_height / 2)) {
+                active_link(index);
+            }
+        }
+    });
 });
