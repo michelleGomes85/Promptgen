@@ -1,15 +1,15 @@
 # PromptGen 🌟
 
-[![Ver no GitHub Pages](https://img.shields.io/badge/Ver_no_GitHub_Pages-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://michelleGomes85.github.io/PromptGen)
+[![Ver no GitHub Pages](https://img.shields.io/badge/Ver_no_GitHub_Pages-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://michellegomes85.github.io/Promptgen/)
 
 PromptGen é uma aplicação web desenvolvida para gerar prompts personalizados com base nas escolhas dos usuários. Projeto criado como parte da disciplina de Linguagem de Programação Visual (LPV) do curso Tecnologia em Sistemas para Internet no IF Sudeste MG, Campus Barbacena.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1C?style=flat&logo=javascript&logoColor=black)
-![Materialize CSS](https://img.shields.io/badge/Materialize-F6C343?style=flat&logo=css3&logoColor=black)
-![Typed.js](https://img.shields.io/badge/Typed.js-F7DF1C?style=flat&logo=javascript&logoColor=black)
-![Clipboard.js](https://img.shields.io/badge/Clipboard.js-F7DF1C?style=flat&logo=javascript&logoColor=black)
+![Materialize CSS](https://img.shields.io/badge/Materialize-0097A7?style=flat&logo=css3&logoColor=white)
+![Typed.js](https://img.shields.io/badge/Typed.js-F6C343?style=flat&logo=css3&logoColor=black)
+![Clipboard.js](https://img.shields.io/badge/Clipboard.js-F6C343?style=flat&logo=css3&logoColor=black)
 
 ## Funcionalidades
 
