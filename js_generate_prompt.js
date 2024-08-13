@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let typed = null;
 
 async function updateTypingEffect(text) {
+  
   const promptElement = document.querySelector(".prompt-generator");
   const copy = document.querySelector(".copy");
   const copyButton = document.querySelector('.copy-button');
@@ -422,6 +423,7 @@ async function generatePromptData(savedData) {
     formatoDaResposta: savedData.formatoDaResposta || '',
     pontosPrincipais: savedData.pontosPrincipais || '',
     preferenciaFonte: savedData.preferenciaFonte || '',
+    showChips: savedData.showChips || false,
     palavrasChave: savedData.palavrasChave || ''
   };
 
@@ -668,9 +670,6 @@ function continueLogic() {
 function copyLogic(window_modal, savedData) {
   const promptText = document.querySelector(".prompt-generator").innerText;
   navigator.clipboard.writeText(promptText).then(() => {
-    var percentage_answers = calculate_percentage(savedData);
-    document.getElementById(SELECTORS.percentage).textContent = `${percentage_answers.toFixed(0)}%`;
-
     window_modal.style.display = STYLES.display_block;
   }).catch(err => {
     alert("Falha ao copiar texto: " + err);
@@ -684,25 +683,30 @@ function copyLogic(window_modal, savedData) {
  */
 function calculate_percentage(savedData) {
 
-  var number_of_questions = Object.keys(savedData).length;
+  var number_of_questions = Object.keys(savedData).length - 3;
   var number_of_answers = 0;
 
+  console.log(savedData);
   for (var field in savedData) {
 
-    if (savedData[field] != STRINGS.empty) {
+    if (savedData[field] != STRINGS.empty && savedData[field] != '0' && field != "showChips" && field != "palavrasChave" && field != "personagemHistorico") {
       number_of_answers++;
-      if (savedData[field] == '0')
-        number_of_answers--;
     }
   }
 
-  if (savedData.showChips == false) {
-    number_of_questions--;
-    number_of_answers++;
-  }
+  if (savedData.personaIA == '3')
+    number_of_questions++;
 
-  if (savedData.personaIA != 3)
-    number_of_questions--;
+  if (savedData.showChips == true)
+    number_of_questions++;
+
+  if (savedData.personaIA == "3" && savedData.personagemHistorico != STRINGS.empty)
+    number_of_answers++;
+
+  if (savedData.showChips == true && savedData.palavrasChave.length != 0)
+    number_of_answers++;
+
+  console.log(number_of_questions + "  " + number_of_answers);
 
   var percentage = (number_of_answers / number_of_questions) * 100;
 
@@ -719,6 +723,10 @@ function update_progress(savedData) {
   var percentage = calculate_percentage(savedData);
   if (progress)
     progress.style.width = percentage + STRINGS.percent;
+
+  const modal_update = document.getElementById(SELECTORS.percentage);
+  if (modal_update)
+    modal_update.textContent = `${percentage.toFixed(0)}%`;
 }
 
 /**
