@@ -686,7 +686,6 @@ function calculate_percentage(savedData) {
   var number_of_questions = Object.keys(savedData).length - 3;
   var number_of_answers = 0;
 
-  console.log(savedData);
   for (var field in savedData) {
 
     if (savedData[field] != STRINGS.empty && savedData[field] != '0' && field != "showChips" && field != "palavrasChave" && field != "personagemHistorico") {
@@ -705,8 +704,6 @@ function calculate_percentage(savedData) {
 
   if (savedData.showChips == true && savedData.palavrasChave.length != 0)
     number_of_answers++;
-
-  console.log(number_of_questions + "  " + number_of_answers);
 
   var percentage = (number_of_answers / number_of_questions) * 100;
 
