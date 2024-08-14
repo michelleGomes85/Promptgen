@@ -334,6 +334,12 @@ div.item h4 {
 
 @media only screen and (max-width: 600px) {
 
+    main section.homepage {
+        justify-content: center;
+        align-items: baseline;
+        margin-top: 20px;
+    }
+
     main section.homepage .description {
         width: 95vw;
     }

@@ -107,58 +107,51 @@ const links_header = document.querySelectorAll(SELECTORS.menu_link);
 const open_menu = document.querySelector(SELECTORS.open_menu);
 const close_menu = document.querySelector(SELECTORS.close_menu);
 
-/**
- * Abrir o botão do menu, quando este estiver na tela de celular
- */
+const menu = document.querySelector(SELECTORS.menu);
+
+// Função para fechar o menu
+function closeMenu() {
+    if (menu) {
+        menu.style.opacity = STYLES.opacity0;
+
+        setTimeout(() => {
+            menu.removeAttribute(STRINGS.style);
+            open_menu.removeAttribute(STRINGS.style);
+            menu.style.right = (menu.offsetWidth * -1) + STRINGS.px;
+        }, 200);
+    }
+}
+
+// Evento para abrir o menu
 open_menu.addEventListener('click', () => {
+    if (menu) {
+        menu.style.display = STYLES.display_flex;
+        menu.style.right = (menu.offsetWidth * -1) + STRINGS.px;
+        open_menu.style.display = STYLES.display_none;
 
-    menu.style.display = STYLES.display_flex;
-
-    menu.style.right = (menu.offsetWidth * -1) + STRINGS.px;
-
-    open_menu.style.display = STYLES.display_none;
-
-    setTimeout(() => {
-        menu.style.opacity = STYLES.opacity1;
-
-        menu.style.right = STYLES.opacity0;
-    }, 10)
-
+        setTimeout(() => {
+            menu.style.opacity = STYLES.opacity1;
+            menu.style.right = STYLES.opacity0;
+        }, 10);
+    }
 });
 
-/**
- * Fechar o botão do menu, quando este estiver na tela de celular
- */
+// Evento para fechar o menu
 close_menu.addEventListener('click', () => {
-
-    menu.style.opacity = STYLES.opacity0;
-
-    setTimeout(() => {
-        menu.removeAttribute(STRINGS.style)
-        open_menu.removeAttribute(STRINGS.style)
-    }, 200)
-
-    menu.style.right = (menu.offsetWidth * -1) + STRINGS.px
+    closeMenu();
 });
 
-/**
- * Adiciona um event listener sempre que o usuário 'click' no link
- */
+// Adiciona um event listener a todos os links do menu
 links_header.forEach((link, i) => {
-
     link.addEventListener('click', () => {
         active_link(i);
-    })
+        closeMenu(); // Fecha o menu ao clicar em um link
+    });
 });
 
-/**
- * Ativa o link do header, adicionando o removendo a classe active
- * 
- * @param {index} index index do link que vai ser ativado 
- */
+// Função para ativar o link do header, adicionando ou removendo a classe active
 function active_link(index) {
-
     links_header.forEach((link, i) => {
         (i === index) ? link.classList.add(SELECTORS.active) : link.classList.remove(SELECTORS.active);
-    })
+    });
 }
