@@ -516,7 +516,7 @@ function loadFormData() {
 
   if (elems && chipsData) {
     instance = M.Chips.init(elems, {
-      placeholder: 'Digite palavras-chave e pressione Enter',
+      placeholder: 'Digite a palavra e pressione Enter',
       secondaryPlaceholder: '+Palavra',
       data: chipsData
     });

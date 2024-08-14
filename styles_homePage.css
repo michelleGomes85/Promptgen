@@ -335,7 +335,7 @@ div.item h4 {
 @media only screen and (max-width: 600px) {
 
     main section.homepage .description {
-        width: 90vw;
+        width: 95vw;
     }
 
     main section#how_it_works div {
@@ -344,10 +344,14 @@ div.item h4 {
     }
 
     #description_site {
-        height: 20vw;
+        height: 9rem;
     }
 
     main section#how_it_works span img {
         margin: 0 5px;
+    }
+
+    main section#how_it_works div {
+        width: 90vw;
     }
 }

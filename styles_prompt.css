@@ -565,10 +565,15 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     cursor: pointer;
 }
 
+.chips .input::placeholder {
+        color: #4a4a4a;
+        opacity: 1;
+    }
+
 @media only screen and (max-width: 1500px) {
 
     main .main_column1 .form {
-        width: 50vw;
+        width: 40vw;
     }
 }
 
@@ -599,5 +604,54 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 @media only screen and (max-width: 650px) {
     div.progress-bar {
         display: none !important;
+    }
+
+    main .main_column1 .form {
+        width: 95vw;
+    }
+
+    .form-steps {
+        margin-left: 20px;
+    }
+
+    .show_prompt {
+        top: 10px;
+        right: 20px;
+    }
+
+    .prompt {
+        width: 100%;
+    }
+
+    .prompt-generator {
+        padding: 50px 20px;
+    }
+
+    .main.main {
+        padding: 0;
+    }
+
+    .radio-custom {
+        margin-left: 0;
+    }
+
+    .input-field {
+        width: 80%;
+    }
+
+    .select {
+        width: 70%;
+    }
+
+    .switch {
+        margin-top: 20px !important;
+    }
+
+    .inputs {
+        width: 95% !important;
+    }
+
+    .modal_content .img {
+        display: none;
     }
 }
