@@ -611,7 +611,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
     main .main_column1 .form {
         height: 100vh;
-        max-height: 600px;
+        max-height: 800px;
         overflow-y: auto;
         position: relative;
         box-sizing: border-box;
