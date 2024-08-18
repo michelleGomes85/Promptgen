@@ -570,11 +570,6 @@ textarea.materialize-textarea:focus:not([readonly])+label {
         margin-left: 20px;
     }
 
-    .show_prompt {
-        top: 10px;
-        right: 10px;
-    }
-
     .prompt {
         width: 100%;
     }
@@ -617,12 +612,21 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     main .main_column1 .form {
         height: calc(100vh - 90px);
         max-height: 600px;
-        overflow-y: auto
+        overflow-y: auto;
+        position: relative;
+    
+    }
+
+    .show_prompt {
+        position: fixed;
+        top: 120px;
+        right: 10px;
     }
 
     .buttons {
         position: fixed; 
+        bottom: 10px;
+        right: 20px;
         width: auto; 
-        z-index: 1000; 
     }
 }
