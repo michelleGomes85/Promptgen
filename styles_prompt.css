@@ -609,17 +609,20 @@ textarea.materialize-textarea:focus:not([readonly])+label {
         width: 95% !important;
     }
 
-    .buttons {
-        position: fixed;
-    }
-
     .subject, .err-label,
     .hint {
         font-size: 11px !important;
     }
 
     main .main_column1 .form {
-        height: 100vh;
+        height: calc(100vh - 90px);
         max-height: 600px;
+        overflow-y: auto
+    }
+
+    .buttons {
+        position: fixed; 
+        width: auto; 
+        z-index: 1000; 
     }
 }
