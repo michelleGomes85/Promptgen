@@ -190,7 +190,8 @@ ul#dropdown1 {
     color: #1d1051;
 }
 
-.link-example {
+.link-example,
+.menu_button {
     cursor: pointer;
 }
 
