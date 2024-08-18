@@ -65,13 +65,13 @@ const promptParts = {
             "Preciso de <b>um resumo sobre a matéria</b>."
         ],
         "2": [
-            "Necessito <b>treinar com exercícios para revisão</b>.",
+            "Foque em me fornecer <b>exercícios para revisão</b>.",
             "Desenvolva <b>questões para praticar meu conhecimento</b>.",
-            "Ofereça <b>exercícios relacionados ao assunto para revisão</b>."
+            "Insira <b>exercícios relacionados ao assunto</b> para revisão."
         ],
         "3": [
             "Prepare <b>uma explicação visando a realização de um exame ou prova</b>.",
-            "Elabore <b>um material de estudo sobre o assunto para preparação para exames</b>.",
+            "Elabore um material de estudo sobre o assunto <b>para me preparar para uma prova</b>.",
             "Desenvolva <b>um guia de revisão focado em exames</b>."
         ]
     },
@@ -156,7 +156,7 @@ const promptParts = {
         "3": [
             "Explique os <b>procedimentos e instruções</b>",
             "Desenvolva com detalhes sobre <b>procedimentos e instruções</b>",
-            "Apresente focando nos <b>procedimentos e instruções</b> relevantes."
+            "Apresente focando nos <b>procedimentos e instruções</b> relevantes"
         ],
         "4": [
             "Forneça <b>estudos de caso e exemplos reais</b> sobre o assunto",
@@ -182,9 +182,9 @@ const promptParts = {
             "Explique usando <b>exemplos</b> que ajudem a entender o conteúdo"
         ],
         "4": [
-            "Forneça uma explicação <b>mais visual</b>, como desenhos ou tabelas",
-            "Apresente com o resursos <b>visuais e gráficos</b>",
-            "Desenvolva com <b>recursos visuais</b> para melhor compreensão"
+            "Forneça uma explicação <b>mais visual</b>, como desenhos, tabelas ou graficos",
+            "Apresente com o resursos <b>visuais, desenhos, tabelas ou graficos</b>",
+            "Desenvolva com <b>recursos visuais como desenhos, tabelas ou graficos</b> para melhor compreensão"
         ]
     },
 
