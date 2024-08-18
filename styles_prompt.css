@@ -608,4 +608,8 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     .inputs {
         width: 95% !important;
     }
+
+    .buttons {
+        position: fixed;
+    }
 }
