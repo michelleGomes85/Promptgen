@@ -612,4 +612,14 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     .buttons {
         position: fixed;
     }
+
+    .subject, .err-label,
+    .hint {
+        font-size: 11px !important;
+    }
+
+    main .main_column1 .form {
+        height: 100vh;
+        max-height: 600px;
+    }
 }
