@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         backSpeed: 20,    
         backDelay: 1000,  
         startDelay: 600,  
-        loop: true        
+        loop: true,   
+        showCursor: false,  
     };
 
     new Typed('#description_site', options);

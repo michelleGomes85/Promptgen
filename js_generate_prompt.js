@@ -31,7 +31,7 @@ function setupEventListeners() {
   setupRadioButtonsPersona();
   setupDropdownTriggers();
   setupDropdownItems();
-  setupNewSubjectButton();
+  setupNewSubjectButtons();
 }
 
 /**
@@ -65,20 +65,10 @@ function setupRadioButtonsPersona() {
 }
 
 /**
- * Configura os gatilhos para os dropdowns.
- */
-function setupDropdownTriggers() {
-  const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-  if (dropdownTriggers.length > 0) {
-    M.Dropdown.init(dropdownTriggers, {});
-  }
-}
-
-/**
- * Configura os itens do dropdown.
+ * Configura os itens do exemplos
  */
 function setupDropdownItems() {
-  const dropdownItems = document.querySelectorAll('#dropdown1 a');
+  const dropdownItems = document.querySelectorAll('.link-example');
   dropdownItems.forEach(item => {
     item.addEventListener('click', function () {
       const example = this.getAttribute('data-example');
@@ -89,19 +79,35 @@ function setupDropdownItems() {
 }
 
 /**
+ * Configura os botões para gerar o prompt.
+ */
+function setupNewSubjectButtons() {
+  const new_subject_buttons = document.querySelectorAll('.new_subject');
+  new_subject_buttons.forEach(button => {
+    button.addEventListener('click', handleGenerateNewSujectButton);
+  });
+}
+
+/**
  * Configura o botão para adicionar novo assunto.
  */
-function setupNewSubjectButton() {
-  const new_subject = document.querySelector('#new_subject');
-  if (new_subject) {
-    new_subject.onclick = function () {
-      loadFormData();
-      localStorage.removeItem('formData');
-      localStorage.removeItem('exampleData');
-      window.location.href = 'index_prompt.html?form=subject';
-    }
+function handleGenerateNewSujectButton() {
+
+  const formData = localStorage.getItem('formData');
+
+  if (formData) {
+    const modal = M.Modal.getInstance(document.getElementById('customModal'));
+    modal.open();
+
+    setupModalConfirmationButtonsNewSubject();
+  } else {
+    loadFormData();
+    localStorage.removeItem('formData');
+    localStorage.removeItem('exampleData');
+    window.location.href = 'index_prompt.html?form=subject';
   }
 }
+
 
 /**
  * Lida com o click do botão "gerar-prompt".
@@ -136,6 +142,14 @@ function setupModalConfirmationButtons() {
   });
 }
 
+function setupModalConfirmationButtonsNewSubject() {
+
+  document.getElementById('modalYes').addEventListener('click', () => {
+    localStorage.removeItem('formData');
+    window.location.href = 'index_prompt.html?form=subject';
+  });
+}
+
 /**
  * Carrega os dados e exibe o formulário apropriado com base nos parâmetros da URL.
  */
@@ -157,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let typed = null;
 
 function updateTypingEffect(text) {
-  
+
   const promptElement = document.querySelector(".prompt-generator");
   const copy = document.querySelector(".copy");
   const copyButton = document.querySelector('.copy-button');
@@ -175,16 +189,16 @@ function updateTypingEffect(text) {
   if (promptElement) {
     typed = new Typed(promptElement, {
       strings: [text],
-      typeSpeed: 5,
-      backSpeed: 25,
-      backDelay: 1000,
+      typeSpeed: 0.1,
+      backSpeed: 0,
+      backDelay: 0,
       startDelay: 0,
       loop: false,
-      showCursor: true,
+      showCursor: false,
       onComplete: () => {
         if (copyButton)
           copyButton.disabled = false;
-      
+
         if (copy)
           copy.style.opacity = '1';
       }
@@ -192,7 +206,7 @@ function updateTypingEffect(text) {
   } else {
     if (copyButton)
       copyButton.disabled = false;
-  
+
     if (copy)
       copy.style.opacity = '1';
   }
@@ -386,7 +400,7 @@ function gatherFormValues() {
     nivelEscolaridade: document.getElementById('nivel-escolaridade')?.value || '',
     objetivoEstudo: document.querySelector('input[name="objetivo"]:checked')?.value || '',
     horasDisponiveis: document.getElementById('slice')?.value || '',
-    tempoDominio: document.querySelector('input[name="tempo"]:checked')?.value || '',
+    tempoDominio: document.getElementById('tempo-dominio')?.value || '',
     personaIA: document.querySelector('input[name="persona"]:checked')?.value || '',
     personagemHistorico: document.getElementById('historical-character')?.value || '',
     tomConversa: document.getElementById('tom-resposta')?.value || '',
@@ -469,6 +483,7 @@ function loadFormData() {
 
   setSelectValue('nivel-conhecimento', dataToLoad.nivelConhecimento);
   setSelectValue('nivel-escolaridade', dataToLoad.nivelEscolaridade);
+  setSelectValue('tempo-dominio', dataToLoad.tempoDominio);
   setSelectValue('tom-resposta', dataToLoad.tomConversa);
   setSelectValue('formato-resposta', dataToLoad.formatoDaResposta);
   setSelectValue('conteudo-resposta', dataToLoad.pontosPrincipais);
@@ -495,10 +510,6 @@ function loadFormData() {
 
   if (dataToLoad.objetivoEstudo && typeof dataToLoad.objetivoEstudo === 'string') {
     setRadioValue('objetivo', dataToLoad.objetivoEstudo);
-  }
-
-  if (dataToLoad.tempoDominio && typeof dataToLoad.tempoDominio === 'string') {
-    setRadioValue('tempo', dataToLoad.tempoDominio);
   }
 
   if (dataToLoad.personaIA && typeof dataToLoad.personaIA === 'string') {
@@ -604,6 +615,39 @@ function addEventListeners() {
       }
     });
   }
+
+
+const chipsContainer = document.querySelector('.chips');
+
+if (chipsContainer) {
+
+  const input = chipsContainer.querySelector('input');
+
+
+  if (input) {
+
+    const add = document.querySelector('.add');
+    
+
+    if (add) {
+
+      add.addEventListener('click', () => {
+      
+        const event = new KeyboardEvent('keydown', {
+          bubbles: true,
+          cancelable: true,
+          key: 'Enter',
+          code: 'Enter',
+          keyCode: 13,
+          which: 13 
+        });
+
+        input.dispatchEvent(event);        
+      });
+    }
+  }
+}
+
 
   const copy = document.querySelector('.copy');
 

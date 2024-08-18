@@ -13,7 +13,7 @@ PromptGen é uma aplicação web desenvolvida para gerar prompts personalizados 
 
 ## Funcionalidades
 
-- **Formulário Multietapas** 📝: Permite que os usuários preencham um formulário complexo dividido em várias etapas com uma barra de progresso visual.
+- **Formulário Multietapas** 📝: Permite que os usuários preencham um formulário dividido em várias etapas com uma barra de progresso visual.
 - **Efeito de Digitação** ⌨️: Exibe texto com um efeito de digitação para criar uma experiência mais envolvente.
 - **Copiar Prompt** 📋: Permite aos usuários copiar o prompt gerado para a área de transferência com um clique.
 - **Armazenamento Local** 💾: Utiliza o `localStorage` para salvar dados do usuário e fornecer uma experiência contínua entre sessões.
@@ -29,7 +29,7 @@ A experiência do usuário (UX) e a interface do usuário (UI) foram projetadas 
 4. **Consistência e Padrões** 📏: A aplicação usa o Materialize CSS para garantir que os componentes sejam consistentes e sigam padrões de design amplamente reconhecidos.
 5. **Prevenção de Erros** ⚠️: O design e a validação do formulário ajudam a evitar erros comuns e fornecem feedback claro quando ocorrem.
 6. **Reconhecimento em vez de memorização** 🧠: Os usuários podem ver opções e informações relevantes diretamente nas interfaces, minimizando a necessidade de lembrar detalhes de uma etapa para outra.
-7. **Eficiência e flexibilidade de uso** ⚙️: A aplicação permite que usuários utilizem atalhos e funcionalidades, como copiar o prompt com um clique, e ir para qualquer sessão no clique de um link
+7. **Eficiência e flexibilidade de uso** ⚙️: A aplicação permite que usuários utilizem atalhos, como copiar o prompt com um clique, e ir para qualquer sessão no clique de um link
 8. **Estética e design minimalista** 🎨: O layout é limpo e focado nas tarefas essenciais, sem informações desnecessárias que possam distrair o usuário.
 9. **Ajudar os Usuários a Reconhecer, Diagnosticar e Recuperar de Erros** 🛠️: Mensagens de erro e instruções são claras e ajudam os usuários a corrigir problemas rapidamente.
 10. **Ajuda e Documentação** 📚: Informações sobre como usar a aplicação estão disponíveis e são fáceis de encontrar.

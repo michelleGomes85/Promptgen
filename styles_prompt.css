@@ -1,10 +1,6 @@
 header,
 body {
-    background-color: #EAF5F7 !important;
-}
-
-.dropdown-content {
-    min-width: 200px;
+    background-color: #dde7e6;
 }
 
 .new-subject {
@@ -15,7 +11,7 @@ body div.container-form {
     display: none;
     font-family: 'Roboto Mono', monospace !important;
     flex-direction: column;
-    height: calc(100vh - 100px);
+    height: 100vh;
     width: 100vw;
     max-width: 100%;
 }
@@ -58,7 +54,6 @@ body div.container-form {
 main.main {
     display: flex;
     flex: 1;
-    padding: 20px;
     justify-content: center;
     width: 100%;
 }
@@ -82,7 +77,8 @@ main .main_column1 .form {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 78vh;
+    max-height: 600px;
     width: 40vw;
 }
 
@@ -177,7 +173,6 @@ div.progress-bar {
 }
 
 button.btn {
-    font-size: initial;
     margin-top: 10px;
     border: none;
     border-radius: 4px;
@@ -219,22 +214,32 @@ button.copy-button:hover {
 }
 
 .form_group {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 /*Materialize*/
 .input-field {
-    width: 70%;
-    max-width: 450px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.input-field-range {
+    width: 80%;
+    max-width: 500px;
+    margin-top: 0px !important;
+}
+
+.time {
+    margin-top: 0 !important;
+}
+
+.select,
+#historical-character-field {
+    width: 60% !important;
 }
 
 .input-field.col label {
     left: 0;
-}
-
-.dropdown-content li>a,
-.dropdown-content li>span {
-    color: #1d1051;
 }
 
 [type="radio"]:checked+span:after,
@@ -258,9 +263,7 @@ label {
 }
 
 input[type=range] {
-    width: 60%;
-    margin-left: 50px;
-    margin-top: 20px;
+    width: 80%;
 }
 
 input[type=range]+.thumb {
@@ -320,6 +323,23 @@ div.form-step div.form_group h2 {
     display: none;
     margin-left: 50px;
     margin-top: 25px;
+}
+
+.input-field .prefix~input,
+.input-field .prefix~textarea,
+.input-field .prefix~label,
+.input-field .prefix~.validate~label,
+.input-field .prefix~.helper-text,
+.input-field .prefix~.autocomplete-content {
+    margin-left: 0;
+}
+
+.input-field .prefix {
+    right: 0;
+    top: auto;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 1.6rem;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -398,6 +418,30 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     background-color: #0F2A5B;
 }
 
+.img-end img {
+    margin-top: 1rem;
+    height: 30vh;
+    max-height: 400px;
+    width: auto;
+}
+
+.step-8 {
+    text-align: center;
+}
+
+.step-8 .buttons {
+    left: 50;
+    right: inherit;
+}
+
+.text-tip p {
+    margin: 5px;
+}
+
+.text-tip {
+    padding-bottom: 10px;
+}
+
 .main_column2 {
     display: flex;
     flex-direction: column;
@@ -409,7 +453,8 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     flex-direction: column;
     background-color: #fff;
     width: 90%;
-    height: 65vh;
+    height: 70vh;
+    max-height: 600px;
     border-radius: 3%;
     box-sizing: border-box;
     overflow: hidden;
@@ -427,16 +472,16 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     height: 70px;
     color: white;
     padding: 0 20px;
-    z-index: 10; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .prompt-generator {
-    margin-top: 0; 
+    margin-top: 0;
     flex: 1;
     overflow-y: auto;
     padding: 30px 50px;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 .prompt .hide_prompt {
@@ -450,98 +495,13 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     color: #000;
     position: absolute;
     top: 50px;
-    right: 50px;
+    right: 15px;
     cursor: pointer;
 }
 
 .prompt-generator span {
     display: block;
     margin-top: 15px;
-}
-
-/* Estilos para a janela modal */
-
-.modal {
-    font-family: 'Roboto Mono', monospace !important;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 999;
-}
-
-.keyboard-focused {
-    height: 100vh;
-}
-
-.modal_content {
-    display: flex;
-    flex-direction: row;
-    background-color: #fff;
-    margin: 30vh auto;
-    padding: 30px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 650px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    line-height: 2rem;
-    font-size: 1rem;
-}
-
-.modal_content .img {
-    display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal_content .img img {
-    width: 10rem;
-    height: 10rem;
-}
-
-.modal_content .text hr {
-    margin: 20px 20px 20px 0;
-}
-
-.modal_content .text p span#percentage {
-    color: #7DA6B9;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.text>p:nth-child(1) {
-    color: #1D1051;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.text>p:nth-child(4) {
-    margin-top: 20px;
-}
-
-/* Botao para fechar a janela modal */
-.close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-modal:hover,
-.close-modal:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* Define o estilo da classe de erro */
@@ -566,9 +526,9 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 .chips .input::placeholder {
-        color: #4a4a4a;
-        opacity: 1;
-    }
+    color: #4a4a4a;
+    opacity: 1;
+}
 
 @media only screen and (max-width: 1500px) {
 
@@ -578,10 +538,6 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 @media only screen and (max-width: 900px) {
-
-    html {
-        font-size: initial;
-    }
 
     nav {
         height: initial;
@@ -616,7 +572,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
     .show_prompt {
         top: 10px;
-        right: 20px;
+        right: 10px;
     }
 
     .prompt {
@@ -631,16 +587,18 @@ textarea.materialize-textarea:focus:not([readonly])+label {
         padding: 0;
     }
 
-    .radio-custom {
+    .radio-custom,
+    #historical-character-field {
         margin-left: 0;
     }
 
-    .input-field {
-        width: 80%;
+    .select,
+    #historical-character-field {
+        width: 70% !important;
     }
 
-    .select {
-        width: 70%;
+    .input-field {
+        width: 90%;
     }
 
     .switch {
@@ -649,9 +607,5 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
     .inputs {
         width: 95% !important;
-    }
-
-    .modal_content .img {
-        display: none;
     }
 }

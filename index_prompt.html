@@ -6,48 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PromptGen</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/session_how_it_works/2.png">
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+    
     <link rel="stylesheet" type="text/css" href="styles_header.css">
     <link rel="stylesheet" href="styles_prompt.css">
+    <link rel="stylesheet" type="text/css" href="styles_modal.css">
 </head>
 
 <body>
-    <header id="my_header">
 
-        <a href="index.html" class="soon">
-            <img class="img-soon" src="img/soon-teste.png" alt="Soon">
-            <p>PROMPTGEN</p>
-        </a>
+    <header>
 
-        <button id="open_menu">&#9776;</button>
+        <nav class="navbar">
+            <div class="nav-wrapper">
+
+                <a href="index.html" class="logo">
+                    <div class="soon">
+                        <img class="img-soon" src="img/soon.png" alt="Soon"> 
+                        <p class="text-soon">PROMPTGEN</p>
+                    </div>
+                </a>
+
+                <ul class="hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#how_it_works">Como funciona?</a></li>
+                    <li><a href="index.html#about" class="menu_link">Sobre</a></li>
+                    <li><a href="index.html#contacts" class="menu_link">Contatos</a></li>
+                    <li class="examples">
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Exemplos<i
+                            class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    <button class="btn-gerarPrompt new_subject">Novo Assunto</button>
+                </ul>
+                
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!" data-example="web-development">Desenvolvimento Web</a></li>
-            <li><a href="#!" data-example="ai">Inteligência Artificial</a></li>
-            <li><a href="#!" data-example="nutrition">Nutrição</a></li>
+            <li><a class="link-example" data-example="web-development">Desenvolvimento Web</a></li>
+            <li><a class="link-example" data-example="ai">Inteligência Artificial</a></li>
+            <li><a class="link-example" data-example="nutrition">Nutrição</a></li>
         </ul>
 
-        <nav id="menu">
-            <button id="close_menu">&times;</button>
-            <a href="index.html" class="menu_link">Início</a>
-            <a href="index.html#how_it_works" class="menu_link">Como funciona?</a>
-            <a href="index.html#about" class="menu_link">Sobre</a>
-            <a href="index.html#contacts" class="menu_link">Contatos</a>
-            <a class="menu_link" id="new_subject">Novo Assunto</a>
-
-            <a class="dropdown-trigger" href="#!" data-target="dropdown1">Exemplos<i
-                    class="material-icons right">arrow_drop_down</i></a>
-
-        </nav><!--nav-menu-->
-
-        <div class="progress-form">
-
-        </div>
-    </header><!--header-->
+        <ul id="mobile-demo" class="sidenav">
+            <li><div class="user-view">
+                <a href="#user"><img class="circle" src="img/soon.png">PromptGen</a>
+              </div></li>
+              <li><a href="#!" class="new_subject"><i class="material-icons">send</i>Novo Assunto</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Sessões</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#how_it_works">Como funciona?</a></li>
+            <li><a href="index.html#about" class="menu_link">Sobre</a></li>
+            <li><a href="index.html#contacts" class="menu_link">Contatos</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="subheader">Exemplos</a></li>
+            <li><a class="link-example" data-example="web-development">Desenvolvimento Web</a></li>
+            <li><a class="link-example" data-example="ai">Inteligência Artificial</a></li>
+            <li><a class="link-example" data-example="nutrition">Nutrição</a></li>
+        </ul>
+    </header>
 
     <div class="container-subject">
 
@@ -186,44 +211,40 @@
                                 <h2>Tempo disponível</h2>
                             </div><!--form_group-->
 
-                            <div class="columns inputs">
+                            <div class="columns inputs time">
                                 <i><img src="img/icons/time_day.png"></i>
-                                <p>Horas para estudar por dia?</p>
-                            </div><!--columns-->
 
-                            <div class="form-group">
-                                <p class="range-field">
-                                    <input type="range" id="slice" min="0" max="5" value="0" />
-                                </p>
-                            </div><!--form_group-->
+                                <div class="input-field-range">
+                                    <p>Horas para estudar por dia?</p>
 
-                            <div class="columns inputs">
-                                <i><img src="img/icons/deadline.png"></i>
-                                <p>Tempo para dominio?</p>
-                            </div><!--columns-->
-
-                            <div class="form-group">
-                                <div class="input-field col s12">
-                                    <p class="radio-custom">
-                                        <label>
-                                            <input type="radio" value="1" name="tempo" />
-                                            <span>Menos de 1 semana</span>
-                                        </label>
-                                    </p>
-                                    <p class="radio-custom">
-                                        <label>
-                                            <input type="radio" value="2" name="tempo" />
-                                            <span>De 1 a 3 semanas</span>
-                                        </label>
-                                    </p>
-                                    <p class="radio-custom">
-                                        <label>
-                                            <input type="radio" value="3" name="tempo" />
-                                            <span>Mais de 3 semanas</span>
-                                        </label>
-                                    </p>
+                                    <div>
+                                        <p class="range-field">
+                                            <input type="range" id="slice" min="0" max="5" value="0" />
+                                        </p>
+                                    </div><!--form_group-->
                                 </div>
-                            </div>
+
+                            </div><!--columns-->
+
+                            <div class="form_group">
+
+                                <div class="columns">
+
+                                    <i><img src="img/icons/deadline.png"></i>
+
+                                    <div class="input-field col s12 select">
+                                        <select id="tempo-dominio" name="tempo-dominio">
+                                            <option value="" disabled selected>Escolha um opção</option>
+                                            <option value="1">Menos de 1 semana</option>
+                                            <option value="2">De 1 a 3 semanas</option>
+                                            <option value="3">Mais de 3 semanas</option>
+                                        </select>
+                                        <label>Tempo para dominio</label>
+                                    </div>
+
+                                </div><!--columns-->
+
+                            </div><!--form_group-->
 
                             <div class="buttons form_group">
                                 <button type="button" class="prev-btn btn">Anterior</button>
@@ -266,7 +287,7 @@
 
                                 <div id="historical-character-field" class="input-field col s12">
                                     <input type="text" id="historical-character" />
-                                    <label for="historical-character">Qual personagem histórico?</label>
+                                    <label for="historical-character">Qual?</label>
                                 </div>
                             </div>
 
@@ -402,14 +423,37 @@
                             </div><!--switch-->
 
                             <div class="chips chips-placeholder">
+                                <i class="material-icons prefix add">add</i>
                             </div>
+
 
                             <div class="buttons form_group">
                                 <button type="button" class="prev-btn btn">Anterior</button>
-                                <button type="button" class="copy-button btn">Copiar<span
-                                        class="material-icons">content_copy</span></button>
+                                <button type="button" class="next-btn btn">Próximo</button>
                             </div><!--botões-->
                         </div><!--form-step step-7-->
+
+
+                        <div class="form-step step-8">
+
+                            <div class="form_group">
+                                <h2>Copie o prompt ao lado</h2>
+                                <div class="text-tip">
+                                    <p>Se o prompt estiver escondido</p>
+                                    <p>basta clicar no ícone de olho para visualizá-lo!</p>
+                                </div>
+                            </div><!--form_group-->
+
+                            <div class="img-end">
+                                <img src="img/copy_prompt.png" alt="">
+                            </div>
+
+                            
+                            <div class="buttons form_group">
+                                <button type="button" class="prev-btn btn">Anterior</button>
+                            </div><!--botões-->
+                        </div><!--form-step step-7-->
+
                     </div><!--form-steps-->
                 </div><!--form-->
 
@@ -422,8 +466,8 @@
                         <a class="copy" href="#" title="Copiar Prompt"><span
                                 class="material-icons copy_symbol">content_copy</span></a>
 
-                        <a onclick="hide_prompt()" class="hide_prompt" href="#" title="Clique para ocultar o prompt"><span
-                                class="material-icons">visibility_off</span></a>
+                        <a onclick="hide_prompt()" class="hide_prompt" href="#"
+                            title="Clique para ocultar o prompt"><span class="material-icons">visibility_off</span></a>
                     </div><!--header-prompt-->
 
                     <div class="prompt-generator"></div>
@@ -441,12 +485,13 @@
                 <div class="step" data-step="5" data-title="Formato">5</div>
                 <div class="step" data-step="6" data-title="Conteúdo">6</div>
                 <div class="step" data-step="7" data-title="Detalhes">7</div>
+                <div class="step" data-step="8" data-title="Fim">8</div>
             </div><!--steps-->
         </div><!--progress-bar-->
 
     </div><!--container-->
 
-    <div id="my_modal" class="modal">
+    <div id="my_modal">
         <div class="modal_content">
             <div class="text">
                 <p>Texto copiado!</p>
@@ -461,6 +506,19 @@
             <span class="close-modal">&times;</span>
         </div><!--modal-content-->
     </div><!--my_modal-->
+
+    <div id="customModal" class="modal">
+        
+        <div class="modal-content">
+            <h4>Confirmar Ação</h4>
+            <p>Você tem certeza de que deseja prosseguir? Ao confirmar, todos os dados do prompt criado até agora serão perdidos.</p>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalNo">Não</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="modalYes">Sim</a>
+        </div>
+    </div><!--customModal-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

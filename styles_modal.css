@@ -1,0 +1,166 @@
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn-flat {
+    margin: 0 10px;
+}
+
+/* Personaliza o modal */
+.modal {
+    font-family: 'Roboto Mono', monospace !important;
+    max-width: 520px;
+    border-radius: 2% !important;
+    top: 30% !important;
+}
+
+.modal .modal-content {
+    text-align: center;
+    padding: 30px 24px 2px !important;
+}
+
+.modal .home {
+    text-align: center;
+    padding: 30px 24px 20px !important;
+}
+
+.modal .modal-footer {
+    padding-top: 0px !important;
+    padding-bottom: 70px !important;
+}
+
+.modal-content h4 {
+    font-weight: 550;
+    color: #0F2A5B;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 0.1rem;
+}
+
+.modal-content p {
+    font-size: 1rem;
+}
+
+.modal-header {
+    background-color: #01173C;
+}
+
+.modal-footer .btn-flat {
+    color: #fff;
+    background-color: #0F2A5B;
+    border-radius: 5%;
+}
+
+.modal .modal-footer .btn,
+.modal .modal-footer .btn-large,
+.modal .modal-footer .btn-small,
+.modal .modal-footer .btn-flat {
+    margin: 0 10px !important;
+}
+
+.btn,
+.btn-large,
+.btn-small,
+.btn-flat {
+    text-transform: none !important;
+}
+
+.modal-footer {
+    margin-top: 10px;
+}
+
+.modal-footer .btn-flat:hover {
+    background-color: #e3f2fd;
+    color: #01173C;
+}
+
+/* Estilos para a janela modal */
+
+#my_modal{
+    font-family: 'Roboto Mono', monospace !important;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.keyboard-focused {
+    height: 100vh;
+}
+
+.modal_content {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    margin: 30vh auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    line-height: 2rem;
+    font-size: 1rem;
+}
+
+.modal_content .img {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content .img img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.modal_content .text hr {
+    margin: 20px 20px 20px 0;
+}
+
+.modal_content .text p span#percentage {
+    color: #7DA6B9;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.text>p:nth-child(1) {
+    color: #1D1051;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.text>p:nth-child(4) {
+    margin-top: 20px;
+}
+
+/* Botao para fechar a janela modal */
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+    .modal_content .img {
+        display: none;
+    }
+}

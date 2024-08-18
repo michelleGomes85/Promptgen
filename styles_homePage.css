@@ -4,38 +4,26 @@
     box-sizing: border-box;
 }
 
-main,
-footer,
-body {
-    display: flex;
-}
-
-body {
-    flex-wrap: wrap;
-    flex: 1 1 100vw;
-    font-family: 'Roboto Mono', monospace;
-    background: linear-gradient(#DBE6E4, #F1F1FA);
-}
-
 main {
+    flex: 1;
     flex-wrap: wrap;
-    overflow: hidden;
     position: relative;
 }
 
 main section.homepage {
     display: flex;
     position: relative;
-    width: 100vw;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 60px);
     flex-direction: row;
     align-items: center;
+    background: linear-gradient(#dde7e6, #DBE6E4, #D0E1E4, #E5E5F3);
+    justify-content: space-between;
 }
 
 main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 3vw;
     margin-bottom: 2vh;
     margin-top: 0;
     line-height: 1.5;
@@ -44,18 +32,17 @@ main section.homepage .description h1 {
 
 main section.homepage .description {
     margin-left: 5%;
-    width: 30%;
+    width: 40vw;
     position: relative;
 }
 
 #description_site {
-    height: 6.5vw;
+    height: 8vw;
 }
 
 main section.homepage .description p {
-    font-size: 1vw;
-    margin-top: 1vw;
     line-height: 1.5;
+    font-size: 1.2vw;
 }
 
 main section.homepage .description button#btn {
@@ -65,7 +52,7 @@ main section.homepage .description button#btn {
     cursor: pointer;
     border-radius: 5px;
     padding: 15px 30px;
-    font-size: 0.9vw;
+    font-size: 1vw;
 }
 
 main section.homepage .description button#btn:hover {
@@ -73,20 +60,33 @@ main section.homepage .description button#btn:hover {
     color: #000;
 }
 
+main section.homepage .image {
+    position: relative;
+    width: 65vw;
+    height: 100vh;
+}
+
 main section.homepage .image img {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 40vw;
+    height: 80vh;
+    width: auto;
+}
+
+.transition {
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(229, 229, 243, 0.8), rgba(241, 241, 245, 0.8));
 }
 
 main section#how_it_works {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 100px 0;
     margin: 0 auto;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    font-size: 1.2vw;
+    padding: 100px 0;
 }
 
 main section#how_it_works div {
@@ -96,23 +96,20 @@ main section#how_it_works div {
 }
 
 main section#how_it_works div h3 {
+    font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1vw;
-}
-
-main section#how_it_works div p {
-    font-size: 0.9vw;
+    font-size: 1.2vw;
 }
 
 main section#how_it_works span img {
     width: auto;
-    height: 8rem;
+    height: 7rem;
     margin-bottom: 10px;
 }
 
 main section#about {
-    background-color: #EAF5F7;
     padding: 100px 0;
+    font-size: 1.2vw;
 }
 
 main section#about div.about_text {
@@ -123,11 +120,9 @@ main section#about div.about_text {
 
 main section#about div.about_text p {
     line-height: 2;
-    font-size: 1vw;
 }
 
 footer {
-    width: 100vw;
     background-color: #01173C;
     padding: 100px 0;
     box-sizing: border-box;
@@ -135,16 +130,13 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
 }
 
 footer .footer-bottom {
-    margin-top: 2rem;
     color: #F1F1FA;
     text-align: center;
-}
-
-footer .footer-bottom span {
-    font-size: 1.5rem;
+    padding-top: 100px;
 }
 
 footer .itens {
@@ -153,7 +145,6 @@ footer .itens {
     gap: 1rem;
     width: 90vw;
     margin: 0 auto;
-    padding: 100px 1rem;
 }
 
 h4 {
@@ -178,128 +169,63 @@ div.item h4 {
     margin: 0;
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: center;
+@media (min-height: 760px) {
+    main section.homepage .image img {
+        height: 400px;
+        width: auto;
+        object-fit: cover;
+        object-position: bottom right;
+    }
 }
 
-.modal-footer .btn-flat {
-    margin: 0 10px;
-}
-
-/* Personaliza o modal */
-.modal {
-    font-family: 'Roboto Mono', monospace !important;
-    max-width: 520px;
-    border-radius: 2% !important;
-    top: 30% !important;
-}
-
-.modal .modal-content {
-    text-align: center;
-    padding: 30px 24px 10px !important;
-}
-
-.modal .modal-footer {
-    padding-bottom: 70px !important;
-}
-
-.modal-content h4 {
-    font-weight: 550;
-    color: #0F2A5B;
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 0.1rem;
-}
-
-.modal-content p {
-    font-size: 1rem;
-}
-
-.modal-header {
-    background-color: #01173C;
-}
-
-.modal-footer .btn-flat {
-    color: #fff;
-    background-color: #0F2A5B;
-    border-radius: 5%;
-}
-
-.modal .modal-footer .btn,
-.modal .modal-footer .btn-large,
-.modal .modal-footer .btn-small,
-.modal .modal-footer .btn-flat {
-    margin: 0 10px !important;
-}
-
-.btn,
-.btn-large,
-.btn-small,
-.btn-flat {
-    text-transform: none !important;
-}
-
-.modal-footer {
-    margin-top: 10px;
-}
-
-.modal-footer .btn-flat:hover {
-    background-color: #e3f2fd;
-    color: #01173C;
-}
-
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1350px) {
 
     main section.homepage .description {
-        width: 35%;
+        width: 50vw;
+    }
+
+    main section.homepage .image {
+        width: 50vw;
+    }
+
+    main section.homepage .image img {
+        height: 65vh;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    main section.homepage .description h1 {
+        font-size: 3rem;
+    }
+    
+    main section.homepage .description {
+        width: 60vw;
+        text-align: center;
+        margin-left: 0;
     }
     
     #description_site {
-        height: 7vh;
+        height: 8rem;
     }
-
-    main section.homepage .description h1 {
-        font-size: 2.5rem;
-    }
-
-    main section.homepage .description p {
-        font-size: 1.2rem;
-    }
-
-    #description_site {
-        height: 7.5rem;
-    }
-
-    main section#how_it_works div p {
+    
+    main section.homepage .description p , 
+    main section#how_it_works p,
+    main section#how_it_works div h3,
+    main section#about, footer{
         font-size: 1rem;
-    }
-
-    main section#how_it_works div h3 {
-        font-size: 1.2rem;
-    }
-
-    main section#about div.about_text p {
-        font-size: 1.2rem;
     }
 
     main section.homepage .description button#btn {
         font-size: 1rem;
     }
-}
-
-@media only screen and (max-width: 900px) {
 
     main section.homepage {
+        width: 100vw;
         justify-content: center;
     }
 
-    main section.homepage .description {
-        text-align: center;
-        width: 70%;
-        margin-left: 0;
-    }
-
-    main section.homepage .image img {
+    main section.homepage .image {
         display: none;
     }
 
@@ -334,10 +260,12 @@ div.item h4 {
 
 @media only screen and (max-width: 600px) {
 
+    main section.homepage .description h1 {
+        font-size: 2.5rem;
+    }
+
     main section.homepage {
         justify-content: center;
-        align-items: baseline;
-        margin-top: 20px;
     }
 
     main section.homepage .description {

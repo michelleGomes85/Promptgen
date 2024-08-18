@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Disket Mono';
     src: url('disket/Disket-Mono-Regular.ttf') format('truetype');
@@ -13,181 +12,195 @@
     font-style: normal;
 }
 
-* {
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    background-color: rgb(239, 240, 248);
+    font-size: 14px;
+}
+
+.navbar {
+    height: 90px !important;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #dde7e6;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.navbar .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.navbar .brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366;
+}
+
+.navbar .nav-wrapper ul {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    list-style: none;
+    flex-grow: 1;
+    justify-content: center;
 }
 
-html body header#my_header, nav#menu {
-    display: flex;
-    font-family: 'Roboto Mono', monospace;
-    background-color: initial;
-    box-shadow: initial;
-    height: initial;
-    line-height: 30px;
-    font-size: 1rem;
-    height: 100%;
-    box-sizing: border-box;
+.navbar .nav-wrapper ul li a {
+    color: #0F2A5B;
+    padding: 10px 15px;
+    border-radius: 20px;
+    line-height: 1.5;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-html body header#my_header {
-    flex: 1 1 100vw;
-    height: 100px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    align-items: center;
+nav ul a:hover {
+    background-color: rgba(0,0,0,0.0) !important;
+    font-weight: bold;
+}
+
+.btn-gerarPrompt {
+    position: absolute;
+    right: 50px;
+    background-color: #0F2A5B;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 12px 30px;
+    border: none;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    border: 1px solid #0F2A5B;
+}
+
+.btn-gerarPrompt:hover {
     background-color: #dde7e6;
+    color: #0F2A5B;
 }
 
-html body header#my_header a.soon {
-    flex: 1 1 20vw;
-    margin-left: 5%;
+.z-depth-1,
+nav,
+.card-panel,
+.card,
+.toast,
+.btn,
+.btn-large,
+.btn-small,
+.btn-floating,
+.dropdown-content,
+.collapsible,
+.sidenav {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+main {
     display: flex;
-    height: 100%;
+    height: calc(100vh - 64px);
+    margin-top: 64px;
     align-items: center;
 }
 
-html body header#my_header a.soon .img-soon {
+.logo {
+    padding-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Disket Mono', monospace;
+    color: #1D1051;
+    font-weight: bold;
+}
+
+.soon {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.img-soon {
     height: 65px; 
     width: auto; 
 }
 
-header#my_header .progress-form {
-    background-color: #0F2A5B;
-    position: absolute;
-    bottom: 0;
-    width: 0%;
-    height: 8px;
+.soon p {
+    margin: 0;
 }
 
-html body header#my_header a.soon p {
-    margin-left: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
+.sidenav {
+    z-index: 1000 !important;
+}
+
+nav .sidenav-trigger i {
+    color: #003366;
+}
+
+.last {
+    margin-right: 100px !important;
+}
+
+.sidenav .user-view {
+    padding: 32px 32px 0 !important;
+}
+
+.sidenav .user-view a {
     color: #1D1051;
+    font-weight: bold;
     font-family: 'Disket Mono', monospace;
 }
 
-html body header#my_header nav#menu {
-    flex: 1 1 100vw;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 3em;
-}
-
-html body header#my_header nav#menu.show {
-    display: flex;
-    opacity: 1;
-    right: 0;
-}
-
-html body header#my_header nav#menu.hide {
-    display: none;
-    opacity: 0;
-    right: -100%;
-}
-
-html body header#my_header a {
-    text-decoration: none;
-    color: inherit;
-    color: initial;
-    cursor: pointer;
-}
-
-html body header#my_header nav#menu a {
-    margin: 2%;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-html body header#my_header nav#menu a.active {
+a.active {
     font-weight: bold;
 }
 
-html body header#my_header nav#menu a:hover {
-    background: rgba(221, 231, 230, 0.5);
+.navbar .nav-wrapper ul li.examples {
+    line-height: 64px;
+    margin-right: 150px;
 }
 
-html body header#my_header button.btn_style {
-    background: #0F2A5B;
-    border: 1px solid #0F2A5B;
-	color: #fff !important;
-	cursor: pointer;
-    border-radius: 5px;
-    padding: 15px 30px;
-    font-size: 1rem;
-} 
+.navbar .nav-wrapper ul li.examples a{
+    line-height: 64px;
+}
 
-html body header#my_header .btn_style:hover  {
-	background-color: rgba(219, 230, 228, 0.5);
-    color: #000 !important;
-} 
-
-#open_menu, #close_menu {
-    border: none;
-    background: none;
-    font-size: 2rem !important;
-    font-weight: bold;
-    padding: 0 10px;
-    cursor: pointer;
+ul#dropdown1 {
     display: none;
 }
 
-
-.typed-cursor {
-    display: none;
+.dropdown-content {
+    min-width: 300px;
 }
 
-.menu_button {
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #1d1051;
+}
+
+.link-example {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 900px) {
+@media (max-width: 768px) {
 
-    html body header#my_header nav#menu {
-        flex: 1 1 100vw;
-        justify-content: center;
-        align-items: center;
-        margin-right: 3em;
-        height: 400px;
-        z-index: 999;
-    }
+    .logo {
+        padding-left: 10px;
+     }
 
-    header {
-        height: auto;
-        padding: 10px;
-    }
-
-    #open_menu, #close_menu {
-        display: block;
-        color: #0F2A5B;
-    }
-
-    #close_menu {
-        position: absolute;
-        right: 40px;
-        top: 5vh;
-    }
-
-    nav#menu {
-        position: fixed;
-        top: 1px;
-        left: 0;
-        width: 100vw;
-        background-color: rgba(219, 230, 228, 0.9);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    nav#menu.show {
-        display: flex;
-        opacity: 1;
+    .text-soon {
+        line-height: 10px;
     }
 }

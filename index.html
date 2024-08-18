@@ -7,41 +7,60 @@
 
     <link rel="stylesheet" type="text/css" href="styles_header.css">
     <link rel="stylesheet" type="text/css" href="styles_homePage.css">
+    <link rel="stylesheet" type="text/css" href="styles_modal.css">
 
     <link rel="shortcut icon" href="img/session_how_it_works/1.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>PromptGen</title>
 </head>
 
 <body>
-    <header id="my_header">
 
-        <a href="#" class="soon">
-            <img class="img-soon" src="img/soon-teste.png" alt="Soon"> 
-            <p>PROMPTGEN</p>
-        </a>
-
-        <button id="open_menu">&#9776;</button>
-
-        <nav id="menu">
-            <button id="close_menu">&times;</button>
-            <a class="menu_button active" data-target="#start">Início</a>
-            <a class="menu_button" data-target="#how_it_works">Como funciona?</a>
-            <a class="menu_button" data-target="#about">Sobre</a>
-            <a class="menu_button" data-target="#contacts">Contatos</a>
+    <header>
+        <nav class="navbar">
+          <div class="nav-wrapper">
             
-            <a><button id="btn" class="btn_style gerar-prompt">Gerar Prompt</button></a>
-        </nav><!--nav-menu-->
+            <a href="#" class="logo">
+                <div class="soon">
+                    <img class="img-soon" src="img/soon.png" alt="Soon"> 
+                    <p class="text-soon">PROMPTGEN</p>
+                </div>
+            </a>
+      
+            <ul class="hide-on-med-and-down">
+              <li><a class="menu_button active" data-target="#start">Home</a></li>
+              <li><a class="menu_button" data-target="#how_it_works">Como Funciona?</a></li>
+              <li><a class="menu_button" data-target="#about">Sobre</a></li>
+              <li class="last"><a class="menu_button" data-target="#contacts">Contatos</a></li>
+              <button class="btn-gerarPrompt gerar-prompt">Gerar Prompt</button>
+            </ul>
+      
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
 
-    </header><!--header-->
+        <ul id="mobile-demo" class="sidenav">
+            <li><div class="user-view">
+              <a href="#user"><img class="circle" src="img/soon.png">PromptGen</a>
+            </div></li>
+            <li><a href="#!" class="gerar-prompt"><i class="material-icons">send</i>Gerar Prompt</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Sessões</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">Como Funciona</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#contacts">Contatos</a></li>
+          </ul>
+      </header>
 
     <main>
 
-        <section id="start" class="homepage section">
+        <section id="start" class="homepage">
             <div class="description">
                 <h1>Gerador de Prompt Acadêmico</h1>
 
@@ -55,8 +74,10 @@
             </div><!--image-->
 
         </section><!--section-homepage-->
+        
+        <div class="transition"></div>
 
-        <section id="how_it_works" class="section">
+        <section id="how_it_works">
 
             <div>
                 <span><img src="img/session_how_it_works/1.png" alt=""></span>
@@ -88,7 +109,7 @@
 
         </section> <!--id-comoFunciona-->
 
-        <section id="about" class="section">
+        <section id="about">
             <div class="about_text">
                 <p>
                     O PromptGen é uma ferramenta desenvolvida como parte da disciplina de Programação Visual, do curso
@@ -101,7 +122,7 @@
 
         <div id="customModal" class="modal">
         
-            <div class="modal-content">
+            <div class="modal-content home">
                 <h4>Confirmar Ação</h4>
                 <p>Detectamos que há um prompt preenchido anteriormente. Você gostaria de continuar com ele?</p>
             </div>
@@ -114,7 +135,7 @@
         
     </main><!--main-->
 
-    <footer id="contacts" class="section">
+    <footer id="contacts">
         
         <div class="itens">
             <div class="item sep">
@@ -142,7 +163,6 @@
         </div>
 
     </footer><!--contato-->
-
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
