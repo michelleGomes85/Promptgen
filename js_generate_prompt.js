@@ -148,6 +148,10 @@ function setupModalConfirmationButtonsNewSubject() {
     localStorage.removeItem('formData');
     window.location.href = 'index_prompt.html?form=subject';
   });
+
+  document.getElementById('modalNo').addEventListener('click', () => {
+    window.location.href = 'index_prompt.html?form=prompt';
+  });
 }
 
 /**
@@ -174,10 +178,6 @@ function updateTypingEffect(text) {
 
   const promptElement = document.querySelector(".prompt-generator");
   const copy = document.querySelector(".copy");
-  const copyButton = document.querySelector('.copy-button');
-
-  if (copyButton)
-    copyButton.disabled = true;
 
   if (copy)
     copy.style.opacity = '0';
@@ -196,17 +196,11 @@ function updateTypingEffect(text) {
       loop: false,
       showCursor: false,
       onComplete: () => {
-        if (copyButton)
-          copyButton.disabled = false;
-
         if (copy)
           copy.style.opacity = '1';
       }
     });
   } else {
-    if (copyButton)
-      copyButton.disabled = false;
-
     if (copy)
       copy.style.opacity = '1';
   }
