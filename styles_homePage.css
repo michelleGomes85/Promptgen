@@ -23,7 +23,7 @@ main section.homepage {
 main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2.5vw;
     margin-bottom: 2vh;
     margin-top: 0;
     line-height: 1.5;
@@ -42,7 +42,7 @@ main section.homepage .description {
 
 main section.homepage .description p {
     line-height: 1.5;
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 
 main section.homepage .description button#btn {
@@ -52,7 +52,7 @@ main section.homepage .description button#btn {
     cursor: pointer;
     border-radius: 5px;
     padding: 15px 30px;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 main section.homepage .description button#btn:hover {
@@ -85,7 +85,7 @@ main section#how_it_works {
     justify-content: center;
     margin: 0 auto;
     flex-wrap: wrap;
-    font-size: 1.2vw;
+    font-size: 1vw;
     padding: 100px 0;
 }
 
@@ -98,18 +98,18 @@ main section#how_it_works div {
 main section#how_it_works div h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 
 main section#how_it_works span img {
     width: auto;
-    height: 7rem;
+    height: 8rem;
     margin-bottom: 10px;
 }
 
 main section#about {
     padding: 100px 0;
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 
 main section#about div.about_text {
@@ -171,7 +171,7 @@ div.item h4 {
 
 @media (min-height: 760px) {
     main section.homepage .image img {
-        height: 400px;
+        height: 650px;
         width: auto;
         object-fit: cover;
         object-position: bottom right;
