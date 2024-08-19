@@ -35,7 +35,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 50px 5%;
 }
 
 .navbar .brand-logo {
@@ -73,7 +73,7 @@ nav ul a:hover {
 
 .btn-gerarPrompt {
     position: absolute;
-    right: 50px;
+    right: 5%;
     background-color: #0F2A5B;
     color: #ffffff;
     border-radius: 5px;
@@ -114,7 +114,6 @@ main {
 }
 
 .logo {
-    padding-left: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
