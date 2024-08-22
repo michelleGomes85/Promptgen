@@ -13,7 +13,7 @@ main {
 main section.homepage {
     display: flex;
     position: relative;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 100px);
     flex-direction: row;
     align-items: center;
     background: linear-gradient(#dde7e6, #DBE6E4, #D0E1E4, #E5E5F3);
@@ -37,7 +37,7 @@ main section.homepage .description {
 }
 
 #description_site {
-    height: 8vw;
+    height: 7rem;
 }
 
 main section.homepage .description p {
@@ -86,7 +86,7 @@ main section#how_it_works {
     margin: 0 auto;
     flex-wrap: wrap;
     font-size: 1vw;
-    padding: 100px 0;
+    padding: 100px 0 10px;
 }
 
 main section#how_it_works div {
@@ -98,7 +98,7 @@ main section#how_it_works div {
 main section#how_it_works div h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 main section#how_it_works span img {
@@ -109,7 +109,7 @@ main section#how_it_works span img {
 
 main section#about {
     padding: 100px 0;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 main section#about div.about_text {
@@ -169,6 +169,31 @@ div.item h4 {
     margin: 0;
 }
 
+/* Oculta os controles do vídeo */
+.responsive-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.responsive-video::-moz-media-controls {
+    display: none !important;
+}
+
+.responsive-video::-ms-media-controls {
+    display: none !important;
+}
+
+.responsive-video::media-controls {
+    display: none !important;
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background: linear-gradient(to bottom, rgba(229, 229, 243, 0.8), rgba(241, 241, 245, 0.8));
+}
+
 @media (min-height: 760px) {
     main section.homepage .image img {
         height: 650px;
@@ -198,21 +223,22 @@ div.item h4 {
     main section.homepage .description h1 {
         font-size: 3rem;
     }
-    
+
     main section.homepage .description {
         width: 60vw;
         text-align: center;
         margin-left: 0;
     }
-    
+
     #description_site {
         height: 8rem;
     }
-    
-    main section.homepage .description p , 
+
+    main section.homepage .description p,
     main section#how_it_works p,
     main section#how_it_works div h3,
-    main section#about, footer{
+    main section#about,
+    footer {
         font-size: 1rem;
     }
 
