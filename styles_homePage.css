@@ -13,7 +13,7 @@ main {
 main section.homepage {
     display: flex;
     position: relative;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 120px);
     flex-direction: row;
     align-items: center;
     background: linear-gradient(#dde7e6, #DBE6E4, #D0E1E4, #E5E5F3);
@@ -32,17 +32,18 @@ main section.homepage .description h1 {
 
 main section.homepage .description {
     margin-left: 5%;
-    width: 40vw;
+    width: 35vw !important;
     position: relative;
 }
 
 #description_site {
-    height: 7rem;
+    margin-top: 1.5rem;
+    height: 6.5rem;
 }
 
 main section.homepage .description p {
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 main section.homepage .description button#btn {
@@ -70,7 +71,7 @@ main section.homepage .image img {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 80vh;
+    height: 75vh;
     width: auto;
 }
 
@@ -98,7 +99,7 @@ main section#how_it_works div {
 main section#how_it_works div h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 main section#how_it_works span img {
@@ -109,7 +110,7 @@ main section#how_it_works span img {
 
 main section#about {
     padding: 100px 0;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 main section#about div.about_text {
@@ -120,6 +121,22 @@ main section#about div.about_text {
 
 main section#about div.about_text p {
     line-height: 2;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 20px 0;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto; 
+    filter: grayscale(100%) brightness(50%);
+    transition: filter 0.3s ease;
 }
 
 footer {
@@ -203,22 +220,22 @@ div.item h4 {
     }
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (min-width: 1350px) {
 
     main section.homepage .description {
-        width: 50vw;
+        width: 40vw;
     }
 
     main section.homepage .image {
         width: 50vw;
     }
-
-    main section.homepage .image img {
-        height: 65vh;
-    }
 }
 
 @media only screen and (max-width: 1000px) {
+
+    main section.homepage .description {
+        width: 60vw !important;
+    }
 
     main section.homepage .description h1 {
         font-size: 3rem;
@@ -231,7 +248,7 @@ div.item h4 {
     }
 
     #description_site {
-        height: 8rem;
+        height: 7rem;
     }
 
     main section.homepage .description p,
@@ -286,6 +303,10 @@ div.item h4 {
 
 @media only screen and (max-width: 600px) {
 
+    main section.homepage .description {
+        width: 80vw !important;
+    }
+
     main section.homepage .description h1 {
         font-size: 2.5rem;
     }
@@ -313,5 +334,9 @@ div.item h4 {
 
     main section#how_it_works div {
         width: 90vw;
+    }
+
+    .logo-grid {
+        gap: 10px;
     }
 }
