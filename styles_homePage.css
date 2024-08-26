@@ -132,7 +132,7 @@ main section#about div.about_text p {
     padding: 20px 0;
 }
 
-.logo {
+.soon-about {
     max-width: 150px;
     height: auto; 
     filter: grayscale(100%) brightness(50%);
