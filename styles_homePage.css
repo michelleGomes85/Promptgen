@@ -20,6 +20,10 @@ main section.homepage {
     justify-content: space-between;
 }
 
+.navbar .nav-wrapper ul li a, .logo {
+    font-size: 1.1em;
+}
+
 main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
@@ -43,7 +47,7 @@ main section.homepage .description {
 
 main section.homepage .description p {
     line-height: 1.7;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 main section.homepage .description button#btn {
@@ -86,7 +90,7 @@ main section#how_it_works {
     justify-content: center;
     margin: 0 auto;
     flex-wrap: wrap;
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 100px 0 10px;
 }
 
@@ -99,7 +103,7 @@ main section#how_it_works div {
 main section#how_it_works div h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 main section#how_it_works span img {
@@ -110,7 +114,7 @@ main section#how_it_works span img {
 
 main section#about {
     padding: 100px 0;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 main section#about div.about_text {
