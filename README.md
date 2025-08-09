@@ -1,10 +1,48 @@
-# Gerador de Prompt Acadêmico (PromptGen)
+# 🎯 PromptGen — Gerador de Prompt Acadêmico
 
-Este projeto foi desenvolvido como parte da disciplina de **Linguagem de Programação Visual (LPV)**, no curso de **Tecnologia em Sistemas para Internet** no **Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais**. O **PromptGen** é uma ferramenta que ajuda usuários a criarem prompts personalizados para modelos de linguagem, como ChatGPT, com base em um formulário de múltiplas etapas.
+> Ferramenta interativa para criação de prompts personalizados para Modelos de Linguagem, desenvolvida como parte da disciplina **Linguagem de Programação Visual (LPV)** do curso **Tecnologia em Sistemas para Internet** no **Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais**.
+
+![Demonstração do PromptGen](https://github.com/michelleGomes85/Promptgen/blob/main/docs/home_page.gif)
+
+---
 
 ## 🚀 Visão Geral
 
-O **PromptGen** oferece uma interface simples e intuitiva para criação de prompts. Através de um formulário interativo, o usuário responde a perguntas sobre o tema desejado, e o sistema gera automaticamente o prompt. O projeto foi desenvolvido utilizando tecnologias como:
+O **PromptGen** oferece uma interface simples e intuitiva para criação de prompts.  
+Através de um formulário interativo, o usuário responde a perguntas sobre o tema desejado e o sistema gera automaticamente o prompt.
+
+O objetivo principal é **facilitar a interação com Modelos de Linguagem de Grande Porte (LLMs)**, tornando mais acessível a engenharia de prompts para estudos, pesquisas e aplicações profissionais.
+
+[![Ver no GitHub Pages](https://img.shields.io/badge/Ver_no_GitHub_Pages-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://michellegomes85.github.io/Promptgen/)
+
+---
+
+## 📑 Funcionalidades
+
+- 📝 **Formulário de múltiplas etapas** para criação de prompts personalizados.
+- 💾 **Armazenamento local** (`localStorage`) para salvar progresso.
+- ⌨️ **Geração automática** de prompt com efeito de digitação.
+- ⚡ **Exemplos pré-definidos** para agilizar a criação.
+- 🎯 **Feedback visual** para progresso e cópia de texto.
+
+---
+
+## 🎨 Design e Protótipos
+
+O design do **PromptGen** foi pensado para transmitir **confiança e educação**.  
+A paleta de cores neutras com tons de azul foi escolhida no **Moodboard**, e as fontes **Disket** e **Roboto Mono** garantem boa legibilidade.
+
+📂 **Materiais de Design e Prototipagem**
+
+[![Convite para avaliação](https://img.shields.io/badge/Convite_para_Avaliação-FF5722?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/michelleGomes85/Promptgen/blob/main/docs/Convite%20avalia%C3%A7%C3%A3o%20promptGen.pdf)
+[![Moodboard](https://img.shields.io/badge/Moodboard-2196F3?style=for-the-badge&logo=adobephotoshop&logoColor=white)](https://github.com/michelleGomes85/Promptgen/blob/main/docs/MoodBoard.png)
+[![Wireframe](https://img.shields.io/badge/Wireframe-9C27B0?style=for-the-badge&logo=figma&logoColor=white)](https://github.com/michelleGomes85/Promptgen/blob/main/docs/Wireframe.png)
+[![Protótipo em PDF](https://img.shields.io/badge/Protótipo-4CAF50?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/michelleGomes85/Promptgen/blob/main/docs/prototipo.pdf)
+
+
+---
+
+## 💻 Tecnologias e Ferramentas
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -13,65 +51,45 @@ O **PromptGen** oferece uma interface simples e intuitiva para criação de prom
 ![Typed.js](https://img.shields.io/badge/Typed.js-F6C343?style=flat&logo=css3&logoColor=black)
 ![Clipboard.js](https://img.shields.io/badge/Clipboard.js-F6C343?style=flat&logo=css3&logoColor=black)
 
-O objetivo principal é facilitar a interação com **Modelos de Linguagem de Grande Porte (LLMs)**, mitigando as dificuldades na engenharia de prompts.
-
-[![Ver no GitHub Pages](https://img.shields.io/badge/Ver_no_GitHub_Pages-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://michellegomes85.github.io/Promptgen/)
-
-## 📑 Funcionalidades
-
-- **Formulário de múltiplas etapas**: Permite a criação de prompts personalizados com perguntas objetivas e respostas automáticas.
-- **Armazenamento Local**: Usa `localStorage` para salvar o progresso do usuário, evitando a perda de dados.
-- **Geração automática de prompt**: A cada etapa respondida, o prompt é atualizado em tempo real com um efeito de digitação.
-- **Exemplos de uso**: O usuário pode selecionar exemplos pré-definidos para acelerar o processo de criação de prompt.
-- **Feedback visual**: Indica ao usuário o progresso no preenchimento do formulário e o sucesso ao copiar o prompt gerado.
-
-## 🎨 Design
-
-O design do **PromptGen** foi cuidadosamente planejado com base em um **Moodboard**, escolhendo uma paleta de cores neutras com tons de azul, representando confiança e educação. A tipografia também foi pensada para garantir uma experiência de leitura agradável, utilizando as fontes **Disket** e **Roboto Mono**.
-
-## 💻 Tecnologias e Ferramentas
-
-- **HTML5**: Para estruturar o conteúdo da aplicação.
-- **CSS3**: Para estilizar os componentes visuais e garantir responsividade.
-- **JavaScript**: Para implementar a lógica de interação com o formulário e geração de prompts.
-- **Materialize CSS**: Um framework CSS usado para estilizar a interface de maneira consistente e moderna.
-- **Typed.js**: Utilizado para criar o efeito de digitação dos prompts gerados, melhorando a experiência do usuário.
-- **GitHub**: Usado para controle de versão e colaboração no desenvolvimento do projeto.
+---
 
 ## 🔧 Como usar
 
 1. Acesse o [site do PromptGen](https://michellegomes85.github.io/Promptgen/).
-2. Responda às perguntas no formulário de múltiplas etapas.
-3. O prompt será gerado automaticamente à medida que você responde.
-4. Ao final, copie o prompt gerado para utilizar em ferramentas como ChatGPT.
+2. Responda às perguntas no formulário.
+3. Veja o prompt sendo gerado em tempo real.
+4. Copie o resultado e use em ferramentas como ChatGPT.
+
+---
 
 ## 🎯 Público-alvo
 
-- Estudantes do ensino médio, graduação e pós-graduação que precisam de prompts bem formulados para estudar ou realizar pesquisas.
-- Profissionais que desejam melhorar a interação com modelos de linguagem utilizando prompts eficazes.
+- 📚 Estudantes do ensino médio, graduação e pós.
+- 💼 Profissionais que querem melhorar a interação com LLMs.
 
-## 🛠️ Desenvolvimento
-
-O desenvolvimento do **PromptGen** seguiu uma metodologia ágil, utilizando ferramentas como **Trello** para o gerenciamento de tarefas. As etapas incluíram a criação de **Moodboards**, **Wireframes** e **Protótipos** para garantir um design intuitivo e agradável.
+---
 
 ## 📈 Avaliações e Melhorias
 
-O **PromptGen** foi testado e avaliado por usuários utilizando a **Escala de Usabilidade do Sistema (SUS)** e as **Heurísticas de Nielsen**. As avaliações ajudaram a identificar melhorias na navegação, acessibilidade e clareza das etapas do formulário.
+O projeto foi avaliado usando:
+- **Escala de Usabilidade do Sistema (SUS)**
+- **Heurísticas de Nielsen**
 
-## 🔄 Próximas Implementações
+**Melhorias futuras**:
+- 🌙 **Modo escuro** para conforto visual.
+- 🤖 Ajustes no prompt gerado seguindo técnicas avançadas de engenharia de prompts.
 
-Com base no feedback dos usuários, planejo implementar as seguintes melhorias:
-- Modo escuro para melhorar a experiência de leitura em ambientes com pouca luz.
-- Melhora do prompt gerado, segundo tecnicas de engenharia de prompt
+---
 
 ## 🤝 Contribuições
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request
+Contribuições são bem-vindas!  
+Abra uma *issue* ou envie um *pull request*.
 
-## Autores
+---
+
+## 👥 Autores
 
 [![GitHub-Diogenes](https://img.shields.io/badge/Diogenes-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/dcviana)
 [![GitHub-Eloisa](https://img.shields.io/badge/Eloisa-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/eloizaams)
 [![GitHub-Michelle](https://img.shields.io/badge/Michelle-000?style=for-the-badge&logo=github&logoColor=30A3DC)](https://github.com/michelleGomes85)
-
-
