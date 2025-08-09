@@ -23,7 +23,7 @@ main section.homepage {
 main section.homepage .description h1 {
     font-family: 'Disket Mono', monospace;
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2.7vw;
     margin-bottom: 2vh;
     margin-top: 0;
     line-height: 1.5;
@@ -37,13 +37,13 @@ main section.homepage .description {
 }
 
 #description_site {
-    margin-top: 1.5rem;
-    height: 6.5rem;
+    margin-top: 1.3rem;
+    height: 7em;
 }
 
 main section.homepage .description p {
-    line-height: 1.5;
-    font-size: 1vw;
+    line-height: 1.7;
+    font-size: 1.1em;
 }
 
 main section.homepage .description button#btn {
@@ -86,7 +86,7 @@ main section#how_it_works {
     justify-content: center;
     margin: 0 auto;
     flex-wrap: wrap;
-    font-size: 1vw;
+    font-size: 1em;
     padding: 100px 0 10px;
 }
 
@@ -99,7 +99,7 @@ main section#how_it_works div {
 main section#how_it_works div h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 main section#how_it_works span img {
@@ -110,7 +110,7 @@ main section#how_it_works span img {
 
 main section#about {
     padding: 100px 0;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 main section#about div.about_text {
@@ -147,7 +147,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.2em;
 }
 
 footer .footer-bottom {
@@ -180,7 +180,7 @@ footer .item {
 
 footer div>p,
 div.item h4 {
-    font-size: 1rem;
+    font-size: 0.8em;
     color: #F1F1FA;
     font-family: 'Roboto Mono', monospace;
     margin: 0;
@@ -238,7 +238,7 @@ div.item h4 {
     }
 
     main section.homepage .description h1 {
-        font-size: 3rem;
+        font-size: 3em;
     }
 
     main section.homepage .description {
@@ -248,7 +248,7 @@ div.item h4 {
     }
 
     #description_site {
-        height: 7rem;
+        height: 7em;
     }
 
     main section.homepage .description p,
@@ -256,7 +256,7 @@ div.item h4 {
     main section#how_it_works div h3,
     main section#about,
     footer {
-        font-size: 1rem;
+        font-size: 1.1em;
     }
 
     main section.homepage .description button#btn {
@@ -308,7 +308,7 @@ div.item h4 {
     }
 
     main section.homepage .description h1 {
-        font-size: 2.5rem;
+        font-size: 2.2em;
     }
 
     main section.homepage {
@@ -325,7 +325,7 @@ div.item h4 {
     }
 
     #description_site {
-        height: 9rem;
+        height: 9em;
     }
 
     main section#how_it_works span img {
